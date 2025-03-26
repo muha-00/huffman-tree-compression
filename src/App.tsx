@@ -1,9 +1,16 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Home from "./pages/Home";
+import WindowCleaning from "./pages/WindowCleaning";
+import HouseWashing from "./pages/HouseWashing";
+import RoofWashing from "./pages/RoofWashing";
+import GutterCleaning from "./pages/GutterCleaning";
+import Booking from "./pages/Booking";
+import YourBookings from "./pages/YourBookings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,8 +22,13 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<Home />} />
+          <Route path="/window-cleaning" element={<WindowCleaning />} />
+          <Route path="/house-washing" element={<HouseWashing />} />
+          <Route path="/roof-washing" element={<RoofWashing />} />
+          <Route path="/gutter-cleaning" element={<GutterCleaning />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/your-bookings" element={<YourBookings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
