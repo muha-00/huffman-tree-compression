@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { cn } from "@/lib/utils";
 import { Upload, X, FileText } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 interface FileUploaderProps {
   onFileUpload: (text: string) => void;

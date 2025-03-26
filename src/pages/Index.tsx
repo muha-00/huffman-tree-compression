@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import FileUploader from "@/components/FileUploader";
 import TreeVisualization from "@/components/TreeVisualization";
