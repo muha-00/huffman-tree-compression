@@ -1,15 +1,31 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Star, ArrowRight, Check, Phone } from 'lucide-react';
+import { Star, ArrowRight, Check, Phone, Facebook } from 'lucide-react';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ServicesCollage from '@/components/ServicesCollage';
 import GoogleRating from '@/components/GoogleRating';
 
 const Home = () => {
+  // Handle Elfsight script loading
+  useEffect(() => {
+    // Create script element
+    const script = document.createElement('script');
+    script.src = 'https://static.elfsight.com/platform/platform.js';
+    script.async = true;
+    
+    // Append the script to the document
+    document.body.appendChild(script);
+    
+    // Cleanup function to remove script when component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const testimonials = [
     {
       id: 1,
@@ -97,9 +113,6 @@ const Home = () => {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 hero-animate" style={{"--delay": "0.5s"} as React.CSSProperties}>
               <Button asChild size="lg" className="px-8">
-                <Link to="/booking">Book a Service</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
                 <Link to="/booking?quote=true">Request a Quote</Link>
               </Button>
             </div>
@@ -182,7 +195,7 @@ const Home = () => {
               
               <div className="mt-8">
                 <Button asChild>
-                  <Link to="/booking">Book Our Services</Link>
+                  <Link to="/booking?quote=true">Request a Quote</Link>
                 </Button>
               </div>
             </div>
@@ -201,6 +214,28 @@ const Home = () => {
                     <Phone className="h-5 w-5 text-highshine mr-3" />
                     <a href="tel:4378585005" className="hover:underline">437-858-5005</a>
                   </div>
+                  <div className="flex space-x-4">
+                    <a 
+                      href="https://www.facebook.com/profile.php?id=61560420295116" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-highshine hover:text-highshine/80 transition-colors"
+                    >
+                      <Facebook className="w-5 h-5" />
+                    </a>
+                    <a 
+                      href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-highshine hover:text-highshine/80 transition-colors"
+                    >
+                      <img 
+                        src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                        alt="Google" 
+                        className="w-5 h-5" 
+                      />
+                    </a>
+                  </div>
                   <Button asChild variant="outline">
                     <Link to="/booking?quote=true">Request a Quote</Link>
                   </Button>
@@ -215,31 +250,20 @@ const Home = () => {
       <section className="py-16 bg-gradient-to-b from-highshine/5 to-transparent">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">Customer Reviews</h2>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              See what our satisfied customers have to say about our services.
+            <h2 className="text-3xl font-bold">Reviews</h2>
+            <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+              Real reviews, real people.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.map((review) => (
-              <Card key={review.id} className="overflow-hidden hover-lift">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="italic mb-4">"{review.text}"</p>
-                  <p className="font-medium">- {review.name}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="max-w-5xl mx-auto">
+            {/* Elfsight Google Reviews Widget */}
+            <div className="elfsight-app-d3bc280d-bd29-4630-931e-713468842106" data-elfsight-app-lazy></div>
           </div>
           
           <div className="mt-12 text-center">
             <Button asChild size="lg">
-              <Link to="/booking">Experience the Difference</Link>
+              <Link to="/booking?quote=true">Experience the Difference</Link>
             </Button>
           </div>
         </div>
@@ -250,10 +274,10 @@ const Home = () => {
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Ready for a Cleaner, Brighter Home?</h2>
           <p className="max-w-2xl mx-auto mb-8">
-            Book our professional cleaning services today and see the difference that High Shine Cleaning can make for your home.
+            Get a quote for our professional cleaning services today and see the difference that High Shine Cleaning can make for your home.
           </p>
           <Button asChild size="lg" variant="secondary" className="bg-white text-highshine hover:bg-white/90">
-            <Link to="/booking">Book Now</Link>
+            <Link to="/booking?quote=true">Request a Quote</Link>
           </Button>
         </div>
       </section>

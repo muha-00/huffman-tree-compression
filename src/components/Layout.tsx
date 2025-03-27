@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
-import { Phone, Mail, Menu, X, ChevronDown, Star } from 'lucide-react';
+import { Phone, Mail, Menu, X, ChevronDown, Facebook } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
   NavigationMenu,
@@ -36,9 +37,15 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Book Now', path: '/booking' },
+    { name: 'Request Quote', path: '/booking?quote=true' },
     { name: 'Your Bookings', path: '/your-bookings' },
   ];
+
+  // Scroll to top on link click
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <div className={cn(
@@ -60,9 +67,9 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       </div>
       
       {/* Header with navigation */}
-      <header className="py-4 border-b backdrop-blur-sm bg-background/80 sticky top-0 z-10">
+      <header className="py-4 border-b backdrop-blur-sm bg-background/80 sticky top-0 z-30">
         <div className="container flex justify-between items-center">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center" onClick={handleLinkClick}>
             <img 
               src="/public/lovable-uploads/9be1a361-2200-495e-92be-5bcb9a2779e2.png" 
               alt="High Shine Cleaning" 
@@ -73,7 +80,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex">
-            <ul className="flex space-x-1">
+            <ul className="flex items-center space-x-1">
               <li>
                 <Link 
                   to="/"
@@ -81,6 +88,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
                     isActive('/') && "bg-accent text-accent-foreground"
                   )}
+                  onClick={handleLinkClick}
                 >
                   Home
                 </Link>
@@ -98,7 +106,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                         Services
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="w-[200px] grid gap-1 p-2 bg-popover shadow-lg rounded-md">
+                        <ul className="grid w-[200px] gap-1 p-2 bg-popover shadow-lg rounded-md">
                           {services.map((service) => (
                             <li key={service.path}>
                               <NavigationMenuLink asChild>
@@ -108,6 +116,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                                     "flex h-9 items-center px-3 py-2 rounded-md text-sm no-underline transition-colors hover:bg-accent hover:text-accent-foreground",
                                     isActive(service.path) && "bg-accent text-accent-foreground"
                                   )}
+                                  onClick={handleLinkClick}
                                 >
                                   {service.name}
                                 </Link>
@@ -129,11 +138,6 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   rel="noopener noreferrer"
                   className="flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
-                  <img 
-                    src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
-                    alt="Google Rating" 
-                    className="h-6 mr-2" 
-                  />
                   Reviews
                 </a>
               </li>
@@ -145,8 +149,9 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     to={link.path}
                     className={cn(
                       "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                      isActive(link.path) && "bg-accent text-accent-foreground"
+                      isActive(link.path.split('?')[0]) && "bg-accent text-accent-foreground"
                     )}
+                    onClick={handleLinkClick}
                   >
                     {link.name}
                   </Link>
@@ -168,7 +173,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b z-20">
+          <div className="md:hidden fixed inset-0 top-[77px] bg-background z-20">
             <nav className="container py-4 flex flex-col space-y-3">
               {/* Home link */}
               <Link 
@@ -177,7 +182,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   "py-2 px-4 rounded hover:bg-muted transition-colors",
                   isActive('/') && "bg-muted font-medium text-highshine"
                 )}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={handleLinkClick}
               >
                 Home
               </Link>
@@ -195,7 +200,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     Services <ChevronDown className="ml-2 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-56 rounded-md bg-popover">
+                <DropdownMenuContent align="start" className="w-56 rounded-md bg-popover z-50">
                   {services.map((service) => (
                     <DropdownMenuItem key={service.path} asChild>
                       <Link 
@@ -204,7 +209,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                           "block px-2 py-1.5 rounded-sm",
                           isActive(service.path) && "bg-accent text-accent-foreground font-medium"
                         )}
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={handleLinkClick}
                       >
                         {service.name}
                       </Link>
@@ -221,11 +226,6 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 className="flex items-center py-2 px-4 rounded hover:bg-muted transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <img 
-                  src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
-                  alt="Google Rating" 
-                  className="h-6 mr-2" 
-                />
                 Reviews
               </a>
               
@@ -236,9 +236,9 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   to={link.path}
                   className={cn(
                     "py-2 px-4 rounded hover:bg-muted transition-colors",
-                    isActive(link.path) && "bg-muted font-medium text-highshine"
+                    isActive(link.path.split('?')[0]) && "bg-muted font-medium text-highshine"
                   )}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={handleLinkClick}
                 >
                   {link.name}
                 </Link>
@@ -254,6 +254,104 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       
       <footer className="bg-foreground text-background py-12">
         <div className="container">
+          {/* Contact Section */}
+          <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-background/10 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-6 text-white">Get Your Quote Today!</h3>
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-medium mb-1">First Name</label>
+                    <input 
+                      type="text" 
+                      id="firstName" 
+                      className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-highshine" 
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-medium mb-1">Last Name</label>
+                    <input 
+                      type="text" 
+                      id="lastName" 
+                      className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-highshine" 
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-1">Email *</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    required
+                    className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-highshine" 
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
+                  <textarea 
+                    id="message" 
+                    rows={4}
+                    className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-highshine" 
+                  ></textarea>
+                </div>
+                <Button type="submit" className="w-full bg-highshine hover:bg-highshine/90">Submit</Button>
+              </form>
+            </div>
+            
+            <div className="flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-white">CONTACT</h3>
+                <div className="space-y-4 mb-8">
+                  <div>
+                    <p className="font-medium mb-1">Phone Number</p>
+                    <a href="tel:4378585005" className="text-lg hover:text-highshine">437-858-5005</a>
+                  </div>
+                  <div>
+                    <p className="font-medium mb-1">E-mail address</p>
+                    <a href="mailto:highshinecleaning123@gmail.com" className="hover:text-highshine">highshinecleaning123@gmail.com</a>
+                  </div>
+                  <div>
+                    <p className="font-medium mb-1">Hours of Operation</p>
+                    <p>Monday to Sunday</p>
+                    <p>8:30am to 9:30pm</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <p className="font-medium mb-3">Follow Us on</p>
+                  <div className="flex space-x-4">
+                    <a 
+                      href="https://www.facebook.com/profile.php?id=61560420295116" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-highshine transition-colors"
+                    >
+                      <Facebook className="w-6 h-6" />
+                    </a>
+                    <a 
+                      href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-highshine transition-colors"
+                    >
+                      <img 
+                        src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                        alt="Google" 
+                        className="w-6 h-6" 
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8">
+                <Button asChild size="lg" className="bg-highshine hover:bg-highshine/90">
+                  <Link to="/booking?quote=true" onClick={handleLinkClick}>Request a Quote</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4 text-white">High Shine Cleaning</h3>
@@ -288,7 +386,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
               <ul className="space-y-2 text-muted-foreground">
                 {services.map((service) => (
                   <li key={service.path}>
-                    <Link to={service.path} className="hover:text-white transition-colors">
+                    <Link to={service.path} className="hover:text-white transition-colors" onClick={handleLinkClick}>
                       {service.name}
                     </Link>
                   </li>
@@ -299,9 +397,9 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             <div>
               <h3 className="text-xl font-bold mb-4 text-white">Quick Links</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-                <li><Link to="/booking" className="hover:text-white transition-colors">Book a Service</Link></li>
-                <li><Link to="/your-bookings" className="hover:text-white transition-colors">Check Your Bookings</Link></li>
+                <li><Link to="/" className="hover:text-white transition-colors" onClick={handleLinkClick}>Home</Link></li>
+                <li><Link to="/booking?quote=true" className="hover:text-white transition-colors" onClick={handleLinkClick}>Request a Quote</Link></li>
+                <li><Link to="/your-bookings" className="hover:text-white transition-colors" onClick={handleLinkClick}>Check Your Bookings</Link></li>
                 <li>
                   <a 
                     href="https://www.google.com/maps/place/High+Shine+Cleaning/@43.453034,-80.0131259,10z/data=!3m1!4b1!4m6!3m5!1s0x805650a1c9dbad87:0x38d0ec456cca1c8f!8m2!3d43.4530109!4d-79.6828021!16s%2Fg%2F11w1yp57dj?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" 
@@ -321,6 +419,10 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </div>
         </div>
       </footer>
+      
+      {/* Elfsight Google Reviews Script */}
+      <script src="https://static.elfsight.com/platform/platform.js" async></script>
+      <div className="elfsight-app-d3bc280d-bd29-4630-931e-713468842106" data-elfsight-app-lazy></div>
     </div>
   );
 };
