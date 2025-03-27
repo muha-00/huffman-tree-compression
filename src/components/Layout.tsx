@@ -72,78 +72,87 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
-            <Link 
-              to="/"
-              className={cn(
-                "text-foreground hover:text-highshine transition-colors",
-                isActive('/') && "text-highshine font-medium"
-              )}
-            >
-              Home
-            </Link>
-            
-            {/* Services Dropdown */}
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className={cn(
-                    "text-foreground hover:text-highshine transition-colors bg-transparent",
-                    services.some(service => isActive(service.path)) && "text-highshine font-medium"
-                  )}>
-                    Services
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-2 p-4">
-                      {services.map((service) => (
-                        <li key={service.path}>
-                          <NavigationMenuLink asChild>
-                            <Link 
-                              to={service.path}
-                              className={cn(
-                                "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                                isActive(service.path) && "bg-accent text-accent-foreground"
-                              )}
-                            >
-                              <div className="text-sm font-medium leading-none">{service.name}</div>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            
-            {/* Google Reviews Link */}
-            <a 
-              href="https://www.google.com/maps/place/High+Shine+Cleaning/@43.453034,-80.0131259,10z/data=!3m1!4b1!4m6!3m5!1s0x805650a1c9dbad87:0x38d0ec456cca1c8f!8m2!3d43.4530109!4d-79.6828021!16s%2Fg%2F11w1yp57dj?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center text-foreground hover:text-highshine transition-colors"
-            >
-              <img 
-                src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
-                alt="Google Rating" 
-                className="h-6 mr-2" 
-              />
-              Reviews
-            </a>
-            
-            {/* Other navigation links */}
-            {navLinks.slice(1).map((link) => (
-              <Link 
-                key={link.path} 
-                to={link.path}
-                className={cn(
-                  "text-foreground hover:text-highshine transition-colors",
-                  isActive(link.path) && "text-highshine font-medium"
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <nav className="hidden md:flex">
+            <ul className="flex space-x-1">
+              <li>
+                <Link 
+                  to="/"
+                  className={cn(
+                    "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                    isActive('/') && "bg-accent text-accent-foreground"
+                  )}
+                >
+                  Home
+                </Link>
+              </li>
+              
+              {/* Services Dropdown */}
+              <li>
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger className={cn(
+                        "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                        services.some(service => isActive(service.path)) && "bg-accent text-accent-foreground"
+                      )}>
+                        Services
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="w-[200px] grid gap-1 p-2 bg-popover shadow-lg rounded-md">
+                          {services.map((service) => (
+                            <li key={service.path}>
+                              <NavigationMenuLink asChild>
+                                <Link 
+                                  to={service.path}
+                                  className={cn(
+                                    "flex h-9 items-center px-3 py-2 rounded-md text-sm no-underline transition-colors hover:bg-accent hover:text-accent-foreground",
+                                    isActive(service.path) && "bg-accent text-accent-foreground"
+                                  )}
+                                >
+                                  {service.name}
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </li>
+              
+              {/* Google Reviews Link */}
+              <li>
+                <a 
+                  href="https://www.google.com/maps/place/High+Shine+Cleaning/@43.453034,-80.0131259,10z/data=!3m1!4b1!4m6!3m5!1s0x805650a1c9dbad87:0x38d0ec456cca1c8f!8m2!3d43.4530109!4d-79.6828021!16s%2Fg%2F11w1yp57dj?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                >
+                  <img 
+                    src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                    alt="Google Rating" 
+                    className="h-6 mr-2" 
+                  />
+                  Reviews
+                </a>
+              </li>
+              
+              {/* Other navigation links */}
+              {navLinks.slice(1).map((link) => (
+                <li key={link.path}>
+                  <Link 
+                    to={link.path}
+                    className={cn(
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      isActive(link.path) && "bg-accent text-accent-foreground"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
           
           {/* Mobile menu button */}
@@ -186,13 +195,14 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     Services <ChevronDown className="ml-2 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-56">
+                <DropdownMenuContent align="start" className="w-56 rounded-md bg-popover">
                   {services.map((service) => (
                     <DropdownMenuItem key={service.path} asChild>
                       <Link 
                         to={service.path}
                         className={cn(
-                          isActive(service.path) && "bg-muted font-medium text-highshine"
+                          "block px-2 py-1.5 rounded-sm",
+                          isActive(service.path) && "bg-accent text-accent-foreground font-medium"
                         )}
                         onClick={() => setMobileMenuOpen(false)}
                       >

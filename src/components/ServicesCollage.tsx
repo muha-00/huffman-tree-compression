@@ -11,7 +11,7 @@ const ServicesCollage: React.FC = () => {
       description: "Crystal clear windows for your home, inside and out",
       path: "/window-cleaning",
       position: "col-span-12 md:col-span-6 lg:col-span-3 row-span-2",
-      bgImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+      bgImage: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=2940&auto=format&fit=crop",
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const ServicesCollage: React.FC = () => {
       description: "Restore your home's exterior to its original beauty",
       path: "/house-washing",
       position: "col-span-12 md:col-span-6 lg:col-span-6 row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+      bgImage: "https://images.unsplash.com/photo-1605910909756-a687510572f6?q=80&w=2940&auto=format&fit=crop",
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ const ServicesCollage: React.FC = () => {
       description: "Remove harmful growth and extend your roof's lifespan",
       path: "/roof-washing",
       position: "col-span-12 md:col-span-6 lg:col-span-3 row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1635424710920-999682536ad8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80",
+      bgImage: "https://images.unsplash.com/photo-1605910910030-6a3b9c3f3f07?q=80&w=2940&auto=format&fit=crop",
     },
     {
       id: 4,
@@ -35,7 +35,7 @@ const ServicesCollage: React.FC = () => {
       description: "Keep your gutters flowing freely, inside and out",
       path: "/gutter-cleaning",
       position: "col-span-12 md:col-span-6 lg:col-span-6 row-span-1",
-      bgImage: "/public/lovable-uploads/09897a77-f6ad-45cb-b0ab-0b82a1fc30f6.png",
+      bgImage: "https://images.unsplash.com/photo-1614369148353-c92e262785ec?q=80&w=2940&auto=format&fit=crop",
     },
   ];
 
