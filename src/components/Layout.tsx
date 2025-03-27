@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -94,52 +93,48 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 </Link>
               </li>
               
-              {/* Services Dropdown */}
+              {/* Services Dropdown - Changed from NavigationMenu to DropdownMenu to disable hover trigger */}
               <li>
-                <NavigationMenu>
-                  <NavigationMenuList>
-                    <NavigationMenuItem>
-                      <NavigationMenuTrigger className={cn(
-                        "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                        services.some(service => isActive(service.path)) && "bg-accent text-accent-foreground"
-                      )}>
-                        Services
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-1 p-2 bg-popover shadow-lg rounded-md">
-                          {services.map((service) => (
-                            <li key={service.path}>
-                              <NavigationMenuLink asChild>
-                                <Link 
-                                  to={service.path}
-                                  className={cn(
-                                    "flex h-9 items-center px-3 py-2 rounded-md text-sm no-underline transition-colors hover:bg-accent hover:text-accent-foreground",
-                                    isActive(service.path) && "bg-accent text-accent-foreground"
-                                  )}
-                                  onClick={handleLinkClick}
-                                >
-                                  {service.name}
-                                </Link>
-                              </NavigationMenuLink>
-                            </li>
-                          ))}
-                        </ul>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  </NavigationMenuList>
-                </NavigationMenu>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className={cn(
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      services.some(service => isActive(service.path)) && "bg-accent text-accent-foreground"
+                    )}>
+                      Services <ChevronDown className="ml-1 h-4 w-4" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="center" className="w-[200px] p-2 bg-popover shadow-lg rounded-md">
+                    {services.map((service) => (
+                      <DropdownMenuItem key={service.path} asChild>
+                        <Link 
+                          to={service.path}
+                          className={cn(
+                            "flex h-9 items-center px-3 py-2 rounded-md text-sm no-underline transition-colors hover:bg-accent hover:text-accent-foreground",
+                            isActive(service.path) && "bg-accent text-accent-foreground"
+                          )}
+                          onClick={handleLinkClick}
+                        >
+                          {service.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </li>
               
-              {/* Google Reviews Link */}
+              {/* Reviews Link - Now points to internal page */}
               <li>
-                <a 
-                  href="https://www.google.com/maps/place/High+Shine+Cleaning/@43.453034,-80.0131259,10z/data=!3m1!4b1!4m6!3m5!1s0x805650a1c9dbad87:0x38d0ec456cca1c8f!8m2!3d43.4530109!4d-79.6828021!16s%2Fg%2F11w1yp57dj?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                <Link 
+                  to="/reviews"
+                  className={cn(
+                    "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                    isActive('/reviews') && "bg-accent text-accent-foreground"
+                  )}
+                  onClick={handleLinkClick}
                 >
                   Reviews
-                </a>
+                </Link>
               </li>
               
               {/* Other navigation links */}
@@ -218,16 +213,17 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              {/* Google Reviews Link */}
-              <a 
-                href="https://www.google.com/maps/place/High+Shine+Cleaning/@43.453034,-80.0131259,10z/data=!3m1!4b1!4m6!3m5!1s0x805650a1c9dbad87:0x38d0ec456cca1c8f!8m2!3d43.4530109!4d-79.6828021!16s%2Fg%2F11w1yp57dj?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center py-2 px-4 rounded hover:bg-muted transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+              {/* Reviews Link - Updated to internal page */}
+              <Link 
+                to="/reviews"
+                className={cn(
+                  "py-2 px-4 rounded hover:bg-muted transition-colors",
+                  isActive('/reviews') && "bg-muted font-medium text-highshine"
+                )}
+                onClick={handleLinkClick}
               >
                 Reviews
-              </a>
+              </Link>
               
               {/* Other navigation links */}
               {navLinks.slice(1).map((link) => (
@@ -365,11 +361,10 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 <a href="mailto:highshinecleaning123@gmail.com" className="hover:text-white transition-colors">highshinecleaning123@gmail.com</a>
               </div>
               <div className="mt-4">
-                <a 
-                  href="https://www.google.com/maps/place/High+Shine+Cleaning/@43.453034,-80.0131259,10z/data=!3m1!4b1!4m6!3m5!1s0x805650a1c9dbad87:0x38d0ec456cca1c8f!8m2!3d43.4530109!4d-79.6828021!16s%2Fg%2F11w1yp57dj?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <Link 
+                  to="/reviews"
                   className="flex items-center text-muted-foreground hover:text-white transition-colors"
+                  onClick={handleLinkClick}
                 >
                   <img 
                     src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
@@ -377,7 +372,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     className="h-6 mr-2" 
                   />
                   <span>5.0 Rating on Google</span>
-                </a>
+                </Link>
               </div>
             </div>
             
@@ -400,16 +395,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 <li><Link to="/" className="hover:text-white transition-colors" onClick={handleLinkClick}>Home</Link></li>
                 <li><Link to="/booking?quote=true" className="hover:text-white transition-colors" onClick={handleLinkClick}>Request a Quote</Link></li>
                 <li><Link to="/your-bookings" className="hover:text-white transition-colors" onClick={handleLinkClick}>Check Your Bookings</Link></li>
-                <li>
-                  <a 
-                    href="https://www.google.com/maps/place/High+Shine+Cleaning/@43.453034,-80.0131259,10z/data=!3m1!4b1!4m6!3m5!1s0x805650a1c9dbad87:0x38d0ec456cca1c8f!8m2!3d43.4530109!4d-79.6828021!16s%2Fg%2F11w1yp57dj?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
-                  >
-                    Reviews
-                  </a>
-                </li>
+                <li><Link to="/reviews" className="hover:text-white transition-colors" onClick={handleLinkClick}>Reviews</Link></li>
               </ul>
             </div>
           </div>

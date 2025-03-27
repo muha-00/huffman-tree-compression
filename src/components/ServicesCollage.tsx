@@ -12,7 +12,7 @@ const ServicesCollage: React.FC = () => {
       description: "Crystal clear windows for your home, inside and out",
       path: "/window-cleaning",
       position: "col-span-12 md:col-span-6 lg:col-span-3 row-span-2",
-      bgImage: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=2940&auto=format&fit=crop",
+      bgImage: "/public/lovable-uploads/ab636558-7910-4765-991e-56953c2962ad.png",
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const ServicesCollage: React.FC = () => {
       description: "Restore your home's exterior to its original beauty",
       path: "/house-washing",
       position: "col-span-12 md:col-span-6 lg:col-span-6 row-span-1",
-      bgImage: "/public/lovable-uploads/5d716554-0e00-4eab-b24d-81acea325fe9.png",
+      bgImage: "/public/lovable-uploads/4b555ee2-3589-4341-a52e-f864e4a06b92.png",
     },
     {
       id: 3,

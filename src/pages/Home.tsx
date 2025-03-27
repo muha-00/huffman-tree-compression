@@ -3,8 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Star, ArrowRight, Check, Phone, Facebook } from 'lucide-react';
+import { Check, Phone, Facebook } from 'lucide-react';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ServicesCollage from '@/components/ServicesCollage';
 import GoogleRating from '@/components/GoogleRating';
@@ -42,58 +41,6 @@ const Home = () => {
       text: "After years of neglect, our windows were in terrible shape. One visit from High Shine and they look brand new! Their attention to detail is impressive.",
       author: "Sarah Lewis"
     },
-  ];
-
-  const reviews = [
-    {
-      id: 1,
-      name: "Jennifer T.",
-      rating: 5,
-      text: "The team at High Shine Cleaning did an amazing job on our windows! They were spotless and the team was professional and efficient."
-    },
-    {
-      id: 2,
-      name: "Michael R.",
-      rating: 5,
-      text: "I was very impressed with their house washing service. They removed years of dirt and grime, and my house looks brand new again!"
-    },
-    {
-      id: 3,
-      name: "Sarah L.",
-      rating: 5,
-      text: "They cleaned our gutters thoroughly and even fixed a minor issue at no extra charge. Highly recommend their services!"
-    },
-  ];
-
-  const services = [
-    {
-      id: 1,
-      title: "Window Cleaning",
-      description: "Professional window cleaning for crystal clear views. We clean interior and exterior windows for homes of all sizes.",
-      path: "/window-cleaning",
-      icon: "✨"
-    },
-    {
-      id: 2,
-      title: "House Washing",
-      description: "Restore your home's exterior with our gentle but effective house washing services to remove dirt, mold, and mildew.",
-      path: "/house-washing",
-      icon: "🏠"
-    },
-    {
-      id: 3,
-      title: "Roof Washing",
-      description: "Extend the life of your roof with our specialized roof washing services that safely remove harmful growth.",
-      path: "/roof-washing",
-      icon: "🏡"
-    },
-    {
-      id: 4,
-      title: "Gutter Cleaning",
-      description: "Keep your gutters flowing freely with our thorough gutter cleaning services, inside and out.",
-      path: "/gutter-cleaning",
-      icon: "🌧️"
-    }
   ];
 
   return (
@@ -140,36 +87,6 @@ const Home = () => {
           </div>
           
           <ServicesCollage />
-        </div>
-      </section>
-
-      {/* Services Section - Cards */}
-      <section className="py-16 bg-muted">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold">Services We Offer</h2>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              Learn more about our professional cleaning services and how we can help you.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service) => (
-              <Card key={service.id} className="overflow-hidden hover-lift hover:border-highshine/50 transition-all">
-                <CardContent className="p-6">
-                  <div className="text-4xl mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
-                  <Button asChild variant="ghost" className="group">
-                    <Link to={service.path}>
-                      Learn More 
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -242,29 +159,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews Section */}
-      <section className="py-16 bg-gradient-to-b from-highshine/5 to-transparent">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">Reviews</h2>
-            <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-              Real reviews, real people.
-            </p>
-          </div>
-          
-          <div className="max-w-5xl mx-auto">
-            {/* Elfsight Google Reviews Widget */}
-            <div className="elfsight-app-d3bc280d-bd29-4630-931e-713468842106" data-elfsight-app-lazy></div>
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Button asChild size="lg">
-              <Link to="/booking?quote=true">Experience the Difference</Link>
-            </Button>
           </div>
         </div>
       </section>
