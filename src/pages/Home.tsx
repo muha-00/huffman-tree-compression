@@ -5,8 +5,29 @@ import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, ArrowRight, Check, Phone } from 'lucide-react';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
+import ServicesCollage from '@/components/ServicesCollage';
+import GoogleRating from '@/components/GoogleRating';
 
 const Home = () => {
+  const testimonials = [
+    {
+      id: 1,
+      text: "We've been using these guys for years for our home. They show up on time, do an immaculate job on the gutters, and leave the windows completely streak free. Satisfied every time.",
+      author: "Jennifer Thompson"
+    },
+    {
+      id: 2,
+      text: "The team at High Shine Cleaning transformed our house exterior. They're professional, efficient, and the results are outstanding. Highly recommend for any home cleaning needs!",
+      author: "Michael Rodriguez"
+    },
+    {
+      id: 3,
+      text: "After years of neglect, our windows were in terrible shape. One visit from High Shine and they look brand new! Their attention to detail is impressive.",
+      author: "Sarah Lewis"
+    },
+  ];
+
   const reviews = [
     {
       id: 1,
@@ -82,17 +103,40 @@ const Home = () => {
                 <Link to="/booking?quote=true">Request a Quote</Link>
               </Button>
             </div>
+            
+            <div className="mt-8 hero-animate" style={{"--delay": "0.7s"} as React.CSSProperties}>
+              <GoogleRating />
+            </div>
           </div>
         </div>
       </section>
+      
+      {/* Testimonial Carousel */}
+      <section>
+        <TestimonialCarousel testimonials={testimonials} />
+      </section>
 
-      {/* Services Section */}
+      {/* Services Collage */}
+      <section className="py-16">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold">Our Professional Services</h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              We provide a range of high-quality cleaning services to keep your home looking its best.
+            </p>
+          </div>
+          
+          <ServicesCollage />
+        </div>
+      </section>
+
+      {/* Services Section - Cards */}
       <section className="py-16 bg-muted">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold">Our Services</h2>
+            <h2 className="text-3xl font-bold">Services We Offer</h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              We provide a range of professional cleaning services to keep your home looking its best.
+              Learn more about our professional cleaning services and how we can help you.
             </p>
           </div>
           

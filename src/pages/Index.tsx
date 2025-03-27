@@ -1,284 +1,162 @@
 
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState } from 'react';
 import { toast } from "sonner";
-import Layout from "@/components/Layout";
-import FileUploader from "@/components/FileUploader";
-import TreeVisualization from "@/components/TreeVisualization";
-import CodeTable from "@/components/CodeTable";
-import CompressionStats from "@/components/CompressionStats";
-import TextArea from "@/components/TextArea";
-import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { 
-  buildHuffmanTree, 
-  generateHuffmanCodes, 
-  encodeText, 
-  decodeText, 
-  calculateCompressionStats, 
-  treeToVisualizationData 
-} from "@/lib/huffman";
-import { Download, RefreshCw } from "lucide-react";
+import Layout from '@/components/Layout';
+import { useQuery } from '@tanstack/react-query';
+import { encode, decode } from '../lib/huffman';
+import FileUploader from '@/components/FileUploader';
+import TextArea from '@/components/TextArea';
+import TreeVisualization from '@/components/TreeVisualization';
+import CodeTable from '@/components/CodeTable';
+import CompressionStats from '@/components/CompressionStats';
 
 const Index = () => {
-  // State for the application
-  const [originalText, setOriginalText] = useState<string>('');
-  const [huffmanTree, setHuffmanTree] = useState<any>(null);
-  const [huffmanCodes, setHuffmanCodes] = useState<Map<string, string>>(new Map());
-  const [encodedText, setEncodedText] = useState<string>('');
-  const [decodedText, setDecodedText] = useState<string>('');
-  const [treeData, setTreeData] = useState<any>(null);
-  const [compressionStats, setCompressionStats] = useState<any>(null);
-  const [activeTab, setActiveTab] = useState<string>('original');
+  const [inputText, setInputText] = useState<string>('');
+  const [fileName, setFileName] = useState<string>('');
+  const [huffmanData, setHuffmanData] = useState<any>(null);
   
-  // Process text and build Huffman tree
-  const processText = useCallback((text: string) => {
-    if (!text.trim()) {
-      toast.error('Please provide some text to compress');
-      return;
-    }
+  const { data: result, isLoading } = useQuery({
+    queryKey: ['huffman', inputText],
+    queryFn: async () => {
+      if (!inputText) return null;
+      
+      try {
+        const encoded = encode(inputText);
+        const decoded = decode(encoded.encodedData, encoded.tree);
+        
+        return {
+          original: inputText,
+          encodedData: encoded.encodedData,
+          tree: encoded.tree,
+          codeTable: encoded.codeTable,
+          decoded: decoded,
+          compressionRatio: encoded.compressionRatio,
+          originalSize: encoded.originalSize,
+          compressedSize: encoded.compressedSize,
+          savings: encoded.savings
+        };
+      } catch (error) {
+        console.error('Huffman coding error:', error);
+        toast.error('Error processing the text. Please try again.');
+        return null;
+      }
+    },
+    enabled: !!inputText,
+    staleTime: 60000,
+  });
+  
+  const handleFileUpload = (text: string, name: string) => {
+    setInputText(text);
+    setFileName(name);
+  };
+  
+  const handleTextInput = (text: string) => {
+    setInputText(text);
+    setFileName('');
+  };
+  
+  const handleDownload = () => {
+    if (!result) return;
     
-    try {
-      setOriginalText(text);
-      
-      // Build Huffman tree
-      const tree = buildHuffmanTree(text);
-      setHuffmanTree(tree);
-      
-      // Generate visualization data
-      const visualData = treeToVisualizationData(tree);
-      setTreeData(visualData);
-      
-      // Generate Huffman codes
-      const codes = generateHuffmanCodes(tree);
-      setHuffmanCodes(codes);
-      
-      // Encode text
-      const encoded = encodeText(text, codes);
-      setEncodedText(encoded);
-      
-      // Decode text (for verification)
-      const decoded = decodeText(encoded, tree);
-      setDecodedText(decoded);
-      
-      // Calculate statistics
-      const stats = calculateCompressionStats(text, encoded);
-      setCompressionStats(stats);
-      
-      toast.success('Huffman compression completed successfully');
-      
-      // Switch to encoded tab
-      setActiveTab('encoded');
-    } catch (error) {
-      console.error('Error processing text:', error);
-      toast.error('Failed to process text. Please try again.');
-    }
-  }, []);
-  
-  // Handle file upload
-  const handleFileUpload = useCallback((text: string) => {
-    processText(text);
-  }, [processText]);
-  
-  // Handle manual text input
-  const handleManualInput = useCallback((e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const text = formData.get('manualText') as string;
-    processText(text);
-  }, [processText]);
-  
-  // Download encoded output
-  const downloadOutput = useCallback(() => {
-    if (!encodedText) return;
+    const fileData = JSON.stringify({
+      encodedData: result.encodedData,
+      tree: result.tree,
+      originalSize: result.originalSize,
+      compressedSize: result.compressedSize
+    }, null, 2);
     
-    try {
-      // Create JSON with all necessary information
-      const outputData = {
-        originalText,
-        huffmanCodes: Object.fromEntries(huffmanCodes),
-        encodedText,
-        stats: compressionStats
-      };
-      
-      const blob = new Blob([JSON.stringify(outputData, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'huffman-compressed.json';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      
-      toast.success('Compressed file downloaded');
-    } catch (error) {
-      console.error('Error downloading file:', error);
-      toast.error('Failed to download file');
-    }
-  }, [originalText, huffmanCodes, encodedText, compressionStats]);
-  
-  // Reset the application
-  const handleReset = useCallback(() => {
-    setOriginalText('');
-    setHuffmanTree(null);
-    setHuffmanCodes(new Map());
-    setEncodedText('');
-    setDecodedText('');
-    setTreeData(null);
-    setCompressionStats(null);
-    setActiveTab('original');
+    const blob = new Blob([fileData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName ? `${fileName.split('.')[0]}_compressed.json` : 'compressed_data.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
     
-    toast.success('Application reset successfully');
-  }, []);
+    toast.success('Compressed file downloaded successfully!');
+  };
   
-  // Provide example text
-  const useExampleText = useCallback(() => {
-    const exampleText = "a fast runner need never be afraid of the dark";
-    processText(exampleText);
-  }, [processText]);
-  
+  React.useEffect(() => {
+    if (result) {
+      setHuffmanData(result);
+    }
+  }, [result]);
+
   return (
     <Layout>
-      <div className="max-w-screen-xl mx-auto space-y-8 animate-fade-in">
-        {/* File upload section */}
-        <section className="mb-8">
-          <Card className="p-6 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none" />
-            
-            <h2 className="text-2xl font-medium mb-4">Compress Text</h2>
-            
-            <div className="space-y-6">
-              <FileUploader onFileUpload={handleFileUpload} />
-              
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t" />
-                </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-background px-2 text-muted-foreground">
-                    or enter text manually
-                  </span>
-                </div>
+      <div className="container py-8 space-y-8">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold mb-2">Text Compression with Huffman Coding</h1>
+          <p className="text-muted-foreground">
+            Compress text using Huffman coding algorithm, visualize the tree, and download compressed data.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-1 space-y-4">
+            <div className="bg-card rounded-lg p-6 shadow-sm">
+              <h2 className="text-xl font-semibold mb-4">Input Text</h2>
+              <div className="space-y-4">
+                <FileUploader onFileUpload={handleFileUpload} />
+                <div className="text-center text-sm text-muted-foreground">- OR -</div>
+                <TextArea onTextChange={handleTextInput} placeholder="Type or paste your text here..." />
               </div>
-              
-              <form onSubmit={handleManualInput} className="space-y-4">
-                <textarea
-                  name="manualText"
-                  placeholder="Enter text to compress..."
-                  className="w-full min-h-[100px] p-3 rounded-md border bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                  defaultValue={originalText}
-                />
-                
-                <div className="flex flex-wrap gap-2">
-                  <Button type="submit" className="hover-lift">
-                    Process Text
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={useExampleText}
-                    className="hover-lift"
-                  >
-                    Use Example Text
-                  </Button>
-                  {originalText && (
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={handleReset}
-                      className="ml-auto hover-lift group"
-                    >
-                      <RefreshCw className="w-4 h-4 mr-2 group-hover:rotate-180 transition-all duration-500" />
-                      Reset
-                    </Button>
-                  )}
-                </div>
-              </form>
             </div>
-          </Card>
-        </section>
-        
-        {/* Results section - only shown after compression */}
-        {treeData && (
-          <>
-            {/* Huffman Tree Visualization */}
-            <section className="mb-8 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <Card className="p-6">
-                <h2 className="text-xl font-medium mb-4">Huffman Tree</h2>
-                <div className="overflow-hidden rounded-lg border bg-card">
-                  <TreeVisualization 
-                    data={treeData} 
-                    className="bg-muted/10 min-h-[400px] w-full"
+          </div>
+
+          <div className="lg:col-span-2 space-y-6">
+            {isLoading ? (
+              <div className="flex justify-center items-center min-h-[300px]">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+              </div>
+            ) : huffmanData ? (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <CompressionStats
+                    originalSize={huffmanData.originalSize}
+                    compressedSize={huffmanData.compressedSize}
+                    compressionRatio={huffmanData.compressionRatio}
+                    savings={huffmanData.savings}
                   />
-                </div>
-              </Card>
-            </section>
-            
-            {/* Codes and Stats */}
-            <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <CodeTable codes={huffmanCodes} />
-              <CompressionStats stats={compressionStats} />
-            </section>
-            
-            {/* Text Content Tabs */}
-            <section className="mb-8 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <Card className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-medium">Text Content</h2>
                   
-                  {encodedText && (
-                    <Button
-                      onClick={downloadOutput}
-                      variant="outline"
-                      className="gap-2 hover-lift"
+                  <div className="bg-card rounded-lg p-6 shadow-sm">
+                    <h2 className="text-xl font-semibold mb-4">Download</h2>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Download the compressed data as a JSON file. This file contains the encoded data and the Huffman tree needed for decoding.
+                    </p>
+                    <Button 
+                      onClick={handleDownload} 
+                      className="w-full"
                     >
-                      <Download className="w-4 h-4" />
-                      Download Results
+                      Download Compressed File
                     </Button>
-                  )}
+                  </div>
                 </div>
-                
-                <Tabs value={activeTab} onValueChange={setActiveTab}>
-                  <TabsList className="w-full justify-start mb-4">
-                    <TabsTrigger value="original">Original Text</TabsTrigger>
-                    <TabsTrigger value="encoded">Encoded Binary</TabsTrigger>
-                    <TabsTrigger value="decoded">Decoded Text</TabsTrigger>
-                  </TabsList>
-                  
-                  <TabsContent value="original" className="mt-0">
-                    <TextArea
-                      value={originalText}
-                      label="Original Text"
-                      badge={originalText ? `${originalText.length} characters` : undefined}
-                      maxHeight="300px"
-                    />
-                  </TabsContent>
-                  
-                  <TabsContent value="encoded" className="mt-0">
-                    <TextArea
-                      value={encodedText}
-                      label="Encoded Binary"
-                      badge={compressionStats ? `${encodedText.length} bits` : undefined}
-                      maxHeight="300px"
-                      monospace={true}
-                    />
-                  </TabsContent>
-                  
-                  <TabsContent value="decoded" className="mt-0">
-                    <TextArea
-                      value={decodedText}
-                      label="Decoded Text"
-                      badge={decodedText ? `${decodedText.length} characters` : undefined}
-                      maxHeight="300px"
-                    />
-                  </TabsContent>
-                </Tabs>
-              </Card>
-            </section>
-          </>
-        )}
+
+                <div className="bg-card rounded-lg p-6 shadow-sm">
+                  <h2 className="text-xl font-semibold mb-4">Huffman Tree Visualization</h2>
+                  <TreeVisualization data={huffmanData.tree} className="h-[400px] bg-muted/30 rounded-lg" />
+                </div>
+
+                <div className="bg-card rounded-lg p-6 shadow-sm">
+                  <h2 className="text-xl font-semibold mb-4">Huffman Code Table</h2>
+                  <CodeTable codeTable={huffmanData.codeTable} />
+                </div>
+              </>
+            ) : inputText ? (
+              <div className="bg-card rounded-lg p-6 shadow-sm flex justify-center items-center min-h-[300px]">
+                <p className="text-muted-foreground">Processing...</p>
+              </div>
+            ) : (
+              <div className="bg-card rounded-lg p-6 shadow-sm flex justify-center items-center min-h-[300px]">
+                <p className="text-muted-foreground">Enter some text or upload a file to generate the Huffman coding.</p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </Layout>
   );
