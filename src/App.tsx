@@ -13,8 +13,26 @@ import Booking from "./pages/Booking";
 import YourBookings from "./pages/YourBookings";
 import Reviews from "./pages/Reviews";
 import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient();
+
+const ElfsightWidget = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://static.elfsight.com/platform/platform.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  return <div className="elfsight-app-a10a4e02-712a-4f41-beb8-712c86ff2341" data-elfsight-app-lazy></div>;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -34,6 +52,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <ElfsightWidget />
     </TooltipProvider>
   </QueryClientProvider>
 );

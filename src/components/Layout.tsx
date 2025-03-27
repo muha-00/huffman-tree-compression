@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -70,7 +71,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         <div className="container flex justify-between items-center">
           <Link to="/" className="flex items-center" onClick={handleLinkClick}>
             <img 
-              src="/public/lovable-uploads/9be1a361-2200-495e-92be-5bcb9a2779e2.png" 
+              src="/lovable-uploads/9be1a361-2200-495e-92be-5bcb9a2779e2.png" 
               alt="High Shine Cleaning" 
               className="h-12 md:h-16"
             />
@@ -91,6 +92,30 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 >
                   Home
                 </Link>
+              </li>
+              
+              {/* Social Icons in Navbar */}
+              <li className="flex items-center space-x-2 mr-2">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61560420295116" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-highshine hover:text-highshine/80 transition-colors"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-highshine hover:text-highshine/80 transition-colors"
+                >
+                  <img 
+                    src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                    alt="Google" 
+                    className="w-5 h-5" 
+                  />
+                </a>
               </li>
               
               {/* Services Dropdown - Changed from NavigationMenu to DropdownMenu to disable hover trigger */}
@@ -181,6 +206,30 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
               >
                 Home
               </Link>
+              
+              {/* Social Icons for Mobile */}
+              <div className="flex items-center space-x-4 py-2 px-4">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61560420295116" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-highshine"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-highshine"
+                >
+                  <img 
+                    src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                    alt="Google" 
+                    className="w-5 h-5" 
+                  />
+                </a>
+              </div>
               
               {/* Services Dropdown */}
               <DropdownMenu>
@@ -406,9 +455,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         </div>
       </footer>
       
-      {/* Elfsight Google Reviews Script */}
-      <script src="https://static.elfsight.com/platform/platform.js" async></script>
-      <div className="elfsight-app-d3bc280d-bd29-4630-931e-713468842106" data-elfsight-app-lazy></div>
+      {/* Remove the Elfsight Google Reviews Script from here */}
     </div>
   );
 };
