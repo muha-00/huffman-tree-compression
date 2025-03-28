@@ -43,19 +43,19 @@ const ServicesCollage: React.FC = () => {
       id: 5,
       title: "The High Shine Cleaning Guarantee",
       description: "We won't leave until you're satisfied with everything",
-      position: "col-span-12 row-span-1 mt-6",
+      position: "col-span-12 row-span-1 mt-0",
       isGuaranteeBox: true,
     },
   ];
 
   return (
-    <div className="grid grid-cols-12 gap-0">
+    <div className="grid grid-cols-12 gap-0 w-full">
       {services.map((service) => {
         if (service.isGuaranteeBox) {
           return (
             <div 
               key={service.id}
-              className={`bg-[#62BFF0] text-white rounded-none p-8 text-center flex flex-col items-center justify-center ${service.position}`}
+              className={`bg-[#62BFF0] text-white rounded-none p-8 text-center flex flex-col items-center justify-center ${service.position} w-full`}
             >
               <h2 className="text-2xl md:text-3xl font-bold mb-4">{service.title}</h2>
               <p className="text-sm md:text-base mb-6 text-white/90">{service.description}</p>
@@ -71,7 +71,7 @@ const ServicesCollage: React.FC = () => {
             <Link
               key={service.id}
               to={service.path}
-              className={`relative overflow-hidden rounded-none ${service.position} group bg-black`}
+              className={`relative overflow-hidden rounded-none ${service.position} group bg-black w-full`}
               style={{ height: '240px' }}
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
@@ -87,7 +87,7 @@ const ServicesCollage: React.FC = () => {
           <Link
             key={service.id}
             to={service.path}
-            className={`relative overflow-hidden rounded-none ${service.position} group`}
+            className={`relative overflow-hidden rounded-none ${service.position} group w-full`}
             style={{ height: service.id === 1 ? '500px' : '240px' }}
           >
             <div 

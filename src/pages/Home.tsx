@@ -9,22 +9,6 @@ import ServicesCollage from '@/components/ServicesCollage';
 import GoogleRating from '@/components/GoogleRating';
 
 const Home = () => {
-  // Handle Elfsight script loading
-  useEffect(() => {
-    // Create script element
-    const script = document.createElement('script');
-    script.src = 'https://static.elfsight.com/platform/platform.js';
-    script.async = true;
-    
-    // Append the script to the document
-    document.body.appendChild(script);
-    
-    // Cleanup function to remove script when component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   const testimonials = [
     {
       id: 1,
@@ -42,6 +26,21 @@ const Home = () => {
       author: "Sarah Lewis"
     },
   ];
+
+  // Elfsight review carousel script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://static.elfsight.com/platform/platform.js';
+    script.async = true;
+    
+    document.body.appendChild(script);
+    
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <Layout>
@@ -76,10 +75,10 @@ const Home = () => {
         <TestimonialCarousel testimonials={testimonials} />
       </section>
 
-      {/* Services Collage */}
-      <section className="py-16">
-        <div className="container">
-          <div className="text-center mb-12">
+      {/* Services Collage - Full Width */}
+      <section className="py-8 w-full">
+        <div className="container px-0 max-w-full">
+          <div className="text-center mb-8">
             <h2 className="text-3xl font-bold">Our Professional Services</h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
               We provide a range of high-quality cleaning services to keep your home looking its best.
@@ -87,6 +86,16 @@ const Home = () => {
           </div>
           
           <ServicesCollage />
+        </div>
+      </section>
+
+      {/* Google Reviews Widget */}
+      <section className="py-8 w-full">
+        <div className="container">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold">What Our Customers Say</h2>
+          </div>
+          <div className="elfsight-app-c79d3126-70ca-49a2-a12f-84aea046911a" data-elfsight-app-lazy></div>
         </div>
       </section>
 
@@ -104,21 +113,21 @@ const Home = () => {
               <ul className="space-y-3">
                 {["100% Satisfaction Guaranteed", "Fully Insured", "Eco-Friendly Products", "Experienced Team"].map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <Check className="h-5 w-5 text-highshine mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
               
               <div className="mt-8">
-                <Button asChild>
+                <Button asChild className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
                   <Link to="/booking?quote=true">Request a Quote</Link>
                 </Button>
               </div>
             </div>
             
             <div className="bg-muted rounded-lg p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-highshine/20 rounded-bl-3xl"></div>
+              <div className="absolute top-0 right-0 w-20 h-20 bg-[#62BFF0]/20 rounded-bl-3xl"></div>
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-4">Need a Quote?</h3>
                 <p className="text-muted-foreground mb-6">
@@ -128,7 +137,7 @@ const Home = () => {
                 
                 <div className="flex flex-col space-y-4">
                   <div className="flex items-center">
-                    <Phone className="h-5 w-5 text-highshine mr-3" />
+                    <Phone className="h-5 w-5 text-[#62BFF0] mr-3" />
                     <a href="tel:4378585005" className="hover:underline">437-858-5005</a>
                   </div>
                   <div className="flex space-x-4">
@@ -136,7 +145,7 @@ const Home = () => {
                       href="https://www.facebook.com/profile.php?id=61560420295116" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-highshine hover:text-highshine/80 transition-colors"
+                      className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
                     >
                       <Facebook className="w-5 h-5" />
                     </a>
@@ -144,7 +153,7 @@ const Home = () => {
                       href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-highshine hover:text-highshine/80 transition-colors"
+                      className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
                     >
                       <img 
                         src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
@@ -164,13 +173,13 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-highshine text-white">
+      <section className="py-16 bg-[#62BFF0] text-white">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Ready for a Cleaner, Brighter Home?</h2>
           <p className="max-w-2xl mx-auto mb-8">
             Get a quote for our professional cleaning services today and see the difference that High Shine Cleaning can make for your home.
           </p>
-          <Button asChild size="lg" variant="secondary" className="bg-white text-highshine hover:bg-white/90">
+          <Button asChild size="lg" variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90">
             <Link to="/booking?quote=true">Request a Quote</Link>
           </Button>
         </div>

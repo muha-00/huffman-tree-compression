@@ -13,13 +13,12 @@ import Booking from "./pages/Booking";
 import YourBookings from "./pages/YourBookings";
 import Reviews from "./pages/Reviews";
 import NotFound from "./pages/NotFound";
-import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
-// Global Elfsight widget that appears on all pages
+// Global Elfsight widget - this is the chat widget that should appear on all pages
 const ElfsightWidget = () => {
-  useEffect(() => {
+  React.useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://static.elfsight.com/platform/platform.js';
     script.async = true;
@@ -32,6 +31,7 @@ const ElfsightWidget = () => {
     };
   }, []);
 
+  // This is the chat widget that should appear on all pages
   return <div className="elfsight-app-a10a4e02-712a-4f41-beb8-712c86ff2341" data-elfsight-app-lazy></div>;
 };
 
