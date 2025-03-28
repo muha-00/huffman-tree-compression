@@ -12,7 +12,7 @@ const ServicesCollage: React.FC = () => {
       description: "Crystal clear windows for your home, inside and out",
       path: "/window-cleaning",
       position: "col-span-12 md:col-span-6 lg:col-span-3 row-span-2",
-      bgImage: "/lovable-uploads/7aaba08b-2900-4e49-bf40-02b02678caed.png",
+      bgImage: "/lovable-uploads/19dcc04c-30dd-49c2-89e1-5016f2a88ed4.png",
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const ServicesCollage: React.FC = () => {
       description: "Restore your home's exterior to its original beauty",
       path: "/house-washing",
       position: "col-span-12 md:col-span-6 lg:col-span-6 row-span-1",
-      bgImage: "/lovable-uploads/20c543d2-2f01-4acd-975b-5ab996525b08.png",
+      bgImage: "/lovable-uploads/20580ad3-0750-4803-bf37-ff7a96b4b3e1.png",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const ServicesCollage: React.FC = () => {
       description: "Keep your gutters flowing freely, preventing water damage",
       path: "/gutter-cleaning",
       position: "col-span-12 md:col-span-6 lg:col-span-3 row-span-1",
-      bgImage: "/lovable-uploads/604982a0-ca70-4121-911e-b8bcb193fed4.png",
+      bgImage: "/lovable-uploads/2aab0564-0610-4c7a-abd2-ac1ba196380c.png",
     },
     {
       id: 4,
@@ -49,7 +49,7 @@ const ServicesCollage: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-12 gap-4 md:gap-6">
+    <div className="grid grid-cols-12 gap-0">
       {services.map((service) => {
         if (service.isGuaranteeBox) {
           return (
@@ -71,7 +71,7 @@ const ServicesCollage: React.FC = () => {
             <Link
               key={service.id}
               to={service.path}
-              className={`relative overflow-hidden rounded-none ${service.position} group bg-[#62BFF0]`}
+              className={`relative overflow-hidden rounded-none ${service.position} group bg-black`}
               style={{ height: '240px' }}
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white">

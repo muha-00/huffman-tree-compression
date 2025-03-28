@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,20 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 
 const WindowCleaning = () => {
+  // Handle Elfsight script for service pages
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://static.elfsight.com/platform/platform.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   const benefits = [
     "Improved natural lighting in your home",
     "Enhanced curb appeal and overall appearance",

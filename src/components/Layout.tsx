@@ -2,10 +2,9 @@
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
-import { Phone, Mail, Menu, X, ChevronDown, Facebook } from 'lucide-react';
+import { Phone, Mail, Menu, X, ChevronDown, Facebook, MapPin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
-  NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
@@ -53,7 +52,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       className
     )}>
       {/* Top contact bar */}
-      <div className="bg-highshine text-white py-2 px-4">
+      <div className="bg-[#62BFF0] text-white py-2 px-4">
         <div className="container flex flex-col sm:flex-row justify-between items-center text-sm">
           <div className="flex items-center mb-2 sm:mb-0">
             <Phone size={16} className="mr-2" />
@@ -75,12 +74,13 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
               alt="High Shine Cleaning" 
               className="h-12 md:h-16"
             />
-            <span className="ml-2 text-xl font-bold text-highshine hidden sm:inline-block">High Shine Cleaning</span>
+            <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block">High Shine Cleaning</span>
           </Link>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex">
             <ul className="flex items-center space-x-1">
+              {/* Home link */}
               <li>
                 <Link 
                   to="/"
@@ -100,7 +100,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   href="https://www.facebook.com/profile.php?id=61560420295116" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-highshine hover:text-highshine/80 transition-colors"
+                  className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
@@ -108,7 +108,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-highshine hover:text-highshine/80 transition-colors"
+                  className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
                 >
                   <img 
                     src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
@@ -116,9 +116,17 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     className="w-5 h-5" 
                   />
                 </a>
+                <a 
+                  href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
+                >
+                  <MapPin className="w-5 h-5" />
+                </a>
               </li>
               
-              {/* Services Dropdown - Changed from NavigationMenu to DropdownMenu to disable hover trigger */}
+              {/* Services Dropdown - Changed to only open on click, not hover */}
               <li>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -148,7 +156,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 </DropdownMenu>
               </li>
               
-              {/* Reviews Link - Now points to internal page */}
+              {/* Reviews Link */}
               <li>
                 <Link 
                   to="/reviews"
@@ -200,7 +208,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 to="/"
                 className={cn(
                   "py-2 px-4 rounded hover:bg-muted transition-colors",
-                  isActive('/') && "bg-muted font-medium text-highshine"
+                  isActive('/') && "bg-muted font-medium text-[#62BFF0]"
                 )}
                 onClick={handleLinkClick}
               >
@@ -213,7 +221,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   href="https://www.facebook.com/profile.php?id=61560420295116" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-highshine"
+                  className="text-[#62BFF0]"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
@@ -221,13 +229,21 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-highshine"
+                  className="text-[#62BFF0]"
                 >
                   <img 
                     src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
                     alt="Google" 
                     className="w-5 h-5" 
                   />
+                </a>
+                <a 
+                  href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#62BFF0]"
+                >
+                  <MapPin className="w-5 h-5" />
                 </a>
               </div>
               
@@ -238,7 +254,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     variant="ghost" 
                     className={cn(
                       "w-full justify-start py-2 px-4 rounded hover:bg-muted transition-colors",
-                      services.some(service => isActive(service.path)) && "bg-muted font-medium text-highshine"
+                      services.some(service => isActive(service.path)) && "bg-muted font-medium text-[#62BFF0]"
                     )}
                   >
                     Services <ChevronDown className="ml-2 h-4 w-4" />
@@ -262,12 +278,12 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              {/* Reviews Link - Updated to internal page */}
+              {/* Reviews Link */}
               <Link 
                 to="/reviews"
                 className={cn(
                   "py-2 px-4 rounded hover:bg-muted transition-colors",
-                  isActive('/reviews') && "bg-muted font-medium text-highshine"
+                  isActive('/reviews') && "bg-muted font-medium text-[#62BFF0]"
                 )}
                 onClick={handleLinkClick}
               >
@@ -281,7 +297,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   to={link.path}
                   className={cn(
                     "py-2 px-4 rounded hover:bg-muted transition-colors",
-                    isActive(link.path.split('?')[0]) && "bg-muted font-medium text-highshine"
+                    isActive(link.path.split('?')[0]) && "bg-muted font-medium text-[#62BFF0]"
                   )}
                   onClick={handleLinkClick}
                 >
@@ -310,7 +326,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     <input 
                       type="text" 
                       id="firstName" 
-                      className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-highshine" 
+                      className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#62BFF0]" 
                     />
                   </div>
                   <div>
@@ -318,7 +334,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     <input 
                       type="text" 
                       id="lastName" 
-                      className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-highshine" 
+                      className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#62BFF0]" 
                     />
                   </div>
                 </div>
@@ -328,7 +344,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     type="email" 
                     id="email" 
                     required
-                    className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-highshine" 
+                    className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#62BFF0]" 
                   />
                 </div>
                 <div>
@@ -336,10 +352,10 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   <textarea 
                     id="message" 
                     rows={4}
-                    className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-highshine" 
+                    className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#62BFF0]" 
                   ></textarea>
                 </div>
-                <Button type="submit" className="w-full bg-highshine hover:bg-highshine/90">Submit</Button>
+                <Button type="submit" className="w-full bg-[#62BFF0] hover:bg-[#62BFF0]/90">Submit</Button>
               </form>
             </div>
             
@@ -349,11 +365,11 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 <div className="space-y-4 mb-8">
                   <div>
                     <p className="font-medium mb-1">Phone Number</p>
-                    <a href="tel:4378585005" className="text-lg hover:text-highshine">437-858-5005</a>
+                    <a href="tel:4378585005" className="text-lg hover:text-[#62BFF0]">437-858-5005</a>
                   </div>
                   <div>
                     <p className="font-medium mb-1">E-mail address</p>
-                    <a href="mailto:highshinecleaning123@gmail.com" className="hover:text-highshine">highshinecleaning123@gmail.com</a>
+                    <a href="mailto:highshinecleaning123@gmail.com" className="hover:text-[#62BFF0]">highshinecleaning123@gmail.com</a>
                   </div>
                   <div>
                     <p className="font-medium mb-1">Hours of Operation</p>
@@ -369,7 +385,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                       href="https://www.facebook.com/profile.php?id=61560420295116" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-white hover:text-highshine transition-colors"
+                      className="text-white hover:text-[#62BFF0] transition-colors"
                     >
                       <Facebook className="w-6 h-6" />
                     </a>
@@ -377,20 +393,28 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                       href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-white hover:text-highshine transition-colors"
+                      className="text-white hover:text-[#62BFF0] transition-colors"
                     >
                       <img 
-                        src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                        src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
                         alt="Google" 
                         className="w-6 h-6" 
                       />
+                    </a>
+                    <a 
+                      href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-[#62BFF0] transition-colors"
+                    >
+                      <MapPin className="w-6 h-6" />
                     </a>
                   </div>
                 </div>
               </div>
               
               <div className="mt-8">
-                <Button asChild size="lg" className="bg-highshine hover:bg-highshine/90">
+                <Button asChild size="lg" className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
                   <Link to="/booking?quote=true" onClick={handleLinkClick}>Request a Quote</Link>
                 </Button>
               </div>
@@ -416,7 +440,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   onClick={handleLinkClick}
                 >
                   <img 
-                    src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                    src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
                     alt="Google Rating" 
                     className="h-6 mr-2" 
                   />
@@ -454,8 +478,6 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </div>
         </div>
       </footer>
-      
-      {/* Remove the Elfsight Google Reviews Script from here */}
     </div>
   );
 };

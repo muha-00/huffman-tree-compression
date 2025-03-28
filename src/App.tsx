@@ -17,6 +17,7 @@ import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
+// Global Elfsight widget that appears on all pages
 const ElfsightWidget = () => {
   useEffect(() => {
     const script = document.createElement('script');
@@ -31,7 +32,7 @@ const ElfsightWidget = () => {
     };
   }, []);
 
-  return <div className="elfsight-app-c79d3126-70ca-49a2-a12f-84aea046911a" data-elfsight-app-lazy></div>;
+  return <div className="elfsight-app-a10a4e02-712a-4f41-beb8-712c86ff2341" data-elfsight-app-lazy></div>;
 };
 
 const App = () => (
