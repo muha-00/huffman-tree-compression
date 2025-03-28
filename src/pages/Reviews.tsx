@@ -28,9 +28,9 @@ const Reviews = () => {
     <Layout>
       <div className="px-0 py-0 w-full">
         {/* Hero section - full width image */}
-        <div className="relative w-full h-[400px] mb-0">
+        <div className="relative w-full h-[500px] mb-0">
           <img 
-            src="/lovable-uploads/c396407b-36f9-40fa-9c10-95243cc4104b.png" 
+            src="/lovable-uploads/19dcc04c-30dd-49c2-89e1-5016f2a88ed4.png" 
             alt="Happy customers" 
             className="w-full h-full object-cover"
           />

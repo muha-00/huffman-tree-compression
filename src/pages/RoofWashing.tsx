@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,20 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Check, AlertTriangle } from 'lucide-react';
 
 const RoofWashing = () => {
+  // Handle Elfsight script for service pages
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://static.elfsight.com/platform/platform.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   const benefits = [
     "Removes black streaks, moss, and algae",
     "Extends the life of your roof",
@@ -62,7 +76,7 @@ const RoofWashing = () => {
               <ul className="space-y-3 mb-8">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <Check className="h-5 w-5 text-highshine mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
                     <span>{benefit}</span>
                   </li>
                 ))}
@@ -81,35 +95,35 @@ const RoofWashing = () => {
               
               <ol className="space-y-4">
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
                   <div>
                     <h4 className="font-medium">Roof Inspection</h4>
                     <p className="text-sm text-muted-foreground">We assess your roof's condition and identify areas of growth and staining.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
                   <div>
                     <h4 className="font-medium">Preparation</h4>
                     <p className="text-sm text-muted-foreground">We protect surrounding landscaping and prepare our specialized cleaning solution.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
                   <div>
                     <h4 className="font-medium">Application</h4>
                     <p className="text-sm text-muted-foreground">We apply our eco-friendly cleaning solution to kill algae and loosen organic material.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
                   <div>
                     <h4 className="font-medium">Low-Pressure Rinsing</h4>
                     <p className="text-sm text-muted-foreground">We use gentle, low-pressure rinsing to safely remove contaminants without damaging your roof.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
                   <div>
                     <h4 className="font-medium">Final Inspection</h4>
                     <p className="text-sm text-muted-foreground">We ensure all growth and stains have been properly treated and removed.</p>
@@ -118,6 +132,14 @@ const RoofWashing = () => {
               </ol>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section - Adding the Google Reviews carousel */}
+      <section className="py-16 bg-[#62BFF0]/10">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8 text-center">What Our Customers Say</h2>
+          <div className="elfsight-app-c79d3126-70ca-49a2-a12f-84aea046911a" data-elfsight-app-lazy></div>
         </div>
       </section>
 
@@ -148,13 +170,13 @@ const RoofWashing = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-highshine text-white">
+      <section className="py-16 bg-[#62BFF0] text-white">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Extend Your Roof's Lifespan</h2>
           <p className="max-w-2xl mx-auto mb-8">
             Regular roof cleaning can add years to your roof's life and save you thousands in early replacement costs.
           </p>
-          <Button asChild size="lg" variant="secondary" className="bg-white text-highshine hover:bg-white/90">
+          <Button asChild size="lg" variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90">
             <Link to="/booking">Book Roof Washing</Link>
           </Button>
         </div>

@@ -1,18 +1,14 @@
-
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Mail, Menu, X, ChevronDown, Facebook, MapPin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle
-} from "@/components/ui/navigation-menu";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from "@/components/ui/dropdown-menu";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -68,14 +64,48 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       {/* Header with navigation */}
       <header className="py-4 border-b backdrop-blur-sm bg-background/80 sticky top-0 z-30">
         <div className="container flex justify-between items-center">
-          <Link to="/" className="flex items-center" onClick={handleLinkClick}>
-            <img 
-              src="/lovable-uploads/9be1a361-2200-495e-92be-5bcb9a2779e2.png" 
-              alt="High Shine Cleaning" 
-              className="h-12 md:h-16"
-            />
-            <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block">High Shine Cleaning</span>
-          </Link>
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center" onClick={handleLinkClick}>
+              <img 
+                src="/lovable-uploads/9be1a361-2200-495e-92be-5bcb9a2779e2.png" 
+                alt="High Shine Cleaning" 
+                className="h-12 md:h-16"
+              />
+              <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block">High Shine Cleaning</span>
+            </Link>
+            
+            {/* Social Icons next to logo */}
+            <div className="flex items-center space-x-3 ml-4">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61560420295116" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
+              >
+                <img 
+                  src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                  alt="Google" 
+                  className="w-5 h-5" 
+                />
+              </a>
+              <a 
+                href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
+              >
+                <MapPin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex">
@@ -92,38 +122,6 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 >
                   Home
                 </Link>
-              </li>
-              
-              {/* Social Icons in Navbar */}
-              <li className="flex items-center space-x-2 mr-2">
-                <a 
-                  href="https://www.facebook.com/profile.php?id=61560420295116" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
-                >
-                  <img 
-                    src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
-                    alt="Google" 
-                    className="w-5 h-5" 
-                  />
-                </a>
-                <a 
-                  href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
-                >
-                  <MapPin className="w-5 h-5" />
-                </a>
               </li>
               
               {/* Services Dropdown - Changed to only open on click, not hover */}
@@ -215,7 +213,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 Home
               </Link>
               
-              {/* Social Icons for Mobile */}
+              {/* Social Icons for Mobile - moved near the top */}
               <div className="flex items-center space-x-4 py-2 px-4">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61560420295116" 
@@ -385,7 +383,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                       href="https://www.facebook.com/profile.php?id=61560420295116" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-white hover:text-[#62BFF0] transition-colors"
+                      className="text-[#62BFF0]"
                     >
                       <Facebook className="w-6 h-6" />
                     </a>
@@ -393,7 +391,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                       href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-white hover:text-[#62BFF0] transition-colors"
+                      className="text-[#62BFF0]"
                     >
                       <img 
                         src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
@@ -405,7 +403,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                       href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-white hover:text-[#62BFF0] transition-colors"
+                      className="text-[#62BFF0]"
                     >
                       <MapPin className="w-6 h-6" />
                     </a>
