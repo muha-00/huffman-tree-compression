@@ -28,11 +28,11 @@ const Reviews = () => {
     <Layout>
       <div className="px-0 py-0 w-full">
         {/* Hero section - full width image */}
-        <div className="relative w-full h-[500px] mb-0">
+        <div className="relative w-full h-[600px] mb-0">
           <img 
-            src="/lovable-uploads/19dcc04c-30dd-49c2-89e1-5016f2a88ed4.png" 
+            src="/lovable-uploads/2f6cf9ca-17b3-4daf-8156-dc69d4084561.png" 
             alt="Happy customers" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-start px-8 md:px-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white">Reviews</h1>

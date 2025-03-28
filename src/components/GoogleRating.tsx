@@ -16,7 +16,7 @@ const GoogleRating: React.FC<GoogleRatingProps> = ({ className }) => {
     >
       <div className="flex items-center">
         <img 
-          src="/public/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+          src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
           alt="Google" 
           className="h-8 mr-3"
         />
@@ -30,7 +30,7 @@ const GoogleRating: React.FC<GoogleRatingProps> = ({ className }) => {
               ))}
             </div>
           </div>
-          <div className="text-sm text-gray-500 mt-1">Based on customer reviews</div>
+          <div className="text-sm text-gray-500 mt-1">Based on 110+ reviews</div>
         </div>
       </div>
     </a>
