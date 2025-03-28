@@ -29,7 +29,7 @@ const Reviews = () => {
       <div className="container py-16">
         <div className="relative w-full h-[300px] mb-8 rounded-lg overflow-hidden">
           <img 
-            src="/lovable-uploads/e9bec381-c33a-4130-9b38-2480dbe5fbf1.png" 
+            src="/lovable-uploads/9e89cf68-5550-4bc9-82b8-1795b0402ba6.png" 
             alt="Happy customers" 
             className="w-full h-full object-cover"
           />
@@ -39,9 +39,9 @@ const Reviews = () => {
           </div>
         </div>
         
-        <div className="w-full bg-highshine text-white py-8 px-6 rounded-lg text-center mb-16">
+        <div className="w-full bg-[#62BFF0] text-white py-8 px-6 rounded-lg text-center mb-16">
           <h2 className="text-2xl font-bold mb-4">Get Your Quote Today!</h2>
-          <Button asChild size="lg" variant="secondary" className="bg-white text-highshine hover:bg-white/90 w-full md:w-auto">
+          <Button asChild size="lg" variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90 w-full md:w-auto">
             <Link to="/booking?quote=true">GET QUOTE</Link>
           </Button>
         </div>

@@ -12,7 +12,7 @@ const ServicesCollage: React.FC = () => {
       description: "Crystal clear windows for your home, inside and out",
       path: "/window-cleaning",
       position: "col-span-12 md:col-span-6 lg:col-span-3 row-span-2",
-      bgImage: "/public/lovable-uploads/ab636558-7910-4765-991e-56953c2962ad.png",
+      bgImage: "/lovable-uploads/7aaba08b-2900-4e49-bf40-02b02678caed.png",
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const ServicesCollage: React.FC = () => {
       description: "Restore your home's exterior to its original beauty",
       path: "/house-washing",
       position: "col-span-12 md:col-span-6 lg:col-span-6 row-span-1",
-      bgImage: "/public/lovable-uploads/4b555ee2-3589-4341-a52e-f864e4a06b92.png",
+      bgImage: "/lovable-uploads/20c543d2-2f01-4acd-975b-5ab996525b08.png",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const ServicesCollage: React.FC = () => {
       description: "Keep your gutters flowing freely, preventing water damage",
       path: "/gutter-cleaning",
       position: "col-span-12 md:col-span-6 lg:col-span-3 row-span-1",
-      bgImage: "/public/lovable-uploads/604982a0-ca70-4121-911e-b8bcb193fed4.png",
+      bgImage: "/lovable-uploads/604982a0-ca70-4121-911e-b8bcb193fed4.png",
     },
     {
       id: 4,
@@ -55,11 +55,11 @@ const ServicesCollage: React.FC = () => {
           return (
             <div 
               key={service.id}
-              className={`bg-highshine text-white rounded-lg p-8 text-center flex flex-col items-center justify-center ${service.position}`}
+              className={`bg-[#62BFF0] text-white rounded-none p-8 text-center flex flex-col items-center justify-center ${service.position}`}
             >
               <h2 className="text-2xl md:text-3xl font-bold mb-4">{service.title}</h2>
               <p className="text-sm md:text-base mb-6 text-white/90">{service.description}</p>
-              <Button asChild size="lg" variant="secondary" className="bg-white text-highshine hover:bg-white/90">
+              <Button asChild size="lg" variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90">
                 <Link to="/booking">Request a Quote</Link>
               </Button>
             </div>
@@ -71,7 +71,7 @@ const ServicesCollage: React.FC = () => {
             <Link
               key={service.id}
               to={service.path}
-              className={`relative overflow-hidden rounded-lg ${service.position} group bg-highshine`}
+              className={`relative overflow-hidden rounded-none ${service.position} group bg-[#62BFF0]`}
               style={{ height: '240px' }}
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
@@ -87,7 +87,7 @@ const ServicesCollage: React.FC = () => {
           <Link
             key={service.id}
             to={service.path}
-            className={`relative overflow-hidden rounded-lg ${service.position} group`}
+            className={`relative overflow-hidden rounded-none ${service.position} group`}
             style={{ height: service.id === 1 ? '500px' : '240px' }}
           >
             <div 

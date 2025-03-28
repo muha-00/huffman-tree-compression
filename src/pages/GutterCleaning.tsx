@@ -39,7 +39,7 @@ const GutterCleaning = () => {
     <Layout>
       {/* Hero Section */}
       <section className="relative py-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-highshine/10 to-transparent z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#62BFF0]/10 to-transparent z-0"></div>
         
         <div className="container relative z-10">
           <div className="max-w-3xl">
@@ -72,7 +72,7 @@ const GutterCleaning = () => {
               <ul className="space-y-3 mb-8">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <Check className="h-5 w-5 text-highshine mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
                     <span>{benefit}</span>
                   </li>
                 ))}
@@ -91,35 +91,35 @@ const GutterCleaning = () => {
               
               <ol className="space-y-4">
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
                   <div>
                     <h4 className="font-medium">Initial Assessment</h4>
                     <p className="text-sm text-muted-foreground">We inspect your gutters to determine the extent of cleaning needed.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
                   <div>
                     <h4 className="font-medium">Debris Removal</h4>
                     <p className="text-sm text-muted-foreground">We manually remove leaves, twigs, and debris from your gutters.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
                   <div>
                     <h4 className="font-medium">Downspout Clearing</h4>
                     <p className="text-sm text-muted-foreground">We ensure all downspouts are free of clogs and flowing properly.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
                   <div>
                     <h4 className="font-medium">Gutter Flushing</h4>
                     <p className="text-sm text-muted-foreground">We flush your gutters with water to remove remaining debris and test water flow.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
                   <div>
                     <h4 className="font-medium">Exterior Cleaning</h4>
                     <p className="text-sm text-muted-foreground">We clean the exterior of your gutters to remove streaks and stains.</p>
@@ -128,6 +128,14 @@ const GutterCleaning = () => {
               </ol>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="py-16 bg-[#62BFF0]/10">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8 text-center">What Our Customers Say</h2>
+          <div className="elfsight-app-c79d3126-70ca-49a2-a12f-84aea046911a" data-elfsight-app-lazy></div>
         </div>
       </section>
 
@@ -159,13 +167,13 @@ const GutterCleaning = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-highshine text-white">
+      <section className="py-16 bg-[#62BFF0] text-white">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Protect Your Home with Clean Gutters</h2>
           <p className="max-w-2xl mx-auto mb-8">
             Don't wait for water damage to occur. Schedule your professional gutter cleaning service today.
           </p>
-          <Button asChild size="lg" variant="secondary" className="bg-white text-highshine hover:bg-white/90">
+          <Button asChild size="lg" variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90">
             <Link to="/booking">Book Gutter Cleaning</Link>
           </Button>
         </div>

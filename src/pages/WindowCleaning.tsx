@@ -39,7 +39,7 @@ const WindowCleaning = () => {
     <Layout>
       {/* Hero Section */}
       <section className="relative py-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-highshine/10 to-transparent z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#62BFF0]/10 to-transparent z-0"></div>
         
         <div className="container relative z-10">
           <div className="max-w-3xl">
@@ -72,7 +72,7 @@ const WindowCleaning = () => {
               <ul className="space-y-3 mb-8">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <Check className="h-5 w-5 text-highshine mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
                     <span>{benefit}</span>
                   </li>
                 ))}
@@ -88,35 +88,35 @@ const WindowCleaning = () => {
               
               <ol className="space-y-4">
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
                   <div>
                     <h4 className="font-medium">Assessment</h4>
                     <p className="text-sm text-muted-foreground">We evaluate your windows and discuss any specific concerns or requirements.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
                   <div>
                     <h4 className="font-medium">Preparation</h4>
                     <p className="text-sm text-muted-foreground">We protect surrounding areas and prepare our professional cleaning solutions.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
                   <div>
                     <h4 className="font-medium">Cleaning</h4>
                     <p className="text-sm text-muted-foreground">We thoroughly clean both interior and exterior windows, frames, and sills.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
                   <div>
                     <h4 className="font-medium">Detailing</h4>
                     <p className="text-sm text-muted-foreground">We clean screens, tracks, and finishing touches for a complete clean.</p>
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="bg-highshine text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
                   <div>
                     <h4 className="font-medium">Final Inspection</h4>
                     <p className="text-sm text-muted-foreground">We check all windows to ensure they meet our high standards.</p>
@@ -125,6 +125,14 @@ const WindowCleaning = () => {
               </ol>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="py-16 bg-[#62BFF0]/10">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8 text-center">What Our Customers Say</h2>
+          <div className="elfsight-app-c79d3126-70ca-49a2-a12f-84aea046911a" data-elfsight-app-lazy></div>
         </div>
       </section>
 
@@ -147,13 +155,13 @@ const WindowCleaning = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-highshine text-white">
+      <section className="py-16 bg-[#62BFF0] text-white">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Ready for Sparkling Clean Windows?</h2>
           <p className="max-w-2xl mx-auto mb-8">
             Experience the difference that professionally cleaned windows can make for your home. Book our window cleaning service today!
           </p>
-          <Button asChild size="lg" variant="secondary" className="bg-white text-highshine hover:bg-white/90">
+          <Button asChild size="lg" variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90">
             <Link to="/booking">Book Window Cleaning</Link>
           </Button>
         </div>
