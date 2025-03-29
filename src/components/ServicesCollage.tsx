@@ -37,7 +37,7 @@ const ServicesCollage: React.FC = () => {
         {/* Gutter Cleaning - Full width */}
         <div className="md:col-span-12 h-[400px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/49facc72-d8c8-4c7a-8a4c-d0147ab8045f.png" 
+            src="/lovable-uploads/7e661b48-fb65-4ae1-bc68-87fa5ec10f36.png" 
             alt="Gutter Cleaning" 
             className="w-full h-full object-cover"
           />
@@ -55,17 +55,17 @@ const ServicesCollage: React.FC = () => {
           </div>
         </div>
         
-        {/* House Washing - Half width */}
+        {/* Window Cleaning - Half width (swapped with pressure washing) */}
         <div className="md:col-span-6 h-[350px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/e6e02d29-51c3-4b83-bee4-9139cc64faf4.png" 
-            alt="Pressure Washing" 
+            src="/lovable-uploads/9daedb39-265a-47c3-8b97-18e9c5688ea7.png" 
+            alt="Window Cleaning" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
-            <h2 className="text-2xl font-bold text-white mb-2">PROFESSIONAL<br />PRESSURE<br />WASHING</h2>
+            <h2 className="text-2xl font-bold text-white mb-2">PROFESSIONAL<br />WINDOW<br />CLEANING</h2>
             <Link 
-              to="/house-washing" 
+              to="/window-cleaning" 
               className="inline-flex items-center text-white group"
             >
               LEARN MORE <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -76,7 +76,7 @@ const ServicesCollage: React.FC = () => {
         {/* Reviews Section - Half width */}
         <div className="md:col-span-6 h-[350px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/f95d03db-e3a8-40c6-9c00-7b6cf0c79131.png" 
+            src="/lovable-uploads/03c50501-06b0-4007-8f07-05492100e51e.png" 
             alt="Window Cleaning Reviews" 
             className="w-full h-full object-cover"
           />
