@@ -28,15 +28,15 @@ const Reviews = () => {
     <Layout>
       <div className="px-0 py-0 w-full">
         {/* Hero section - full width image */}
-        <div className="relative w-full h-[600px] mb-0">
+        <div className="relative w-full h-[700px] mb-0">
           <img 
             src="/lovable-uploads/2f6cf9ca-17b3-4daf-8156-dc69d4084561.png" 
             alt="Happy customers" 
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-start px-8 md:px-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white">Reviews</h1>
-            <p className="text-white text-lg">Real reviews. Real people.</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white animate-wipe-in">Reviews</h1>
+            <p className="text-white text-lg animate-wipe-in" style={{"--delay": "0.3s"} as React.CSSProperties}>Real reviews. Real people.</p>
           </div>
         </div>
         
