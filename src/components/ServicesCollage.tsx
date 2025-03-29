@@ -2,18 +2,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import GoogleRating from './GoogleRating';
 
 const ServicesCollage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Google Rating and Heading Section */}
+      {/* Heading Section (Google Rating removed) */}
       <div className="text-center mb-10">
-        <div className="flex justify-center mb-4">
-          <GoogleRating className="inline-block" />
-        </div>
-        
         <h1 className="text-3xl md:text-4xl font-bold mb-3">High Shine makes it easy to<br />transform your home.</h1>
         
         <p className="text-gray-700 max-w-3xl mx-auto mb-8">
@@ -48,9 +42,10 @@ const ServicesCollage: React.FC = () => {
               <p className="text-white text-lg mb-6">
                 For eavestroughs cleaning we use state of the art technology. Specifically, we use SkyVac technology®️ industrial grade vacuums with cameras attached to them so we can see and remove everything. We can also clean by hand.
               </p>
-              <Button asChild className="bg-[#62BFF0] hover:bg-[#62BFF0]/90 text-white">
-                <Link to="/gutter-cleaning">GET GUTTER CLEANING SERVICES</Link>
-              </Button>
+              <div className="bg-[#62BFF0] text-white p-4 rounded-lg">
+                <h3 className="font-bold text-xl mb-2">Satisfaction Guarantee</h3>
+                <p>You don't pay us unless you're 100% satisfied with our work!</p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -6,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Check, Phone, Facebook } from 'lucide-react';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ServicesCollage from '@/components/ServicesCollage';
-import GoogleRating from '@/components/GoogleRating';
 
 const Home = () => {
   const testimonials = [
@@ -61,10 +59,6 @@ const Home = () => {
               <Button asChild size="lg" className="px-8">
                 <Link to="/booking?quote=true">Request a Quote</Link>
               </Button>
-            </div>
-            
-            <div className="mt-8 hero-animate" style={{"--delay": "0.7s"} as React.CSSProperties}>
-              <GoogleRating />
             </div>
           </div>
         </div>
