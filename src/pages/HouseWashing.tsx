@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -30,7 +31,7 @@ const HouseWashing = () => {
       <section className="relative">
         <div className="w-full h-[500px] relative">
           <img 
-            src="/lovable-uploads/cda52110-d35d-4881-867a-46f491ed73d6.png" 
+            src="/lovable-uploads/3786591d-ffee-42af-9e20-f2eaa1af64e4.png" 
             alt="Pressure Washing Services" 
             className="w-full h-full object-cover"
           />
