@@ -11,8 +11,8 @@ import HouseWashing from "./pages/HouseWashing";
 import RoofWashing from "./pages/RoofWashing";
 import GutterCleaning from "./pages/GutterCleaning";
 import Booking from "./pages/Booking";
-import YourBookings from "./pages/YourBookings";
 import Reviews from "./pages/Reviews";
+import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -49,8 +49,8 @@ const App = () => (
           <Route path="/roof-washing" element={<RoofWashing />} />
           <Route path="/gutter-cleaning" element={<GutterCleaning />} />
           <Route path="/booking" element={<Booking />} />
-          <Route path="/your-bookings" element={<YourBookings />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

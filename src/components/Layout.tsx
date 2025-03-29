@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Mail, Menu, X, ChevronDown, Facebook, MapPin } from 'lucide-react';
@@ -23,6 +24,11 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
     return location.pathname === path;
   };
 
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const services = [
     { name: 'Window Cleaning', path: '/window-cleaning' },
     { name: 'House Washing', path: '/house-washing' },
@@ -33,7 +39,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Request Quote', path: '/booking?quote=true' },
-    { name: 'Your Bookings', path: '/your-bookings' },
+    { name: 'Contact Us', path: '/contact-us' },
   ];
 
   // Scroll to top on link click

@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 const ServicesCollage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Heading Section (Google Rating removed) */}
+      {/* Heading Section */}
       <div className="text-center mb-10">
         <h1 className="text-3xl md:text-4xl font-bold mb-3">High Shine makes it easy to<br />transform your home.</h1>
         
@@ -69,22 +69,16 @@ const ServicesCollage: React.FC = () => {
           </div>
         </div>
         
-        {/* Reviews Section - Right shorter (col-span-4) */}
-        <div className="md:col-span-4 h-[350px] relative overflow-hidden">
-          <img 
-            src="/lovable-uploads/03c50501-06b0-4007-8f07-05492100e51e.png" 
-            alt="Reviews" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
-            <h2 className="text-2xl font-bold text-white mb-2">OUR<br />SERVICES<br />REVIEWS</h2>
-            <Link 
-              to="/reviews" 
-              className="inline-flex items-center text-white group"
-            >
-              VIEW ALL REVIEWS <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
+        {/* Satisfaction Guarantee - Right shorter (col-span-4) */}
+        <div className="md:col-span-4 h-[350px] bg-[#62BFF0]/90 relative overflow-hidden flex flex-col justify-center p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">SATISFACTION GUARANTEE</h2>
+          <p className="text-white mb-6">You don't pay us unless you're 100% satisfied with our work! We stand behind the quality of our services.</p>
+          <Link 
+            to="/reviews" 
+            className="inline-flex items-center text-white group"
+          >
+            READ REVIEWS <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
         
         {/* Third row - left block shorter, right block longer */}
