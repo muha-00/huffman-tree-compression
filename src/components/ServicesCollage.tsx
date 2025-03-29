@@ -32,12 +32,12 @@ const ServicesCollage: React.FC = () => {
         </div>
       </div>
 
-      {/* Services Grid */}
+      {/* Services Grid with Asymmetrical Layout */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-        {/* Gutter Cleaning - Full width */}
+        {/* Gutter Cleaning - Full width (First row longest) */}
         <div className="md:col-span-12 h-[400px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/7e661b48-fb65-4ae1-bc68-87fa5ec10f36.png" 
+            src="/lovable-uploads/5b03ae57-611e-4a8b-be9e-57d0edadb52e.png" 
             alt="Gutter Cleaning" 
             className="w-full h-full object-cover"
           />
@@ -55,17 +55,18 @@ const ServicesCollage: React.FC = () => {
           </div>
         </div>
         
-        {/* Window Cleaning - Half width (swapped with pressure washing) */}
-        <div className="md:col-span-6 h-[350px] relative overflow-hidden">
+        {/* Second row - left block longer, right block shorter */}
+        {/* Pressure Washing - Left longer (col-span-8) */}
+        <div className="md:col-span-8 h-[350px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/9daedb39-265a-47c3-8b97-18e9c5688ea7.png" 
-            alt="Window Cleaning" 
+            src="/lovable-uploads/611f8e06-64cd-48bc-8f06-e41ce5092627.png" 
+            alt="Pressure Washing" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
-            <h2 className="text-2xl font-bold text-white mb-2">PROFESSIONAL<br />WINDOW<br />CLEANING</h2>
+            <h2 className="text-2xl font-bold text-white mb-2">PROFESSIONAL<br />PRESSURE<br />WASHING</h2>
             <Link 
-              to="/window-cleaning" 
+              to="/house-washing" 
               className="inline-flex items-center text-white group"
             >
               LEARN MORE <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -73,15 +74,15 @@ const ServicesCollage: React.FC = () => {
           </div>
         </div>
         
-        {/* Reviews Section - Half width */}
-        <div className="md:col-span-6 h-[350px] relative overflow-hidden">
+        {/* Reviews Section - Right shorter (col-span-4) */}
+        <div className="md:col-span-4 h-[350px] relative overflow-hidden">
           <img 
             src="/lovable-uploads/03c50501-06b0-4007-8f07-05492100e51e.png" 
-            alt="Window Cleaning Reviews" 
+            alt="Reviews" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
-            <h2 className="text-2xl font-bold text-white mb-2">OUR WINDOW<br />CLEANING & ALL<br />SERVICES<br />REVIEWS</h2>
+            <h2 className="text-2xl font-bold text-white mb-2">OUR<br />SERVICES<br />REVIEWS</h2>
             <Link 
               to="/reviews" 
               className="inline-flex items-center text-white group"
@@ -91,21 +92,31 @@ const ServicesCollage: React.FC = () => {
           </div>
         </div>
         
-        {/* Call Us Section - Half width */}
-        <div className="md:col-span-6 h-[250px] bg-black text-white flex flex-col justify-center p-6">
+        {/* Third row - left block shorter, right block longer */}
+        {/* Call Us Section - Left shorter (col-span-4) */}
+        <div className="md:col-span-4 h-[250px] bg-black text-white flex flex-col justify-center p-6">
           <h2 className="text-2xl font-bold mb-2">CALL US!</h2>
           <a href="tel:4378585005" className="text-3xl font-bold text-[#62BFF0]">437-858-5005</a>
           <p className="mt-2 text-white/70">highshinecleaning123@gmail.com</p>
           <p className="mt-2 text-white/70">Monday To Friday<br />8:30 am to 9:00 pm EST</p>
         </div>
         
-        {/* Satisfaction Guarantee - Half width */}
-        <div className="md:col-span-6 h-[250px] bg-[#62BFF0] text-white flex flex-col justify-center items-center p-6 text-center">
-          <h2 className="text-2xl font-bold mb-3">THE HIGH SHINE<br />SATISFACTION GUARANTEE</h2>
-          <p className="mb-5">We won't stop working until you're satisfied. Notice something? We'll come back to fix it up for you for free.</p>
-          <Button asChild variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90">
-            <Link to="/booking">BOOK NOW</Link>
-          </Button>
+        {/* Window Cleaning - Right longer (col-span-8) */}
+        <div className="md:col-span-8 h-[250px] relative overflow-hidden">
+          <img 
+            src="/lovable-uploads/c33a4808-e59a-4bf8-b1d6-d89861768ec1.png" 
+            alt="Window Cleaning" 
+            className="w-full h-full object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
+            <h2 className="text-2xl font-bold text-white mb-2">PROFESSIONAL<br />WINDOW CLEANING</h2>
+            <Link 
+              to="/window-cleaning" 
+              className="inline-flex items-center text-white group"
+            >
+              LEARN MORE <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
