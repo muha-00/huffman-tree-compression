@@ -55,7 +55,7 @@ const GutterCleaning = () => {
       <section className="relative">
         <div className="w-full h-[500px] relative">
           <img 
-            src="/lovable-uploads/03c50501-06b0-4007-8f07-05492100e51e.png" 
+            src="/lovable-uploads/2b1a427b-30d3-4497-8177-fd955d1af674.png" 
             alt="Gutter Cleaning Services" 
             className="w-full h-full object-cover"
           />

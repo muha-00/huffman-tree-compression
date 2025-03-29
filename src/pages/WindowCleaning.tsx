@@ -55,7 +55,7 @@ const WindowCleaning = () => {
       <section className="relative">
         <div className="w-full h-[500px] relative">
           <img 
-            src="/lovable-uploads/7e661b48-fb65-4ae1-bc68-87fa5ec10f36.png" 
+            src="/lovable-uploads/8599a560-bac4-4ce2-bc7d-2358ad0fb255.png" 
             alt="Window Cleaning Services" 
             className="w-full h-full object-cover"
           />
