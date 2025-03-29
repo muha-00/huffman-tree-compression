@@ -28,7 +28,7 @@ const Reviews = () => {
     <Layout>
       <div className="px-0 py-0 w-full">
         {/* Hero section - full width image */}
-        <div className="relative w-full h-[700px] mb-0">
+        <div className="relative w-full h-[600px] mb-0">
           <img 
             src="/lovable-uploads/2f6cf9ca-17b3-4daf-8156-dc69d4084561.png" 
             alt="Happy customers" 

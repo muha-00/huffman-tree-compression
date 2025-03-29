@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -142,7 +141,7 @@ const RoofWashing = () => {
         </div>
       </section>
 
-      {/* Customer Reviews Section */}
+      {/* Customer Reviews Section - Adding the Google Reviews carousel */}
       <section className="py-16 bg-[#62BFF0]/10">
         <div className="container">
           <h2 className="text-3xl font-bold mb-8 text-center">What Our Customers Say</h2>
