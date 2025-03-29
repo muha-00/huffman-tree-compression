@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -40,31 +41,24 @@ const RoofWashing = () => {
 
   return (
     <Layout>
-      {/* Hero Section - New Design */}
-      <section className="relative">
-        <div className="w-full h-[500px] relative">
-          <img 
-            src="/lovable-uploads/14cd8606-37c8-4c43-86dd-402bc7151c41.png" 
-            alt="Roof Washing Services" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center px-8 md:px-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-white uppercase animate-wipe-in">
-              ROOF WASHING<br />SERVICES
-            </h1>
-            <p className="text-2xl text-white mt-4 animate-wipe-in" style={{"--delay": "0.3s"} as React.CSSProperties}>
-              Mississauga, Oakville, Brampton and surroundings
-            </p>
-          </div>
-        </div>
+      {/* Hero Section */}
+      <section className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-to-b from-highshine/10 to-transparent z-0"></div>
         
-        {/* Blue CTA bar */}
-        <div className="w-full bg-[#62BFF0] text-white py-8">
-          <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-8">
-            <h2 className="text-2xl font-bold mb-4 md:mb-0">Get Your Quote Today!</h2>
-            <Button asChild size="lg" variant="secondary" className="bg-black text-white hover:bg-black/90">
-              <Link to="/booking?quote=true&service=roof">GET QUOTE</Link>
-            </Button>
+        <div className="container relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl font-bold tracking-tight mb-6">Professional Roof Washing Services</h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              Protect your investment and enhance your home's appearance with our safe and effective roof washing services.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button asChild size="lg">
+                <Link to="/booking">Book Roof Washing</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link to="/booking?quote=true&service=roof">Get a Quote</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

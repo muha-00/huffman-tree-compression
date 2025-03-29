@@ -35,8 +35,8 @@ const Reviews = () => {
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-start px-8 md:px-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white animate-wipe-in">Reviews</h1>
-            <p className="text-white text-lg animate-wipe-in" style={{"--delay": "0.3s"} as React.CSSProperties}>Real reviews. Real people.</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white">Reviews</h1>
+            <p className="text-white text-lg">Real reviews. Real people.</p>
           </div>
         </div>
         
