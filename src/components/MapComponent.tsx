@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
+import { Skeleton } from '@/components/ui/skeleton';
 
 // Declare the global google namespace for TypeScript
 declare global {
@@ -28,10 +29,12 @@ const DEMO_API_KEY = 'AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg';
 const MapComponent: React.FC<MapComponentProps> = ({ className, apiKey }) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
+  const [mapError, setMapError] = useState<string | null>(null);
   const mapInstanceRef = useRef<any>(null);
   const markersRef = useRef<any[]>([]);
   const polygonsRef = useRef<any[]>([]);
   const infoWindowsRef = useRef<any[]>([]);
+  const scriptRef = useRef<HTMLScriptElement | null>(null);
   
   useEffect(() => {
     if (!mapRef.current) return;
@@ -49,6 +52,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ className, apiKey }) => {
     
     const initMap = async () => {
       try {
+        // Load the maps library
         const { Map } = await loader.importLibrary('maps');
         await loader.load();
         
@@ -119,6 +123,10 @@ const MapComponent: React.FC<MapComponentProps> = ({ className, apiKey }) => {
         }
       } catch (error) {
         console.error('Error loading Google Maps:', error);
+        if (mounted) {
+          setMapError('Failed to load map. Please try again later.');
+          setMapLoaded(false);
+        }
       }
     };
     
@@ -162,9 +170,23 @@ const MapComponent: React.FC<MapComponentProps> = ({ className, apiKey }) => {
       ref={mapRef} 
       className={`relative w-full h-[500px] rounded-lg overflow-hidden ${className}`}
     >
-      {!mapLoaded && (
+      {!mapLoaded && !mapError && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-highshine"></div>
+          <div className="flex flex-col items-center">
+            <Skeleton className="h-12 w-12 rounded-full mb-4" />
+            <p className="text-muted-foreground">Loading map...</p>
+          </div>
+        </div>
+      )}
+      
+      {mapError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+          <div className="text-center p-4">
+            <p className="text-red-500 font-medium">{mapError}</p>
+            <p className="text-muted-foreground text-sm mt-2">
+              Please check your internet connection and try again.
+            </p>
+          </div>
         </div>
       )}
     </div>
