@@ -67,8 +67,8 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         </div>
       </div>
       
-      {/* Header with navigation */}
-      <header className="py-4 border-b backdrop-blur-sm bg-background/80 sticky top-0 z-30">
+      {/* Header with navigation - Updated with solid background on mobile */}
+      <header className="py-4 border-b bg-white md:bg-background/80 md:backdrop-blur-sm sticky top-0 z-30">
         <div className="container flex justify-between items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={handleLinkClick}>
@@ -203,9 +203,9 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </Button>
         </div>
         
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Updated with solid background */}
         {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-[77px] bg-background z-20">
+          <div className="md:hidden fixed inset-0 top-[77px] bg-white z-20">
             <nav className="container py-4 flex flex-col space-y-3">
               {/* Home link */}
               <Link 
@@ -264,7 +264,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     Services <ChevronDown className="ml-2 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-56 rounded-md bg-popover z-50">
+                <DropdownMenuContent align="start" className="w-56 rounded-md bg-white z-50">
                   {services.map((service) => (
                     <DropdownMenuItem key={service.path} asChild>
                       <Link 
