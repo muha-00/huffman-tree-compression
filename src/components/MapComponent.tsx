@@ -2,6 +2,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
 
+// Declare the global google namespace for TypeScript
+declare global {
+  interface Window {
+    google: {
+      maps: {
+        Map: any;
+        Polygon: any;
+      };
+    };
+  }
+}
+
 interface MapComponentProps {
   className?: string;
   apiKey: string;
