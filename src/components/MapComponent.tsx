@@ -9,6 +9,8 @@ declare global {
       maps: {
         Map: any;
         Polygon: any;
+        Marker: any;
+        InfoWindow: any;
       };
     };
   }
@@ -16,18 +18,25 @@ declare global {
 
 interface MapComponentProps {
   className?: string;
-  apiKey: string;
+  apiKey?: string;
 }
+
+// Using a demo API key for development purposes only
+// For production, this should be replaced with an environment variable
+const DEMO_API_KEY = 'AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg';
 
 const MapComponent: React.FC<MapComponentProps> = ({ className, apiKey }) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
   
   useEffect(() => {
-    if (!mapRef.current || !apiKey) return;
+    if (!mapRef.current) return;
+    
+    // Use provided API key or fall back to demo key
+    const key = apiKey || DEMO_API_KEY;
     
     const loader = new Loader({
-      apiKey: apiKey,
+      apiKey: key,
       version: 'weekly',
       libraries: ['maps']
     });
@@ -70,6 +79,22 @@ const MapComponent: React.FC<MapComponentProps> = ({ className, apiKey }) => {
           });
           
           gtaPolygon.setMap(map);
+          
+          // Add Toronto marker
+          const torontoMarker = new window.google.maps.Marker({
+            position: { lat: 43.7417, lng: -79.3733 },
+            map: map,
+            title: "Toronto, ON"
+          });
+          
+          // Add info window for Toronto
+          const infoWindow = new window.google.maps.InfoWindow({
+            content: "<div style='padding: 10px;'><strong>Toronto</strong><br>Our main service area</div>"
+          });
+          
+          torontoMarker.addListener("click", () => {
+            infoWindow.open(map, torontoMarker);
+          });
         }
         
         setMapLoaded(true);
@@ -86,12 +111,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ className, apiKey }) => {
       ref={mapRef} 
       className={`relative w-full h-[500px] rounded-lg overflow-hidden ${className}`}
     >
-      {!apiKey && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 text-gray-500">
-          Please provide a Google Maps API key
-        </div>
-      )}
-      {apiKey && !mapLoaded && (
+      {!mapLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-highshine"></div>
         </div>

@@ -1,33 +1,21 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Facebook, MapIcon } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook } from 'lucide-react';
 import MapComponent from '@/components/MapComponent';
 import { useToast } from '@/components/ui/use-toast';
 
 const ContactUs = () => {
-  // You should replace this with your actual Google Maps API key
-  const [apiKey, setApiKey] = useState<string>('');
-  const [showApiKeyInput, setShowApiKeyInput] = useState(true);
   const { toast } = useToast();
 
-  const handleSubmitApiKey = (e: React.FormEvent) => {
+  const handleSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
-    if (apiKey.trim()) {
-      setShowApiKeyInput(false);
-      toast({
-        title: "API Key saved",
-        description: "The map will now display with your API key.",
-      });
-    } else {
-      toast({
-        title: "API Key required",
-        description: "Please provide a Google Maps API key to display the map.",
-        variant: "destructive",
-      });
-    }
+    toast({
+      title: "Message submitted",
+      description: "Thanks for reaching out! We'll get back to you shortly.",
+    });
   };
 
   return (
@@ -43,49 +31,25 @@ const ContactUs = () => {
           
           {/* Map Section with Interactive Map */}
           <div className="w-full mb-12 relative">
-            {showApiKeyInput ? (
-              <div className="bg-muted p-8 rounded-lg text-center">
-                <h3 className="text-xl font-medium mb-4">Google Maps API Key Required</h3>
-                <p className="mb-4 text-muted-foreground">
-                  To view the interactive map, please enter your Google Maps API key.
-                </p>
-                <form onSubmit={handleSubmitApiKey} className="max-w-md mx-auto">
-                  <input
-                    type="text"
-                    value={apiKey}
-                    onChange={(e) => setApiKey(e.target.value)}
-                    placeholder="Enter your Google Maps API key"
-                    className="w-full px-4 py-2 rounded border mb-3 focus:outline-none focus:ring-2 focus:ring-[#62BFF0]"
-                  />
-                  <Button type="submit" className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
-                    Submit
+            <div className="relative rounded-lg overflow-hidden">
+              <MapComponent />
+              
+              {/* Map caption overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+                <h2 className="text-3xl font-bold text-white mb-2">Serving GTA and Surrounding Areas</h2>
+                <p className="text-white text-xl mb-6">Contact now for a free quote!</p>
+                <div className="flex flex-wrap gap-4">
+                  <Button asChild size="lg" className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
+                    <Link to="/booking?quote=true">Get a Free Quote</Link>
                   </Button>
-                </form>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  You can get a key at the <a href="https://console.cloud.google.com/google/maps-apis" target="_blank" rel="noopener noreferrer" className="text-[#62BFF0] hover:underline">Google Cloud Console</a>.
-                </p>
-              </div>
-            ) : (
-              <div className="relative rounded-lg overflow-hidden">
-                <MapComponent apiKey={apiKey} />
-                
-                {/* Map caption overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
-                  <h2 className="text-3xl font-bold text-white mb-2">Serving GTA and Surrounding Areas</h2>
-                  <p className="text-white text-xl mb-6">Contact now for a free quote!</p>
-                  <div className="flex flex-wrap gap-4">
-                    <Button asChild size="lg" className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
-                      <Link to="/booking?quote=true">Get a Free Quote</Link>
-                    </Button>
-                    <Button asChild size="lg" variant="outline" className="bg-white/20 border-white text-white hover:bg-white/30">
-                      <a href="tel:4378585005">
-                        <Phone className="mr-2 h-5 w-5" /> Call Us
-                      </a>
-                    </Button>
-                  </div>
+                  <Button asChild size="lg" variant="outline" className="bg-white/20 border-white text-white hover:bg-white/30">
+                    <a href="tel:4378585005">
+                      <Phone className="mr-2 h-5 w-5" /> Call Us
+                    </a>
+                  </Button>
                 </div>
               </div>
-            )}
+            </div>
           </div>
           
           {/* Contact Information and Form Section */}
@@ -178,7 +142,7 @@ const ContactUs = () => {
             <div className="bg-muted p-8 rounded-lg">
               <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
               
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmitForm}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium mb-1">First Name</label>
