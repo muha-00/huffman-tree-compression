@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Facebook } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, MapIcon } from 'lucide-react';
 import MapComponent from '@/components/MapComponent';
 import { useToast } from '@/components/ui/use-toast';
 
@@ -66,10 +66,12 @@ const ContactUs = () => {
                 </p>
               </div>
             ) : (
-              <>
+              <div className="relative rounded-lg overflow-hidden">
                 <MapComponent apiKey={apiKey} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg flex flex-col justify-end p-8">
-                  <h2 className="text-3xl font-bold text-white mb-4">Serving GTA and Surrounding Areas</h2>
+                
+                {/* Map caption overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+                  <h2 className="text-3xl font-bold text-white mb-2">Serving GTA and Surrounding Areas</h2>
                   <p className="text-white text-xl mb-6">Contact now for a free quote!</p>
                   <div className="flex flex-wrap gap-4">
                     <Button asChild size="lg" className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
@@ -82,7 +84,7 @@ const ContactUs = () => {
                     </Button>
                   </div>
                 </div>
-              </>
+              </div>
             )}
           </div>
           

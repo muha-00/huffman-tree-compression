@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -132,6 +131,12 @@
   [data-radix-popper-content-wrapper] {
     z-index: 50 !important;
   }
+  
+  /* Mobile navbar */
+  .mobile-nav {
+    background-color: white !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+  }
 }
 
 /* Google Map styles */
@@ -145,4 +150,37 @@
   width: 100%;
   border-radius: 0.5rem;
   overflow: hidden;
+}
+
+/* Map loading overlay */
+.map-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Map caption overlay */
+.map-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Map controls positioning */
+.map-controls {
+  position: absolute;
+  bottom: 5rem;
+  right: 1rem;
+  z-index: 10;
 }
