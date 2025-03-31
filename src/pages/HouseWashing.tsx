@@ -124,6 +124,50 @@ const HouseWashing = () => {
         </div>
       </section>
 
+      {/* Before & After Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Expect Exceptional Results</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We pride ourselves on delivering outstanding cleaning results every time. 
+              With years of experience and professional-grade equipment, we transform dirty 
+              surfaces into spotless areas you'll be proud to show off.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="aspect-video relative">
+                <img 
+                  src="/lovable-uploads/5ef61172-400c-4454-86a6-578d102f68b3.png" 
+                  alt="Pressure washing before and after" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">Walkway Transformation</h3>
+                <p>Our professional pressure washing service removes years of accumulated dirt, algae, and stains from your walkways.</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="aspect-video relative">
+                <img 
+                  src="/lovable-uploads/ab49cf9f-c3b0-4083-b80c-05dc2c173051.png" 
+                  alt="Deck cleaning before and after" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">Deck Restoration</h3>
+                <p>Breathe new life into your wooden deck with our careful pressure washing that preserves the integrity of your wood surfaces.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Customer Reviews Section */}
       <section className="py-16 bg-[#62BFF0]/10">
         <div className="container">

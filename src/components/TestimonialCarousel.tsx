@@ -35,7 +35,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
               <div 
                 className="relative h-[400px] flex items-center justify-center p-6 md:p-12"
                 style={{
-                  background: '#62BFF0' // Changed to match the navbar blue
+                  background: '#62BFF0' // Match the navbar blue
                 }}
               >
                 <div className="relative text-white text-center max-w-3xl mx-auto">
@@ -43,7 +43,6 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ testimonials 
                   <blockquote className="text-xl md:text-3xl font-medium italic mb-6">
                     "{testimonial.text}"
                   </blockquote>
-                  {testimonial.author && <p className="text-lg md:text-xl">- {testimonial.author}</p>}
                 </div>
               </div>
             </CarouselItem>
