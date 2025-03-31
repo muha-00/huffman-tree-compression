@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 
 const ServicesCollage: React.FC = () => {
   return (
@@ -39,13 +39,10 @@ const ServicesCollage: React.FC = () => {
             <div className="max-w-md">
               <h2 className="text-3xl font-bold text-white mb-2">Gutter Cleaning</h2>
               <h3 className="text-2xl font-bold text-white mb-4">State Of The Art Technology.</h3>
-              <p className="text-white text-lg mb-6">
+              <p className="text-white text-lg mb-6 sm:text-base md:text-lg">
                 For eavestroughs cleaning we use state of the art technology. Specifically, we use SkyVac technology®️ industrial grade vacuums with cameras attached to them so we can see and remove everything. We can also clean by hand.
               </p>
-              <div className="bg-[#62BFF0] text-white p-4 rounded-lg">
-                <h3 className="font-bold text-xl mb-2">Satisfaction Guarantee</h3>
-                <p>You don't pay us unless you're 100% satisfied with our work!</p>
-              </div>
+              {/* Removed satisfaction guarantee box from here */}
             </div>
           </div>
         </div>
@@ -71,8 +68,11 @@ const ServicesCollage: React.FC = () => {
         
         {/* Satisfaction Guarantee - Right shorter (col-span-4) */}
         <div className="md:col-span-4 h-[350px] bg-[#62BFF0]/90 relative overflow-hidden flex flex-col justify-center p-6">
-          <h2 className="text-2xl font-bold text-white mb-4">SATISFACTION GUARANTEE</h2>
-          <p className="text-white mb-6">You don't pay us unless you're 100% satisfied with our work! We stand behind the quality of our services.</p>
+          <div className="flex items-center mb-2">
+            <ShieldCheck className="h-8 w-8 text-white mr-2" />
+            <h2 className="text-2xl font-bold text-white">The Highshine Satisfaction Guarantee</h2>
+          </div>
+          <p className="text-white mb-6">You don't pay us until you're 100% satisfied with every little service.</p>
           <Link 
             to="/reviews" 
             className="inline-flex items-center text-white group"
