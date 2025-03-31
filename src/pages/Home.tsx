@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -11,17 +12,17 @@ const Home = () => {
     {
       id: 1,
       text: "We've been using these guys for years for our home. They show up on time, do an immaculate job on the gutters, and leave the windows completely streak free. Satisfied every time.",
-      author: "Jennifer Thompson"
+      author: ""
     },
     {
       id: 2,
       text: "The team at High Shine Cleaning transformed our house exterior. They're professional, efficient, and the results are outstanding. Highly recommend for any home cleaning needs!",
-      author: "Michael Rodriguez"
+      author: ""
     },
     {
       id: 3,
       text: "After years of neglect, our windows were in terrible shape. One visit from High Shine and they look brand new! Their attention to detail is impressive.",
-      author: "Sarah Lewis"
+      author: ""
     },
   ];
 
@@ -74,12 +75,90 @@ const Home = () => {
         <div className="container px-0 max-w-full">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold">Our Professional Services</h2>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto px-4">
               We provide a range of high-quality cleaning services to keep your home looking its best.
             </p>
           </div>
           
           <ServicesCollage />
+        </div>
+      </section>
+
+      {/* Before & After Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Expect Exceptional Results</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We pride ourselves on delivering outstanding cleaning results every time. 
+              With years of experience and professional-grade equipment, we transform dirty 
+              surfaces into spotless areas you'll be proud to show off.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+            {/* Walkway Before/After */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="aspect-[16/9] relative">
+                <div className="absolute inset-0 grid grid-cols-2">
+                  <div className="relative">
+                    <img 
+                      src="/lovable-uploads/5ef61172-400c-4454-86a6-578d102f68b3.png" 
+                      alt="Dirty walkway before cleaning" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-4 left-4 bg-black/80 text-white px-3 py-1 text-sm font-bold">BEFORE</div>
+                  </div>
+                  <div className="relative">
+                    <img 
+                      src="/lovable-uploads/5ef61172-400c-4454-86a6-578d102f68b3.png" 
+                      alt="Clean walkway after pressure washing" 
+                      className="w-full h-full object-cover object-right"
+                    />
+                    <div className="absolute top-4 right-4 bg-[#62BFF0] text-white px-3 py-1 text-sm font-bold">AFTER</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">Walkway Pressure Washing</h3>
+                <p>Transform your walkways from dirty and stained to clean and inviting. Our professional pressure washing service removes years of dirt, grime, and algae.</p>
+              </div>
+            </div>
+
+            {/* Deck Before/After */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="aspect-[16/9] relative">
+                <div className="absolute inset-0 grid grid-cols-2">
+                  <div className="relative">
+                    <img 
+                      src="/lovable-uploads/ab49cf9f-c3b0-4083-b80c-05dc2c173051.png" 
+                      alt="Weathered deck before cleaning" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-4 left-4 bg-black/80 text-white px-3 py-1 text-sm font-bold">BEFORE</div>
+                  </div>
+                  <div className="relative">
+                    <img 
+                      src="/lovable-uploads/ab49cf9f-c3b0-4083-b80c-05dc2c173051.png" 
+                      alt="Restored deck after pressure washing" 
+                      className="w-full h-full object-cover object-right"
+                    />
+                    <div className="absolute top-4 right-4 bg-[#62BFF0] text-white px-3 py-1 text-sm font-bold">AFTER</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">Deck Restoration</h3>
+                <p>Breathe new life into your wooden deck. Our careful pressure washing removes weathering and stains while preserving the integrity of your wood surfaces.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild size="lg">
+              <Link to="/house-washing">Learn More About Our Pressure Washing</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
