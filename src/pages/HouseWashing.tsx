@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -138,11 +139,11 @@ const HouseWashing = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="aspect-video relative">
+              <div className="relative">
                 <img 
-                  src="/lovable-uploads/5ef61172-400c-4454-86a6-578d102f68b3.png" 
-                  alt="Pressure washing before and after" 
-                  className="w-full h-full object-cover"
+                  src="/lovable-uploads/7a79f545-3f37-4452-9ecb-1d1fe0c5d2c9.png" 
+                  alt="Walkway before and after pressure washing" 
+                  className="w-full object-contain"
                 />
               </div>
               <div className="p-6">
@@ -152,11 +153,11 @@ const HouseWashing = () => {
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="aspect-video relative">
+              <div className="relative">
                 <img 
                   src="/lovable-uploads/ab49cf9f-c3b0-4083-b80c-05dc2c173051.png" 
-                  alt="Deck cleaning before and after" 
-                  className="w-full h-full object-cover"
+                  alt="Deck before and after cleaning" 
+                  className="w-full object-contain"
                 />
               </div>
               <div className="p-6">
