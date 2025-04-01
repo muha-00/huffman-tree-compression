@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -124,7 +125,7 @@ const HouseWashing = () => {
         </div>
       </section>
 
-      {/* Before & After Section - Updated */}
+      {/* Before & After Section - Updated with new images */}
       <section className="py-16 bg-gray-50">
         <div className="container">
           <div className="text-center mb-12">
@@ -137,29 +138,27 @@ const HouseWashing = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="relative">
-                <img 
-                  src="/lovable-uploads/7a79f545-3f37-4452-9ecb-1d1fe0c5d2c9.png" 
-                  alt="Walkway before and after pressure washing" 
-                  className="w-full h-[400px] sm:h-[450px] object-cover md:object-contain"
-                />
-              </div>
-              <div className="p-4">
+            {/* Walkway Transformation - New Image */}
+            <div>
+              <img 
+                src="/lovable-uploads/7d7c20e3-0668-4f53-851e-4f6e7d9e7055.png" 
+                alt="Walkway before and after pressure washing" 
+                className="w-full h-auto"
+              />
+              <div className="mt-4">
                 <h3 className="text-xl font-bold mb-2">Walkway Transformation</h3>
                 <p>Our professional pressure washing service removes years of accumulated dirt, algae, and stains from your walkways.</p>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="relative">
-                <img 
-                  src="/lovable-uploads/ab49cf9f-c3b0-4083-b80c-05dc2c173051.png" 
-                  alt="Deck before and after cleaning" 
-                  className="w-full h-[400px] sm:h-[450px] object-cover md:object-contain"
-                />
-              </div>
-              <div className="p-4">
+            {/* Deck Restoration - New Image */}
+            <div>
+              <img 
+                src="/lovable-uploads/4d6b65c7-ec2b-42e6-95bd-35a36fbd751e.png" 
+                alt="Deck before and after cleaning" 
+                className="w-full h-auto"
+              />
+              <div className="mt-4">
                 <h3 className="text-xl font-bold mb-2">Deck Restoration</h3>
                 <p>Breathe new life into your wooden deck with our careful pressure washing that preserves the integrity of your wood surfaces.</p>
               </div>
