@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -143,14 +142,12 @@ const HouseWashing = () => {
                 <img 
                   src="/lovable-uploads/7a79f545-3f37-4452-9ecb-1d1fe0c5d2c9.png" 
                   alt="Walkway before and after pressure washing" 
-                  className="w-full h-[350px] sm:h-[400px] object-contain"
+                  className="w-full h-[400px] sm:h-[450px] object-cover md:object-contain"
                 />
               </div>
-              <div className="p-0">
-                <div className="bg-[#62BFF0] text-white p-4">
-                  <h3 className="text-xl font-bold mb-2">Walkway Transformation</h3>
-                  <p>Our professional pressure washing service removes years of accumulated dirt, algae, and stains from your walkways.</p>
-                </div>
+              <div className="p-4">
+                <h3 className="text-xl font-bold mb-2">Walkway Transformation</h3>
+                <p>Our professional pressure washing service removes years of accumulated dirt, algae, and stains from your walkways.</p>
               </div>
             </div>
 
@@ -159,14 +156,12 @@ const HouseWashing = () => {
                 <img 
                   src="/lovable-uploads/ab49cf9f-c3b0-4083-b80c-05dc2c173051.png" 
                   alt="Deck before and after cleaning" 
-                  className="w-full h-[350px] sm:h-[400px] object-contain"
+                  className="w-full h-[400px] sm:h-[450px] object-cover md:object-contain"
                 />
               </div>
-              <div className="p-0">
-                <div className="bg-[#62BFF0] text-white p-4">
-                  <h3 className="text-xl font-bold mb-2">Deck Restoration</h3>
-                  <p>Breathe new life into your wooden deck with our careful pressure washing that preserves the integrity of your wood surfaces.</p>
-                </div>
+              <div className="p-4">
+                <h3 className="text-xl font-bold mb-2">Deck Restoration</h3>
+                <p>Breathe new life into your wooden deck with our careful pressure washing that preserves the integrity of your wood surfaces.</p>
               </div>
             </div>
           </div>
