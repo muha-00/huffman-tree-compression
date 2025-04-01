@@ -6,22 +6,22 @@ import { ArrowRight, ShieldCheck } from 'lucide-react';
 const ServicesCollage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Heading Section */}
-      <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold mb-3">High Shine makes it easy to<br />transform your home.</h1>
+      {/* Heading Section - Improved Formatting */}
+      <div className="text-center mb-10 max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
+        <h1 className="text-3xl md:text-4xl font-bold mb-6">High Shine makes it easy to<br />transform your home.</h1>
         
-        <p className="text-gray-700 max-w-3xl mx-auto mb-8">
-          Since 2020, High Shine Cleaning has been conducting <Link to="/window-cleaning" className="text-[#62BFF0] hover:underline">window cleaning</Link>, <Link to="/gutter-cleaning" className="text-[#62BFF0] hover:underline">gutter cleaning</Link> & <Link to="/house-washing" className="text-[#62BFF0] hover:underline">power washing</Link> services for clients all over the GTA. We're obsessed with customer satisfaction – so much so, that we have a satisfaction guarantee.
+        <p className="text-gray-700 mx-auto mb-6 leading-relaxed">
+          Since 2020, High Shine Cleaning has been providing exceptional <Link to="/window-cleaning" className="text-[#62BFF0] hover:underline font-medium">window cleaning</Link>, <Link to="/gutter-cleaning" className="text-[#62BFF0] hover:underline font-medium">gutter cleaning</Link> & <Link to="/house-washing" className="text-[#62BFF0] hover:underline font-medium">power washing</Link> services across the GTA. Our satisfaction guarantee reflects our commitment to customer happiness.
         </p>
         
-        <p className="font-medium mb-4">We'd love to do the work for you.</p>
+        <div className="mb-6 font-medium text-xl text-[#62BFF0]">We'd love to do the work for you.</div>
         
-        <div className="mb-8">
+        <div className="bg-gray-50 p-4 rounded-lg inline-block">
           <p className="mb-3">
-            Schedule your free estimate by just clicking "Get Quote" above,
+            Schedule your free estimate by clicking <span className="font-semibold">"Get Quote"</span> above,
           </p>
           <p>
-            or call us at <a href="tel:4378585005" className="text-[#62BFF0] font-bold hover:underline">437-858-5005</a> and one of our friendly managers will come by to conduct the quote.
+            or call us at <a href="tel:4378585005" className="text-[#62BFF0] font-bold hover:underline">437-858-5005</a> for a personal consultation.
           </p>
         </div>
       </div>

@@ -5,6 +5,7 @@ import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const WindowCleaning = () => {
   // Handle Elfsight script for service pages
@@ -46,6 +47,14 @@ const WindowCleaning = () => {
     {
       question: "Will your cleaning solutions harm my plants or exterior surfaces?",
       answer: "No, we use environmentally friendly cleaning solutions that are safe for your plants, pets, and exterior surfaces while still delivering excellent cleaning results."
+    },
+    {
+      question: "How long does window cleaning typically take?",
+      answer: "The duration depends on the number and size of windows, their accessibility, and their condition. For an average home, our team can complete the job in 2-4 hours."
+    },
+    {
+      question: "Do I need to prepare my home before your arrival?",
+      answer: "We recommend removing items from windowsills and ensuring clear access to windows. Moving furniture away from windows also helps our team work more efficiently."
     }
   ];
 
@@ -149,6 +158,48 @@ const WindowCleaning = () => {
         </div>
       </section>
 
+      {/* Before & After Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Before & After</h2>
+            <p className="max-w-3xl mx-auto text-muted-foreground">
+              See the dramatic difference our professional window cleaning services can make.
+              These before and after photos showcase our attention to detail and commitment to
+              excellence.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Window Cleaning - First Image */}
+            <div>
+              <img 
+                src="/lovable-uploads/1953968d-9e58-4d20-aee0-593b548af44d.png" 
+                alt="Close-up of window cleaning before and after" 
+                className="w-full h-auto"
+              />
+              <div className="mt-4">
+                <h3 className="text-xl font-bold mb-2">Detailed Window Cleaning</h3>
+                <p>Our meticulous window cleaning process removes all dirt, smudges, and water spots, leaving crystal clear glass.</p>
+              </div>
+            </div>
+
+            {/* Window View - Second Image */}
+            <div>
+              <img 
+                src="/lovable-uploads/5fe6e03c-99ee-4cd4-9363-fc241e4649d8.png" 
+                alt="Window view before and after cleaning" 
+                className="w-full h-auto"
+              />
+              <div className="mt-4">
+                <h3 className="text-xl font-bold mb-2">Enhanced Visibility</h3>
+                <p>Experience the difference clean windows make to your view and the amount of natural light entering your home.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Customer Reviews Section */}
       <section className="py-16 bg-[#62BFF0]/10">
         <div className="container">
@@ -157,20 +208,24 @@ const WindowCleaning = () => {
         </div>
       </section>
 
-      {/* FAQs */}
+      {/* FAQs with Accordion */}
       <section className="py-16 bg-muted">
         <div className="container">
           <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {faqs.map((faq, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-medium mb-2">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-lg font-medium text-left">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
