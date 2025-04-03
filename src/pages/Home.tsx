@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
-import { Check, Phone, Facebook } from 'lucide-react';
+import { Check, Phone, Facebook, ShieldCheck, Star, ArrowRight } from 'lucide-react';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ServicesCollage from '@/components/ServicesCollage';
 
@@ -43,33 +43,98 @@ const Home = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28">
-        {/* Background with subtle pattern */}
-        <div className="absolute inset-0 bg-gradient-to-b from-highshine/10 to-transparent z-0"></div>
+      {/* Enhanced Hero Section with Gradient Background */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Improved background with gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-50 via-sky-100 to-sky-50 opacity-50 z-0"></div>
+        <div className="absolute inset-0 bg-[url('/lovable-uploads/20580ad3-0750-4803-bf37-ff7a96b4b3e1.png')] bg-cover bg-center bg-no-repeat opacity-20 z-0"></div>
         
         <div className="container relative z-10">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+            <div className="inline-block mb-6 px-6 py-2 bg-[#62BFF0]/10 rounded-full">
+              <span className="text-[#62BFF0] font-semibold">Professional Exterior Cleaning Services</span>
+            </div>
+            
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight hero-animate" style={{"--delay": "0.1s"} as React.CSSProperties}>
-              Professional Window & Home Cleaning Services
+              Transform Your Home's Exterior with <span className="text-[#62BFF0]">High Shine</span>
             </h1>
+            
             <p className="mt-6 text-lg text-muted-foreground hero-animate" style={{"--delay": "0.3s"} as React.CSSProperties}>
-              A team of experienced professionals providing exceptional window cleaning, house washing, roof washing, and gutter cleaning services.
+              Elevate your property's appearance with our premium exterior cleaning services. 
+              We specialize in window cleaning, house washing, roof washing, and gutter cleaning.
             </p>
+            
             <div className="mt-10 flex flex-col sm:flex-row gap-4 hero-animate" style={{"--delay": "0.5s"} as React.CSSProperties}>
-              <Button asChild size="lg" className="px-8">
+              <Button asChild size="lg" className="px-8 bg-[#62BFF0] hover:bg-[#62BFF0]/90">
                 <Link to="/booking?quote=true">Request a Quote</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="px-8">
+                <a href="tel:4378585005">
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call Us Now
+                </a>
               </Button>
             </div>
           </div>
         </div>
       </section>
       
-      {/* Testimonial Carousel */}
-      <section>
-        <TestimonialCarousel testimonials={testimonials} />
+      {/* Enhanced Trust Indicators Section */}
+      <section className="py-10 bg-[#F8FAFC]">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Trust Indicator 1 */}
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-full bg-[#62BFF0]/10 flex items-center justify-center mb-4">
+                <ShieldCheck className="h-7 w-7 text-[#62BFF0]" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">100% Satisfaction</h3>
+              <p className="text-gray-600">We guarantee your complete satisfaction with our professional cleaning services.</p>
+            </div>
+            
+            {/* Trust Indicator 2 */}
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-full bg-[#62BFF0]/10 flex items-center justify-center mb-4">
+                <Star className="h-7 w-7 text-[#62BFF0]" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">5-Star Service</h3>
+              <p className="text-gray-600">Our customers consistently rate us 5 stars for our quality and professionalism.</p>
+            </div>
+            
+            {/* Trust Indicator 3 */}
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-full bg-[#62BFF0]/10 flex items-center justify-center mb-4">
+                <Phone className="h-7 w-7 text-[#62BFF0]" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Quick Response</h3>
+              <p className="text-gray-600">We respond promptly to your inquiries and provide timely service.</p>
+            </div>
+          </div>
+        </div>
       </section>
-
+      
+      {/* Enhanced Testimonial Section with Visual Appeal */}
+      <section className="py-12 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#62BFF0]/5 to-white z-0"></div>
+        
+        <div className="container relative z-10">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold relative inline-block">
+              What Our Clients Say
+              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-[#62BFF0]"></span>
+            </h2>
+          </div>
+          
+          <TestimonialCarousel testimonials={testimonials} />
+          
+          <div className="mt-8 text-center">
+            <Link to="/reviews" className="inline-flex items-center text-[#62BFF0] font-medium hover:underline">
+              Read All Reviews <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+      
       {/* Services Collage - Full Width */}
       <section className="py-8 w-full">
         <div className="container px-0 max-w-full">
