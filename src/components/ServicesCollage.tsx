@@ -35,14 +35,16 @@ const ServicesCollage: React.FC = () => {
             alt="Gutter Cleaning" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/40 flex flex-col justify-center p-8">
+          <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-8">
             <div className="max-w-md">
               <h2 className="text-3xl font-bold text-white mb-2">Gutter Cleaning</h2>
               <h3 className="text-2xl font-bold text-white mb-4">State Of The Art Technology.</h3>
-              <p className="text-white text-lg mb-6 sm:text-base md:text-lg">
-                For eavestroughs cleaning we use state of the art technology. Specifically, we use SkyVac technology®️ industrial grade vacuums with cameras attached to them so we can see and remove everything. We can also clean by hand.
-              </p>
-              {/* Removed satisfaction guarantee box from here */}
+              <Link 
+                to="/gutter-cleaning" 
+                className="inline-flex items-center text-white group"
+              >
+                LEARN MORE <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </div>
           </div>
         </div>
