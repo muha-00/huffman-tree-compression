@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Check, AlertTriangle, Shield } from 'lucide-react';
+import { Check, AlertTriangle } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const SoftWashing = () => {
@@ -65,13 +65,13 @@ const SoftWashing = () => {
 
   return (
     <Layout>
-      {/* Hero Section - Adjusted image position */}
+      {/* Hero Section - New Design */}
       <section className="relative">
         <div className="w-full h-[500px] relative">
           <img 
             src="/lovable-uploads/581745a9-2d5c-4063-9fb2-73d81ca897e2.png" 
             alt="Soft Washing Services" 
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50 flex flex-col justify-center px-8 md:px-16">
             <h1 className="text-5xl md:text-6xl font-bold text-white uppercase animate-wipe-in">
@@ -166,7 +166,7 @@ const SoftWashing = () => {
         </div>
       </section>
 
-      {/* Enhanced Roof Washing Subsection */}
+      {/* Roof Washing Subsection */}
       <section className="py-16 bg-[#62BFF0]/10">
         <div className="container">
           <div className="text-center mb-12">
@@ -188,46 +188,27 @@ const SoftWashing = () => {
             <div>
               <h3 className="text-2xl font-bold mb-4">Why Soft Wash Your Roof?</h3>
               <p className="text-muted-foreground mb-6">
-                Those black streaks on your roof aren't just cosmetic—they're actually Gloeocapsa Magma, a type of algae 
-                that's feeding on the limestone filler in your shingles. Left untreated, this can lead to premature roof 
-                failure and expensive replacements.
+                Those black streaks on your roof aren't just cosmetic—they're actually algae that's feeding on your shingles. 
+                Regular soft washing can:
               </p>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
-                <div className="flex items-start mb-4">
-                  <Shield className="h-6 w-6 text-[#62BFF0] mr-3 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-bold text-lg">Protect Your Investment</h4>
-                    <p className="text-sm text-muted-foreground">
-                      A new roof can cost $10,000-$20,000. Regular soft washing extends roof life by 5-10 years, saving you thousands.
-                    </p>
-                  </div>
-                </div>
-                
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
-                    <span>Extend roof life by 5-10 years</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
-                    <span>Improve energy efficiency by up to 15%</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
-                    <span>Maintain manufacturer warranties</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
-                    <span>Prevent expensive repairs from water damage</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
-                    <span>Enhance curb appeal and property value</span>
-                  </li>
-                </ul>
-              </div>
-              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
+                  <span>Extend roof life by 5-10 years</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
+                  <span>Improve energy efficiency</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
+                  <span>Maintain manufacturer warranties</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
+                  <span>Prevent expensive repairs</span>
+                </li>
+              </ul>
               <Button asChild>
                 <Link to="/booking?quote=true&service=roof">Request a Roof Cleaning Quote</Link>
               </Button>
