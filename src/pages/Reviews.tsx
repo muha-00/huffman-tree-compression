@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Phone, Star, StarHalf, Award, Users, ThumbsUp, CheckCircle } from 'lucide-react';
+import { Phone, Star, Award, Users, ThumbsUp, CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Reviews = () => {
@@ -28,14 +28,9 @@ const Reviews = () => {
   return (
     <Layout>
       <div className="px-0 py-0 w-full">
-        {/* Hero section - full width image with modern overlay */}
-        <div className="relative w-full h-[700px] mb-0">
-          <img 
-            src="/lovable-uploads/4c8e3623-bf1d-4f68-806d-c038bfe78d28.png" 
-            alt="Happy customers" 
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex flex-col justify-center items-start px-8 md:px-16">
+        {/* Hero section with gradient background instead of image */}
+        <div className="relative w-full h-[500px] mb-0 bg-gradient-to-r from-[#0b2f4e] to-[#1e5c9b]">
+          <div className="absolute inset-0 flex flex-col justify-center items-start px-8 md:px-16">
             <div className="max-w-2xl">
               <div className="flex items-center mb-3">
                 <div className="flex text-yellow-400 mr-3">
@@ -43,9 +38,9 @@ const Reviews = () => {
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
-                  <StarHalf className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
                 </div>
-                <span className="text-white font-medium">4.9/5 average rating</span>
+                <span className="text-white font-medium">Highly rated on Google</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white animate-wipe-in leading-tight">See What <span className="text-[#62BFF0]">Our Customers</span> Are Saying</h1>
               <p className="text-white text-lg mb-8 animate-wipe-in max-w-lg opacity-90" style={{"--delay": "0.3s"} as React.CSSProperties}>
@@ -58,13 +53,13 @@ const Reviews = () => {
           </div>
         </div>
         
-        {/* Stats section */}
+        {/* Stats section with quality focus instead of numbers */}
         <div className="w-full bg-white py-12 px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center p-6 hover-lift border-t-4 border-t-[#62BFF0]">
               <Award className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2">500+</h3>
-              <p className="text-gray-600">Satisfied Customers</p>
+              <h3 className="text-2xl font-bold mb-2">Excellence</h3>
+              <p className="text-gray-600">We strive for perfection in every job</p>
             </Card>
             <Card className="text-center p-6 hover-lift border-t-4 border-t-[#62BFF0]">
               <ThumbsUp className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />
@@ -73,8 +68,8 @@ const Reviews = () => {
             </Card>
             <Card className="text-center p-6 hover-lift border-t-4 border-t-[#62BFF0]">
               <CheckCircle className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2">4.9/5</h3>
-              <p className="text-gray-600">Average Rating</p>
+              <h3 className="text-2xl font-bold mb-2">Trusted</h3>
+              <p className="text-gray-600">By homeowners across the GTA</p>
             </Card>
           </div>
         </div>
@@ -84,7 +79,7 @@ const Reviews = () => {
           <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto">
             <div>
               <h2 className="text-3xl font-bold mb-2">Ready to Experience Our Service?</h2>
-              <p className="text-white/80 mb-6 md:mb-0 max-w-xl">Join hundreds of satisfied customers who trust High Shine with their homes.</p>
+              <p className="text-white/80 mb-6 md:mb-0 max-w-xl">Join our satisfied customers who trust High Shine with their homes.</p>
             </div>
             <Button asChild size="lg" variant="secondary" className="w-40 bg-white text-[#62BFF0] hover:bg-white/90">
               <Link to="/booking?quote=true">GET QUOTE</Link>
