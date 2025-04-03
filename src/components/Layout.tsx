@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
-import { Phone, Mail, Menu, X, ChevronDown, Facebook, MapPin, Instagram } from 'lucide-react';
+import { Phone, Mail, Menu, X, ChevronDown, Facebook, MapPin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
   DropdownMenu, 
@@ -37,11 +38,8 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '#', hasDropdown: true },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Reviews', path: '/reviews' },
-    { name: 'Book', path: '/booking?quote=true' },
+    { name: 'Request Quote', path: '/booking?quote=true' },
+    { name: 'Contact Us', path: '/contact-us' },
   ];
 
   // Scroll to top on link click
@@ -69,43 +67,46 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         </div>
       </div>
       
-      {/* Header with navigation - Updated with new design */}
+      {/* Header with navigation - Updated with solid background on mobile */}
       <header className="py-4 border-b bg-white md:bg-background/80 md:backdrop-blur-sm sticky top-0 z-30">
         <div className="container flex justify-between items-center">
-          {/* Left side - Logo and social icons */}
-          <div className="flex items-center space-x-4">
-            {/* Logo */}
+          <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={handleLinkClick}>
               <img 
                 src="/lovable-uploads/9be1a361-2200-495e-92be-5bcb9a2779e2.png" 
                 alt="High Shine Cleaning" 
                 className="h-12 md:h-16"
               />
+              <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block">High Shine Cleaning</span>
             </Link>
             
-            {/* Social Icons - Circular buttons */}
-            <div className="hidden sm:flex items-center space-x-2">
+            {/* Social Icons next to logo */}
+            <div className="flex items-center space-x-3 ml-4">
               <a 
                 href="https://www.facebook.com/profile.php?id=61560420295116" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-[#62BFF0] text-white hover:bg-[#62BFF0]/90 transition-colors"
+                className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a 
-                href="https://www.instagram.com/highshinecleaning123/" 
+                href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-[#62BFF0] text-white hover:bg-[#62BFF0]/90 transition-colors"
+                className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
               >
-                <Instagram className="w-5 h-5" />
+                <img 
+                  src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                  alt="Google" 
+                  className="w-5 h-5" 
+                />
               </a>
               <a 
                 href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-[#62BFF0] text-white hover:bg-[#62BFF0]/90 transition-colors"
+                className="text-[#62BFF0] hover:text-[#62BFF0]/80 transition-colors"
               >
                 <MapPin className="w-5 h-5" />
               </a>
@@ -113,66 +114,83 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="flex items-center">
-            <nav className="hidden md:flex mr-4">
-              <ul className="flex items-center space-x-1">
-                {navLinks.map((link) => 
-                  !link.hasDropdown ? (
-                    <li key={link.name}>
-                      <Link 
-                        to={link.path}
-                        className={cn(
-                          "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                          isActive(link.path) && "bg-accent text-accent-foreground"
-                        )}
-                        onClick={handleLinkClick}
-                      >
-                        {link.name}
-                      </Link>
-                    </li>
-                  ) : (
-                    <li key={link.name}>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <button className={cn(
-                            "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                            services.some(service => isActive(service.path)) && "bg-accent text-accent-foreground"
-                          )}>
-                            {link.name} <ChevronDown className="ml-1 h-4 w-4" />
-                          </button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="center" className="w-[200px] p-2 bg-popover shadow-lg rounded-md">
-                          {services.map((service) => (
-                            <DropdownMenuItem key={service.path} asChild>
-                              <Link 
-                                to={service.path}
-                                className={cn(
-                                  "flex h-9 items-center px-3 py-2 rounded-md text-sm no-underline transition-colors hover:bg-accent hover:text-accent-foreground",
-                                  isActive(service.path) && "bg-accent text-accent-foreground"
-                                )}
-                                onClick={handleLinkClick}
-                              >
-                                {service.name}
-                              </Link>
-                            </DropdownMenuItem>
-                          ))}
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </li>
-                  )
-                )}
-              </ul>
-            </nav>
-            
-            {/* Phone button on right - Added to match design */}
-            <a 
-              href="tel:4378585005" 
-              className="hidden md:flex items-center justify-center bg-[#62BFF0] text-white px-4 py-2 rounded-md hover:bg-[#62BFF0]/90 transition-colors"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              <span>(437) 858-5005</span>
-            </a>
-          </div>
+          <nav className="hidden md:flex">
+            <ul className="flex items-center space-x-1">
+              {/* Home link */}
+              <li>
+                <Link 
+                  to="/"
+                  className={cn(
+                    "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                    isActive('/') && "bg-accent text-accent-foreground"
+                  )}
+                  onClick={handleLinkClick}
+                >
+                  Home
+                </Link>
+              </li>
+              
+              {/* Services Dropdown - Changed to only open on click, not hover */}
+              <li>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className={cn(
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      services.some(service => isActive(service.path)) && "bg-accent text-accent-foreground"
+                    )}>
+                      Services <ChevronDown className="ml-1 h-4 w-4" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="center" className="w-[200px] p-2 bg-popover shadow-lg rounded-md">
+                    {services.map((service) => (
+                      <DropdownMenuItem key={service.path} asChild>
+                        <Link 
+                          to={service.path}
+                          className={cn(
+                            "flex h-9 items-center px-3 py-2 rounded-md text-sm no-underline transition-colors hover:bg-accent hover:text-accent-foreground",
+                            isActive(service.path) && "bg-accent text-accent-foreground"
+                          )}
+                          onClick={handleLinkClick}
+                        >
+                          {service.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </li>
+              
+              {/* Reviews Link */}
+              <li>
+                <Link 
+                  to="/reviews"
+                  className={cn(
+                    "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                    isActive('/reviews') && "bg-accent text-accent-foreground"
+                  )}
+                  onClick={handleLinkClick}
+                >
+                  Reviews
+                </Link>
+              </li>
+              
+              {/* Other navigation links */}
+              {navLinks.slice(1).map((link) => (
+                <li key={link.path}>
+                  <Link 
+                    to={link.path}
+                    className={cn(
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      isActive(link.path.split('?')[0]) && "bg-accent text-accent-foreground"
+                    )}
+                    onClick={handleLinkClick}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
           
           {/* Mobile menu button */}
           <Button 
@@ -185,7 +203,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </Button>
         </div>
         
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Updated with solid background */}
         {mobileMenuOpen && (
           <div className="md:hidden fixed inset-0 top-[77px] bg-white z-20">
             <nav className="container py-4 flex flex-col space-y-3">
