@@ -31,7 +31,7 @@ const ServicesCollage: React.FC = () => {
         {/* Gutter Cleaning - Full width (First row longest) */}
         <div className="md:col-span-12 h-[400px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/5b03ae57-611e-4a8b-be9e-57d0edadb52e.png" 
+            src="/lovable-uploads/64fb7890-1c18-4f4e-b1b2-3fd4d262274d.png" 
             alt="Gutter Cleaning" 
             className="w-full h-full object-cover"
           />

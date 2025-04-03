@@ -1,10 +1,10 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check, AlertCircle } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const GutterCleaning = () => {
   // Handle Elfsight script for service pages
@@ -46,6 +46,29 @@ const GutterCleaning = () => {
     {
       title: "Gutter Flushing",
       description: "Complete flushing of your gutters to ensure they're functioning properly."
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "How often should gutters be cleaned?",
+      answer: "For most homes, we recommend cleaning gutters at least twice a year – typically in the spring and fall. Homes with many surrounding trees may require more frequent cleaning, especially during autumn when leaves are falling."
+    },
+    {
+      question: "What happens if I don't clean my gutters?",
+      answer: "Neglected gutters can lead to serious problems including water damage to your foundation, basement flooding, fascia board rot, roof damage, landscape erosion, and insect infestations. These issues can result in costly repairs that far exceed the cost of regular gutter maintenance."
+    },
+    {
+      question: "How long does gutter cleaning take?",
+      answer: "For an average-sized home, professional gutter cleaning typically takes 1-2 hours. Larger homes or those with complex gutter systems may take longer. The presence of large amounts of debris or gutter guards can also extend the cleaning time."
+    },
+    {
+      question: "Do you clean the inside and outside of gutters?",
+      answer: "Yes, our comprehensive service includes cleaning both the interior of gutters to remove leaves and debris, as well as the exterior of gutters to remove streaks and stains. We also ensure that downspouts are clear and functioning properly."
+    },
+    {
+      question: "Can you install gutter guards?",
+      answer: "Yes, we can install various types of gutter guards to help minimize debris buildup while still allowing water to flow properly. We can discuss the options and recommend the best solution for your specific needs during our visit."
     }
   ];
 
@@ -183,6 +206,26 @@ const GutterCleaning = () => {
             <Button asChild>
               <Link to="/booking?quote=true&service=gutter">Request a Quote</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left font-medium">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>

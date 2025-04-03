@@ -1,10 +1,10 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check, AlertTriangle } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const RoofWashing = () => {
   // Handle Elfsight script for service pages
@@ -37,6 +37,29 @@ const RoofWashing = () => {
     "Cedar shake",
     "Slate roofs",
     "Flat/low slope roofs"
+  ];
+
+  const faqs = [
+    {
+      question: "How often should I have my roof cleaned?",
+      answer: "Most roofs benefit from cleaning every 2-3 years, but this can vary based on your local environment. Homes in areas with high humidity, heavy tree coverage, or frequent rainfall may require more frequent cleaning to prevent algae and moss buildup."
+    },
+    {
+      question: "Will roof washing damage my shingles?",
+      answer: "When done correctly, roof washing does not damage shingles. We use a specialized low-pressure washing technique coupled with appropriate cleaning solutions that effectively remove contaminants without compromising the integrity of your roofing materials."
+    },
+    {
+      question: "How long does the cleaning last?",
+      answer: "A professional roof cleaning typically keeps your roof clean for 1-2 years, depending on your local environment and weather conditions. Regular maintenance can help prolong the period between cleanings."
+    },
+    {
+      question: "Can roof washing really extend the life of my roof?",
+      answer: "Yes, regular roof cleaning can significantly extend your roof's lifespan. Algae, moss, and lichen hold moisture against your roof, accelerating deterioration and decay. Removing these organisms prevents ongoing damage and helps your roofing materials last longer."
+    },
+    {
+      question: "Is it worth washing my roof before selling my home?",
+      answer: "Absolutely. A clean roof dramatically improves your home's curb appeal and can increase property value. Potential buyers often see a dirty roof as a sign of poor maintenance, which could negatively impact their offer price or decision to purchase."
+    }
   ];
 
   return (
@@ -172,6 +195,26 @@ const RoofWashing = () => {
             <Button asChild>
               <Link to="/booking?quote=true&service=roof">Request a Quote</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left font-medium">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>

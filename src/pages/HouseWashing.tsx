@@ -1,12 +1,25 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const HouseWashing = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://static.elfsight.com/platform/platform.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   const benefits = [
     "Removes dirt, mold, mildew, and algae",
     "Prevents damage to your home's exterior",
@@ -23,6 +36,29 @@ const HouseWashing = () => {
     "Wood siding",
     "Composite materials",
     "Concrete and driveways"
+  ];
+
+  const faqs = [
+    {
+      question: "How often should I have my house pressure washed?",
+      answer: "For most homes, we recommend pressure washing once a year to maintain your home's appearance and prevent buildup of harmful substances. Homes in areas with high humidity, lots of trees, or near water may benefit from more frequent cleaning, approximately every 6-8 months."
+    },
+    {
+      question: "Will pressure washing damage my home's exterior?",
+      answer: "When performed by professionals, pressure washing will not damage your home. We use appropriate pressure levels and techniques specific to each surface type. Our soft washing method is gentle enough for delicate surfaces while still being effective at removing dirt and grime."
+    },
+    {
+      question: "How long does house washing take?",
+      answer: "The duration depends on the size of your home and the level of dirt buildup. For an average-sized home, the process typically takes 2-4 hours. Larger homes or those requiring special attention may take longer."
+    },
+    {
+      question: "Is your cleaning solution safe for plants and pets?",
+      answer: "Yes, we use environmentally friendly cleaning solutions that are safe for plants, pets, and your family. We also take precautions to protect your landscaping during the cleaning process."
+    },
+    {
+      question: "Can pressure washing remove all stains?",
+      answer: "While pressure washing is effective for most common stains and dirt, some deep-set stains or those that have been present for many years might require specialized treatment or multiple sessions. We'll assess any challenging stains during our visit and provide honest feedback about what can be achieved."
+    }
   ];
 
   return (
@@ -197,6 +233,26 @@ const HouseWashing = () => {
             <Button asChild>
               <Link to="/booking?quote=true&service=house">Request a Quote</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left font-medium">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
