@@ -31,8 +31,8 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
 
   const services = [
     { name: 'Window Cleaning', path: '/window-cleaning' },
-    { name: 'Pressure Washing', path: '/pressure-washing' },
-    { name: 'Soft Washing', path: '/soft-washing' },
+    { name: 'House Washing', path: '/house-washing' },
+    { name: 'Roof Washing', path: '/roof-washing' },
     { name: 'Gutter Cleaning', path: '/gutter-cleaning' },
   ];
 
