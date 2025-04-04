@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -9,111 +9,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, Send, Calendar, MessageSquare } from 'lucide-react';
 import { toast } from "sonner";
+import MapComponent from '@/components/MapComponent';
 
 const ContactUs = () => {
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    // Load Google Maps script
-    const script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCZJXL-z1yKUi7EfC10qYbJh8Ytg9akdwg&callback=initMap';
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-    
-    // Create a global function that Google Maps will call when ready
-    window.initMap = () => {
-      const map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 43.5890, lng: -79.6441 }, // Mississauga
-        zoom: 10,
-        styles: [
-          {
-            "featureType": "administrative",
-            "elementType": "labels.text.fill",
-            "stylers": [{"color": "#444444"}]
-          },
-          {
-            "featureType": "landscape",
-            "elementType": "all",
-            "stylers": [{"color": "#f2f2f2"}]
-          },
-          {
-            "featureType": "poi",
-            "elementType": "all",
-            "stylers": [{"visibility": "off"}]
-          },
-          {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [{"saturation": -100}, {"lightness": 45}]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "all",
-            "stylers": [{"visibility": "simplified"}]
-          },
-          {
-            "featureType": "road.arterial",
-            "elementType": "labels.icon",
-            "stylers": [{"visibility": "off"}]
-          },
-          {
-            "featureType": "transit",
-            "elementType": "all",
-            "stylers": [{"visibility": "off"}]
-          },
-          {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [{"color": "#62BFF0"}, {"visibility": "on"}]
-          }
-        ]
-      });
-      
-      // Define service areas with custom markers
-      const serviceAreas = [
-        { position: { lat: 43.5890, lng: -79.6441 }, title: "Mississauga" },
-        { position: { lat: 43.4668, lng: -79.6831 }, title: "Oakville" },
-        { position: { lat: 43.7315, lng: -79.7624 }, title: "Brampton" }
-      ];
-      
-      // Custom marker icon
-      const markerIcon = {
-        url: '/lovable-uploads/9be1a361-2200-495e-92be-5bcb9a2779e2.png',
-        scaledSize: new google.maps.Size(40, 40),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(20, 20)
-      };
-      
-      // Add markers for each service area
-      serviceAreas.forEach(area => {
-        const marker = new google.maps.Marker({
-          position: area.position,
-          map: map,
-          title: area.title,
-          icon: markerIcon
-        });
-        
-        // Add info window with service area name
-        const infoWindow = new google.maps.InfoWindow({
-          content: `<div style="font-weight: bold; color: #333;">${area.title} - Service Area</div>`
-        });
-        
-        marker.addListener('click', () => {
-          infoWindow.open(map, marker);
-        });
-      });
-    };
-    
-    return () => {
-      // Clean up
-      delete window.initMap;
-      const mapScript = document.querySelector('script[src*="maps.googleapis.com/maps/api"]');
-      if (mapScript) {
-        mapScript.remove();
-      }
-    };
-  }, []);
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -211,9 +110,9 @@ const ContactUs = () => {
             </div>
           </div>
           
-          {/* Map */}
-          <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-md mb-16">
-            <div id="map" className="w-full h-full"></div>
+          {/* Map - Using our reusable MapComponent */}
+          <div className="w-full rounded-xl overflow-hidden shadow-md mb-16">
+            <MapComponent className="w-full h-full" />
           </div>
         </div>
       </section>
