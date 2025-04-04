@@ -29,6 +29,9 @@ const ContactUs = () => {
       {/* Full-width Map at Top */}
       <section className="w-full">
         <MapComponent className="w-full h-[calc(100vh-400px)] min-h-[350px]" />
+        <div className="bg-[#62BFF0] text-white py-3 text-center">
+          <h2 className="text-xl font-semibold">Serving GTA and Surrounding Areas</h2>
+        </div>
       </section>
       
       {/* Hero Section */}
@@ -115,15 +118,17 @@ const ContactUs = () => {
             </div>
           </div>
           
-          {/* Contact Form & Info Section - Enhanced Design */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form & Info Section - Improved Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Contact Form */}
-            <div>
-              <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
-                <h2 className="text-2xl font-bold mb-2">Send Us a Message</h2>
-                <p className="text-muted-foreground mb-6">
-                  Fill out the form below and we'll get back to you as soon as possible.
-                </p>
+            <div className="lg:col-span-7">
+              <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100 h-full">
+                <div className="mb-8">
+                  <h2 className="text-2xl font-bold mb-2">Send Us a Message</h2>
+                  <p className="text-muted-foreground">
+                    Fill out the form below and we'll get back to you as soon as possible.
+                  </p>
+                </div>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
@@ -179,7 +184,7 @@ const ContactUs = () => {
                     />
                   </div>
                   
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="w-full bg-[#62BFF0] hover:bg-[#62BFF0]/90">
                     <Send className="h-4 w-4 mr-2" /> Send Message
                   </Button>
                 </form>
@@ -187,80 +192,85 @@ const ContactUs = () => {
             </div>
             
             {/* Contact Information & Hours */}
-            <div>
-              <div className="bg-[#62BFF0] text-white rounded-xl shadow-sm p-8 mb-8">
+            <div className="lg:col-span-5 space-y-8">
+              {/* Contact Information Box */}
+              <div className="bg-[#62BFF0] text-white rounded-xl shadow-sm p-8">
                 <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
                 
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <div className="flex items-start">
-                    <Phone className="h-5 w-5 mr-3 mt-1" />
+                    <Phone className="h-5 w-5 mr-4 mt-1" />
                     <div>
-                      <h3 className="font-medium">Phone</h3>
+                      <h3 className="font-medium text-lg">Phone</h3>
                       <a href="tel:4378585005" className="hover:underline">437-858-5005</a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <Mail className="h-5 w-5 mr-3 mt-1" />
+                    <Mail className="h-5 w-5 mr-4 mt-1" />
                     <div>
-                      <h3 className="font-medium">Email</h3>
-                      <a href="mailto:highshinecleaning123@gmail.com" className="hover:underline">highshinecleaning123@gmail.com</a>
+                      <h3 className="font-medium text-lg">Email</h3>
+                      <a href="mailto:highshinecleaning123@gmail.com" className="hover:underline">
+                        highshinecleaning123@gmail.com
+                      </a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <MapPin className="h-5 w-5 mr-3 mt-1" />
+                    <MapPin className="h-5 w-5 mr-4 mt-1" />
                     <div>
-                      <h3 className="font-medium">Service Area</h3>
+                      <h3 className="font-medium text-lg">Service Area</h3>
                       <p>Greater Toronto Area</p>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-gray-900 text-white rounded-xl shadow-sm p-8 mb-8">
+              {/* Hours of Operation Box */}
+              <div className="bg-gray-900 text-white rounded-xl shadow-sm p-8">
                 <div className="flex items-center mb-6">
                   <Clock className="h-6 w-6 mr-3" />
                   <h2 className="text-2xl font-bold">Hours of Operation</h2>
                 </div>
                 
-                <div className="space-y-2">
+                <div className="space-y-4">
                   <div className="flex justify-between py-2 border-b border-gray-700">
-                    <span>Monday - Friday</span>
-                    <span className="font-medium">8:30 AM - 9:00 PM</span>
+                    <span className="font-medium">Monday - Friday</span>
+                    <span>8:30 AM - 9:00 PM</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-gray-700">
-                    <span>Saturday</span>
-                    <span className="font-medium">9:00 AM - 7:00 PM</span>
+                    <span className="font-medium">Saturday</span>
+                    <span>9:00 AM - 7:00 PM</span>
                   </div>
                   <div className="flex justify-between py-2">
-                    <span>Sunday</span>
-                    <span className="font-medium">10:00 AM - 5:00 PM</span>
+                    <span className="font-medium">Sunday</span>
+                    <span>10:00 AM - 5:00 PM</span>
                   </div>
                 </div>
               </div>
               
+              {/* Quick Response Promise Box */}
               <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
                 <div className="flex items-center mb-6">
                   <MessageSquare className="h-6 w-6 mr-3 text-[#62BFF0]" />
                   <h2 className="text-2xl font-bold">Quick Response Promise</h2>
                 </div>
                 
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-6">
                   We pride ourselves on our rapid response times. When you reach out to High Shine, you can expect:
                 </p>
                 
-                <ul className="space-y-2">
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <div className="h-5 w-5 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-2 mt-0.5">✓</div>
+                    <div className="h-6 w-6 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-3 mt-0.5 flex-shrink-0">✓</div>
                     <span>Phone calls returned within 2 hours during business hours</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="h-5 w-5 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-2 mt-0.5">✓</div>
+                    <div className="h-6 w-6 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-3 mt-0.5 flex-shrink-0">✓</div>
                     <span>Email inquiries answered within 24 hours</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="h-5 w-5 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-2 mt-0.5">✓</div>
+                    <div className="h-6 w-6 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-3 mt-0.5 flex-shrink-0">✓</div>
                     <span>Free quotes typically provided within 48 hours</span>
                   </li>
                 </ul>
