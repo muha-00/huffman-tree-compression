@@ -26,6 +26,11 @@ const ContactUs = () => {
 
   return (
     <Layout>
+      {/* Full-width Map at Top */}
+      <section className="w-full">
+        <MapComponent className="w-full h-[calc(100vh-400px)] min-h-[350px]" />
+      </section>
+      
       {/* Hero Section */}
       <section className="w-full bg-gradient-to-r from-[#62BFF0] to-blue-600 text-white">
         <div className="container py-16">
@@ -110,16 +115,7 @@ const ContactUs = () => {
             </div>
           </div>
           
-          {/* Map - Using our reusable MapComponent */}
-          <div className="w-full rounded-xl overflow-hidden shadow-md mb-16">
-            <MapComponent className="w-full h-full" />
-          </div>
-        </div>
-      </section>
-      
-      {/* Contact Form & Info Section - Enhanced Design */}
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container">
+          {/* Contact Form & Info Section - Enhanced Design */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
