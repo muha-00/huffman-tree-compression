@@ -23,6 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
     return location.pathname === path;
   };
 
+  // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
@@ -40,6 +41,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
     { name: 'Contact Us', path: '/contact-us' },
   ];
 
+  // Scroll to top on link click
   const handleLinkClick = () => {
     window.scrollTo(0, 0);
     setMobileMenuOpen(false);
@@ -50,6 +52,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       "min-h-screen flex flex-col antialiased",
       className
     )}>
+      {/* Top contact bar */}
       <div className="bg-[#62BFF0] text-white py-2 px-4">
         <div className="container flex flex-col sm:flex-row justify-between items-center text-sm">
           <div className="flex items-center mb-2 sm:mb-0">
@@ -63,6 +66,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         </div>
       </div>
       
+      {/* Header with navigation - Updated with solid background on mobile */}
       <header className="py-4 border-b bg-white md:bg-background/80 md:backdrop-blur-sm sticky top-0 z-30">
         <div className="container flex justify-between items-center">
           <div className="flex items-center">
@@ -75,6 +79,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
               <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block">High Shine Cleaning</span>
             </Link>
             
+            {/* Social Icons next to logo - Updated to match reference image */}
             <div className="flex items-center ml-4">
               <div className="flex space-x-2">
                 <a 
@@ -105,9 +110,11 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             </div>
           </div>
           
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
             <nav className="mr-4">
               <ul className="flex items-center space-x-1">
+                {/* Home link */}
                 <li>
                   <Link 
                     to="/"
@@ -121,6 +128,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   </Link>
                 </li>
                 
+                {/* Services Dropdown - Changed to only open on click, not hover */}
                 <li>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -150,6 +158,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   </DropdownMenu>
                 </li>
                 
+                {/* Reviews Link */}
                 <li>
                   <Link 
                     to="/reviews"
@@ -163,6 +172,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   </Link>
                 </li>
                 
+                {/* Other navigation links */}
                 {navLinks.slice(1).map((link) => (
                   <li key={link.path}>
                     <Link 
@@ -180,6 +190,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
               </ul>
             </nav>
             
+            {/* Phone button on right side */}
             <a 
               href="tel:4378585005" 
               className="flex items-center bg-[#62BFF0] text-white rounded-full px-5 py-3 hover:bg-[#62BFF0]/90 transition-colors"
@@ -189,6 +200,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             </a>
           </div>
           
+          {/* Mobile menu button */}
           <Button 
             variant="ghost" 
             size="icon" 
@@ -199,9 +211,11 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </Button>
         </div>
         
+        {/* Mobile Navigation - Updated with solid background */}
         {mobileMenuOpen && (
           <div className="md:hidden fixed inset-0 top-[77px] bg-white z-20">
             <nav className="container py-4 flex flex-col space-y-3">
+              {/* Home link */}
               <Link 
                 to="/"
                 className={cn(
@@ -213,6 +227,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 Home
               </Link>
               
+              {/* Social Icons for Mobile - moved near the top */}
               <div className="flex items-center space-x-4 py-2 px-4">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61560420295116" 
@@ -240,6 +255,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 </a>
               </div>
               
+              {/* Services Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button 
@@ -270,6 +286,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 </DropdownMenuContent>
               </DropdownMenu>
               
+              {/* Reviews Link */}
               <Link 
                 to="/reviews"
                 className={cn(
@@ -281,6 +298,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 Reviews
               </Link>
               
+              {/* Other navigation links */}
               {navLinks.slice(1).map((link) => (
                 <Link 
                   key={link.path} 
@@ -295,6 +313,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 </Link>
               ))}
               
+              {/* Phone button for mobile */}
               <a 
                 href="tel:4378585005" 
                 className="flex items-center bg-[#62BFF0] text-white rounded-full px-5 py-3 mt-4 mx-4 justify-center"
@@ -311,11 +330,12 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         {children}
       </main>
       
-      <footer className="bg-white py-12 border-t">
+      <footer className="bg-foreground text-background py-12">
         <div className="container">
+          {/* Contact Section */}
           <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-[#62BFF0] p-8 rounded-lg text-white">
-              <h3 className="text-2xl font-bold mb-6">Get Your Quote Today!</h3>
+            <div className="bg-background/10 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-6 text-white">Get Your Quote Today!</h3>
               <form className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -323,7 +343,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     <input 
                       type="text" 
                       id="firstName" 
-                      className="w-full px-4 py-2 rounded border bg-white/20 border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white" 
+                      className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#62BFF0]" 
                     />
                   </div>
                   <div>
@@ -331,7 +351,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     <input 
                       type="text" 
                       id="lastName" 
-                      className="w-full px-4 py-2 rounded border bg-white/20 border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white" 
+                      className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#62BFF0]" 
                     />
                   </div>
                 </div>
@@ -341,7 +361,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                     type="email" 
                     id="email" 
                     required
-                    className="w-full px-4 py-2 rounded border bg-white/20 border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white" 
+                    className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#62BFF0]" 
                   />
                 </div>
                 <div>
@@ -349,40 +369,40 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   <textarea 
                     id="message" 
                     rows={4}
-                    className="w-full px-4 py-2 rounded border bg-white/20 border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white" 
+                    className="w-full px-4 py-2 rounded border bg-background/20 border-background/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#62BFF0]" 
                   ></textarea>
                 </div>
-                <Button type="submit" className="w-full bg-white text-[#62BFF0] hover:bg-white/90">Submit</Button>
+                <Button type="submit" className="w-full bg-[#62BFF0] hover:bg-[#62BFF0]/90">Submit</Button>
               </form>
             </div>
             
             <div className="flex flex-col justify-between">
               <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-900">CONTACT</h3>
+                <h3 className="text-2xl font-bold mb-6 text-white">CONTACT</h3>
                 <div className="space-y-4 mb-8">
                   <div>
-                    <p className="font-medium mb-1 text-gray-700">Phone Number</p>
-                    <a href="tel:4378585005" className="text-lg text-[#62BFF0] hover:text-[#62BFF0]/80">437-858-5005</a>
+                    <p className="font-medium mb-1">Phone Number</p>
+                    <a href="tel:4378585005" className="text-lg hover:text-[#62BFF0]">437-858-5005</a>
                   </div>
                   <div>
-                    <p className="font-medium mb-1 text-gray-700">E-mail address</p>
-                    <a href="mailto:highshinecleaning123@gmail.com" className="text-[#62BFF0] hover:text-[#62BFF0]/80">highshinecleaning123@gmail.com</a>
+                    <p className="font-medium mb-1">E-mail address</p>
+                    <a href="mailto:highshinecleaning123@gmail.com" className="hover:text-[#62BFF0]">highshinecleaning123@gmail.com</a>
                   </div>
                   <div>
-                    <p className="font-medium mb-1 text-gray-700">Hours of Operation</p>
-                    <p className="text-gray-600">Monday to Sunday</p>
-                    <p className="text-gray-600">8:30am to 9:30pm</p>
+                    <p className="font-medium mb-1">Hours of Operation</p>
+                    <p>Monday to Sunday</p>
+                    <p>8:30am to 9:30pm</p>
                   </div>
                 </div>
                 
                 <div>
-                  <p className="font-medium mb-3 text-gray-700">Follow Us on</p>
+                  <p className="font-medium mb-3">Follow Us on</p>
                   <div className="flex space-x-4">
                     <a 
                       href="https://www.facebook.com/profile.php?id=61560420295116" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-[#62BFF0] hover:text-[#62BFF0]/80"
+                      className="text-[#62BFF0]"
                     >
                       <Facebook className="w-5 h-5" />
                     </a>
@@ -390,7 +410,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                       href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-[#62BFF0] hover:text-[#62BFF0]/80"
+                      className="text-[#62BFF0]"
                     >
                       <img 
                         src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
@@ -402,7 +422,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                       href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-[#62BFF0] hover:text-[#62BFF0]/80"
+                      className="text-[#62BFF0]"
                     >
                       <MapPin className="w-5 h-5" />
                     </a>
@@ -411,29 +431,29 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
               </div>
               
               <div className="mt-8">
-                <Button asChild size="lg" className="bg-[#62BFF0] hover:bg-[#62BFF0]/90 text-white">
+                <Button asChild size="lg" className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
                   <Link to="/booking?quote=true" onClick={handleLinkClick}>Request a Quote</Link>
                 </Button>
               </div>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">High Shine Cleaning</h3>
-              <p className="text-gray-600">A team of professionals providing exceptional cleaning services for your home.</p>
-              <div className="mt-4 flex items-center text-gray-600">
+              <h3 className="text-xl font-bold mb-4 text-white">High Shine Cleaning</h3>
+              <p className="text-muted-foreground">A team of young professionals providing exceptional cleaning services for your home.</p>
+              <div className="mt-4 flex items-center text-muted-foreground">
                 <Phone size={16} className="mr-2" />
-                <a href="tel:4378585005" className="hover:text-[#62BFF0] transition-colors">437-858-5005</a>
+                <a href="tel:4378585005" className="hover:text-white transition-colors">437-858-5005</a>
               </div>
-              <div className="mt-2 flex items-center text-gray-600">
+              <div className="mt-2 flex items-center text-muted-foreground">
                 <Mail size={16} className="mr-2" />
-                <a href="mailto:highshinecleaning123@gmail.com" className="hover:text-[#62BFF0] transition-colors">highshinecleaning123@gmail.com</a>
+                <a href="mailto:highshinecleaning123@gmail.com" className="hover:text-white transition-colors">highshinecleaning123@gmail.com</a>
               </div>
               <div className="mt-4">
                 <Link 
                   to="/reviews"
-                  className="flex items-center text-gray-600 hover:text-[#62BFF0] transition-colors"
+                  className="flex items-center text-muted-foreground hover:text-white transition-colors"
                   onClick={handleLinkClick}
                 >
                   <img 
@@ -447,11 +467,11 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             </div>
             
             <div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">Our Services</h3>
-              <ul className="space-y-2 text-gray-600">
+              <h3 className="text-xl font-bold mb-4 text-white">Our Services</h3>
+              <ul className="space-y-2 text-muted-foreground">
                 {services.map((service) => (
                   <li key={service.path}>
-                    <Link to={service.path} className="hover:text-[#62BFF0] transition-colors" onClick={handleLinkClick}>
+                    <Link to={service.path} className="hover:text-white transition-colors" onClick={handleLinkClick}>
                       {service.name}
                     </Link>
                   </li>
@@ -460,17 +480,17 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             </div>
             
             <div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">Quick Links</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li><Link to="/" className="hover:text-[#62BFF0] transition-colors" onClick={handleLinkClick}>Home</Link></li>
-                <li><Link to="/booking?quote=true" className="hover:text-[#62BFF0] transition-colors" onClick={handleLinkClick}>Request a Quote</Link></li>
-                <li><Link to="/your-bookings" className="hover:text-[#62BFF0] transition-colors" onClick={handleLinkClick}>Check Your Bookings</Link></li>
-                <li><Link to="/reviews" className="hover:text-[#62BFF0] transition-colors" onClick={handleLinkClick}>Reviews</Link></li>
+              <h3 className="text-xl font-bold mb-4 text-white">Quick Links</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><Link to="/" className="hover:text-white transition-colors" onClick={handleLinkClick}>Home</Link></li>
+                <li><Link to="/booking?quote=true" className="hover:text-white transition-colors" onClick={handleLinkClick}>Request a Quote</Link></li>
+                <li><Link to="/your-bookings" className="hover:text-white transition-colors" onClick={handleLinkClick}>Check Your Bookings</Link></li>
+                <li><Link to="/reviews" className="hover:text-white transition-colors" onClick={handleLinkClick}>Reviews</Link></li>
               </ul>
             </div>
           </div>
           
-          <div className="mt-12 pt-6 border-t text-center text-sm text-gray-500">
+          <div className="mt-12 pt-6 border-t border-muted text-center text-sm text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} High Shine Cleaning. All rights reserved.</p>
           </div>
         </div>
