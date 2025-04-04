@@ -7,8 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import WindowCleaning from "./pages/WindowCleaning";
-import HouseWashing from "./pages/HouseWashing";
-import RoofWashing from "./pages/RoofWashing";
+import PressureWashing from "./pages/PressureWashing";
+import SoftWashing from "./pages/SoftWashing";
 import GutterCleaning from "./pages/GutterCleaning";
 import Booking from "./pages/Booking";
 import Reviews from "./pages/Reviews";
@@ -45,8 +45,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/window-cleaning" element={<WindowCleaning />} />
-          <Route path="/house-washing" element={<HouseWashing />} />
-          <Route path="/roof-washing" element={<RoofWashing />} />
+          <Route path="/pressure-washing" element={<PressureWashing />} />
+          <Route path="/soft-washing" element={<SoftWashing />} />
           <Route path="/gutter-cleaning" element={<GutterCleaning />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/reviews" element={<Reviews />} />

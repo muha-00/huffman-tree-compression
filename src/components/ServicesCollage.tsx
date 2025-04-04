@@ -11,7 +11,7 @@ const ServicesCollage: React.FC = () => {
         <h1 className="text-3xl md:text-4xl font-bold mb-6">High Shine makes it easy to<br />transform your home.</h1>
         
         <p className="text-gray-700 mx-auto mb-6 leading-relaxed">
-          Since 2020, High Shine Cleaning has been providing exceptional <Link to="/window-cleaning" className="text-[#62BFF0] hover:underline font-medium">window cleaning</Link>, <Link to="/gutter-cleaning" className="text-[#62BFF0] hover:underline font-medium">gutter cleaning</Link> & <Link to="/house-washing" className="text-[#62BFF0] hover:underline font-medium">power washing</Link> services across the GTA. Our satisfaction guarantee reflects our commitment to customer happiness.
+          Since 2020, High Shine Cleaning has been providing exceptional <Link to="/window-cleaning" className="text-[#62BFF0] hover:underline font-medium">window cleaning</Link>, <Link to="/gutter-cleaning" className="text-[#62BFF0] hover:underline font-medium">gutter cleaning</Link> & <Link to="/pressure-washing" className="text-[#62BFF0] hover:underline font-medium">pressure washing</Link> services across the GTA. Our satisfaction guarantee reflects our commitment to customer happiness.
         </p>
         
         <div className="mb-6 font-medium text-xl text-[#62BFF0]">We'd love to do the work for you.</div>
@@ -60,7 +60,7 @@ const ServicesCollage: React.FC = () => {
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
             <h2 className="text-2xl font-bold text-white mb-2">PROFESSIONAL<br />PRESSURE<br />WASHING</h2>
             <Link 
-              to="/house-washing" 
+              to="/pressure-washing" 
               className="inline-flex items-center text-white group"
             >
               LEARN MORE <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -107,6 +107,27 @@ const ServicesCollage: React.FC = () => {
             >
               LEARN MORE <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
+          </div>
+        </div>
+
+        {/* Fourth row - Soft Washing */}
+        <div className="md:col-span-12 h-[350px] relative overflow-hidden">
+          <img 
+            src="/lovable-uploads/37b1ee12-c7e7-4359-b1ab-d1ac6202d132.png" 
+            alt="Soft Washing" 
+            className="w-full h-full object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-8">
+            <div className="max-w-md">
+              <h2 className="text-3xl font-bold text-white mb-2">PROFESSIONAL SOFT WASHING</h2>
+              <h3 className="text-2xl font-bold text-white mb-4">Safe & Effective Cleaning For Delicate Surfaces.</h3>
+              <Link 
+                to="/soft-washing" 
+                className="inline-flex items-center text-white group"
+              >
+                LEARN MORE <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

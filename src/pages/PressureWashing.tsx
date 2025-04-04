@@ -1,0 +1,296 @@
+
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Layout from '@/components/Layout';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Check } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+const PressureWashing = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://static.elfsight.com/platform/platform.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  const benefits = [
+    "Removes dirt, mold, mildew, and algae",
+    "Prevents damage to your home's exterior",
+    "Improves curb appeal and property value",
+    "Healthier living environment by removing allergens",
+    "Prepares surfaces for painting or refinishing",
+    "Extends the life of your siding and exterior"
+  ];
+
+  const surfaces = [
+    "Vinyl siding",
+    "Brick and stone",
+    "Stucco",
+    "Wood siding",
+    "Composite materials",
+    "Concrete and driveways"
+  ];
+
+  const faqs = [
+    {
+      question: "How often should I have my house pressure washed?",
+      answer: "For most homes, we recommend pressure washing once a year to maintain your home's appearance and prevent buildup of harmful substances. Homes in areas with high humidity, lots of trees, or near water may benefit from more frequent cleaning, approximately every 6-8 months."
+    },
+    {
+      question: "Will pressure washing damage my home's exterior?",
+      answer: "When performed by professionals, pressure washing will not damage your home. We use appropriate pressure levels and techniques specific to each surface type. Our soft washing method is gentle enough for delicate surfaces while still being effective at removing dirt and grime."
+    },
+    {
+      question: "How long does pressure washing take?",
+      answer: "The duration depends on the size of your home and the level of dirt buildup. For an average-sized home, the process typically takes 2-4 hours. Larger homes or those requiring special attention may take longer."
+    },
+    {
+      question: "Is your cleaning solution safe for plants and pets?",
+      answer: "Yes, we use environmentally friendly cleaning solutions that are safe for plants, pets, and your family. We also take precautions to protect your landscaping during the cleaning process."
+    },
+    {
+      question: "Can pressure washing remove all stains?",
+      answer: "While pressure washing is effective for most common stains and dirt, some deep-set stains or those that have been present for many years might require specialized treatment or multiple sessions. We'll assess any challenging stains during our visit and provide honest feedback about what can be achieved."
+    }
+  ];
+
+  return (
+    <Layout>
+      {/* Hero Section */}
+      <section className="relative">
+        <div className="w-full h-[500px] relative">
+          <img 
+            src="/lovable-uploads/cda52110-d35d-4881-867a-46f491ed73d6.png" 
+            alt="Pressure Washing Services" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center px-8 md:px-16">
+            <h1 className="text-5xl md:text-6xl font-bold text-white uppercase animate-wipe-in">
+              PRESSURE WASHING<br />SERVICES
+            </h1>
+            <p className="text-2xl text-white mt-4 animate-wipe-in" style={{"--delay": "0.3s"} as React.CSSProperties}>
+              Mississauga, Oakville, Brampton and surroundings
+            </p>
+          </div>
+        </div>
+        
+        {/* Blue CTA bar */}
+        <div className="w-full bg-[#62BFF0] text-white py-8">
+          <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-8">
+            <h2 className="text-2xl font-bold mb-4 md:mb-0">Get Your Quote Today!</h2>
+            <Button asChild size="lg" variant="secondary" className="bg-black text-white hover:bg-black/90">
+              <Link to="/booking?quote=true&service=pressure">GET QUOTE</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Description */}
+      <section className="py-16">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Why Choose Our Pressure Washing Services</h2>
+              <p className="text-muted-foreground mb-6">
+                At High Shine Cleaning, we specialize in transforming dirty exteriors into clean, vibrant surfaces that enhance your home's appearance. Our pressure washing technique is designed to effectively clean without damaging your home's exterior.
+              </p>
+              
+              <ul className="space-y-3 mb-8">
+                {benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <p className="text-muted-foreground mb-6">
+                We use environmentally friendly cleaning solutions and adjust our pressure levels based on your home's exterior material to ensure safe and effective cleaning.
+              </p>
+            </div>
+            
+            <div className="bg-muted rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Our Pressure Washing Process</h3>
+              
+              <ol className="space-y-4">
+                <li className="flex">
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                  <div>
+                    <h4 className="font-medium">Pre-Inspection</h4>
+                    <p className="text-sm text-muted-foreground">We assess your home's exterior and identify areas that need special attention.</p>
+                  </div>
+                </li>
+                <li className="flex">
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                  <div>
+                    <h4 className="font-medium">Preparation</h4>
+                    <p className="text-sm text-muted-foreground">We protect landscaping, cover electrical outlets, and prepare our equipment.</p>
+                  </div>
+                </li>
+                <li className="flex">
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                  <div>
+                    <h4 className="font-medium">Application</h4>
+                    <p className="text-sm text-muted-foreground">We apply specially formulated cleaning solutions to break down dirt and organic growth.</p>
+                  </div>
+                </li>
+                <li className="flex">
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
+                  <div>
+                    <h4 className="font-medium">Pressure Washing</h4>
+                    <p className="text-sm text-muted-foreground">We use the appropriate pressure level to safely clean your specific exterior material.</p>
+                  </div>
+                </li>
+                <li className="flex">
+                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
+                  <div>
+                    <h4 className="font-medium">Rinse & Inspection</h4>
+                    <p className="text-sm text-muted-foreground">We thoroughly rinse your home and perform a final inspection to ensure quality.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Before & After Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Expect Exceptional Results</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We pride ourselves on delivering outstanding cleaning results every time. 
+              With years of experience and professional-grade equipment, we transform dirty 
+              surfaces into spotless areas you'll be proud to show off.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Walkway Transformation */}
+            <div>
+              <img 
+                src="/lovable-uploads/7d7c20e3-0668-4f53-851e-4f6e7d9e7055.png" 
+                alt="Walkway before and after pressure washing" 
+                className="w-full h-auto rounded-lg shadow-md"
+              />
+              <div className="mt-4">
+                <h3 className="text-xl font-bold mb-2">Walkway Transformation</h3>
+                <p>Our professional pressure washing service removes years of accumulated dirt, algae, and stains from your walkways.</p>
+              </div>
+            </div>
+
+            {/* Deck Restoration */}
+            <div>
+              <img 
+                src="/lovable-uploads/4d6b65c7-ec2b-42e6-95bd-35a36fbd751e.png" 
+                alt="Deck before and after cleaning" 
+                className="w-full h-auto rounded-lg shadow-md"
+              />
+              <div className="mt-4">
+                <h3 className="text-xl font-bold mb-2">Deck Restoration</h3>
+                <p>Breathe new life into your wooden deck with our careful pressure washing that preserves the integrity of your wood surfaces.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="py-16 bg-[#62BFF0]/10">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8 text-center">What Our Customers Say</h2>
+          <div className="elfsight-app-c79d3126-70ca-49a2-a12f-84aea046911a" data-elfsight-app-lazy></div>
+        </div>
+      </section>
+
+      {/* Surfaces We Clean - Improved Section */}
+      <section className="py-16 bg-gradient-to-b from-muted to-background">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-6 text-center">Surfaces We Clean</h2>
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
+            Our professional pressure washing equipment can safely and effectively clean a wide variety of exterior surfaces.
+          </p>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-4xl mx-auto">
+            {surfaces.map((surface, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-[#62BFF0]/30">
+                <CardContent className="p-6 text-center">
+                  <div className="h-12 flex items-center justify-center mb-2">
+                    <img src={`/lovable-uploads/2b1a427b-30d3-4497-8177-fd955d1af674.png`} alt="Icon" className="h-8 w-8 opacity-70" />
+                  </div>
+                  <h3 className="font-medium">{surface}</h3>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <div className="bg-[#62BFF0]/10 rounded-xl p-6 max-w-2xl mx-auto">
+              <h3 className="text-xl font-bold mb-4">Not sure if we can clean your surface?</h3>
+              <p className="text-muted-foreground mb-6">
+                Contact us today to discuss your specific needs and get a personalized quote for your property.
+              </p>
+              <Button asChild className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
+                <Link to="/booking?quote=true&service=pressure">Request a Free Quote</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-4 text-center">Frequently Asked Questions</h2>
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
+            Find answers to common questions about our pressure washing services.
+          </p>
+          
+          <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-sm p-6">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left font-medium">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-[#62BFF0] text-white">
+        <div className="container text-center">
+          <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+            <h2 className="text-3xl font-bold mb-6">Transform Your Home's Exterior Today</h2>
+            <p className="max-w-2xl mx-auto mb-8">
+              Restore your home's beauty and protect your investment with our professional pressure washing services.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button asChild size="lg" variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90">
+                <Link to="/booking">Book Pressure Washing</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
+                <a href="tel:4378585005">Call 437-858-5005</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+};
+
+export default PressureWashing;

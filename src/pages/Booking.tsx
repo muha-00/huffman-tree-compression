@@ -180,7 +180,8 @@ const Booking = () => {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="window">Window Cleaning</SelectItem>
-                        <SelectItem value="house">House Washing</SelectItem>
+                        <SelectItem value="pressure">Pressure Washing</SelectItem>
+                        <SelectItem value="soft">Soft Washing</SelectItem>
                         <SelectItem value="roof">Roof Washing</SelectItem>
                         <SelectItem value="gutter">Gutter Cleaning</SelectItem>
                         <SelectItem value="combo">Combination Service</SelectItem>
