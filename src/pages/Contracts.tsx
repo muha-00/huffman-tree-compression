@@ -61,16 +61,19 @@ const Contracts = () => {
   return (
     <Layout>
       <div className="px-0 py-0 w-full">
-        {/* Hero section */}
+        {/* Hero section with new background */}
         <div className="relative w-full h-[500px] mb-0">
           <img 
-            src="/lovable-uploads/64fb7890-1c18-4f4e-b1b2-3fd4d262274d.png" 
+            src="/lovable-uploads/050482e3-4db1-4c35-ab90-e41a35eb4312.png" 
             alt="Property maintenance contract" 
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex flex-col justify-center items-start px-8 md:px-16">
             <div className="max-w-2xl">
               <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white animate-wipe-in leading-tight">Service <span className="text-[#62BFF0]">Contracts</span></h1>
+              <p className="text-white text-xl mb-2 animate-wipe-in max-w-lg opacity-90" style={{"--delay": "0.2s"} as React.CSSProperties}>
+                Savings! Savings! Savings!
+              </p>
               <p className="text-white text-lg mb-8 animate-wipe-in max-w-lg opacity-90" style={{"--delay": "0.3s"} as React.CSSProperties}>
                 Enjoy regular maintenance of your property at discounted rates with our service contracts.
               </p>
@@ -156,6 +159,49 @@ const Contracts = () => {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </div>
+        
+        {/* Payment Information Section */}
+        <div className="bg-gray-50 py-16 px-4">
+          <div className="container mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">How Our Contracts Work</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Understanding our service contract policies
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md max-w-3xl mx-auto p-8">
+              <h3 className="text-xl font-bold mb-4">Contract Payment & Scheduling</h3>
+              
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start">
+                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-0.5 flex-shrink-0" />
+                  <p>Upfront payment for the contract secures your discount and scheduled service dates</p>
+                </div>
+                
+                <div className="flex items-start">
+                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-0.5 flex-shrink-0" />
+                  <p>Our team works with you to establish service dates that fit your schedule</p>
+                </div>
+                
+                <div className="flex items-start">
+                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-0.5 flex-shrink-0" />
+                  <p>Services can be rescheduled with advance notice at no additional cost</p>
+                </div>
+                
+                <div className="flex items-start">
+                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-0.5 flex-shrink-0" />
+                  <p>While contract payments are non-refundable, all services can be rebooked as needed</p>
+                </div>
+              </div>
+              
+              <div className="bg-[#62BFF0]/10 p-4 rounded-lg">
+                <h4 className="font-medium mb-2">Note:</h4>
+                <p className="text-sm">Contract services are based on your initial quote with a 20% discount applied. This gives you significant savings while maintaining the same high-quality service.</p>
+              </div>
             </div>
           </div>
         </div>

@@ -71,50 +71,26 @@ const Home = () => {
         <TestimonialCarousel testimonials={testimonials} />
       </section>
 
-      {/* About Us Section - Before the Services Collage */}
+      {/* About Us Section - Before the Services Collage with window cleaning focus */}
       <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="container">
           <div className="text-center mb-10">
             <div className="inline-block bg-[#62BFF0]/10 px-4 py-2 rounded-full text-[#62BFF0] font-medium mb-4">
-              Specializing in Professional Window Cleaning
+              Window Cleaning Specialists
             </div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#62BFF0] to-blue-600 bg-clip-text text-transparent">
               Your Home Deserves the High Shine Treatment
             </h2>
             <p className="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-              At High Shine, we're committed to providing premium exterior cleaning services with our specialty being window cleaning. 
-              Our professional team delivers exceptional results with meticulous attention to detail on every project, ensuring crystal-clear windows every time.
+              Founded with a passion for perfection in window cleaning, High Shine has grown to offer a full range of exterior 
+              cleaning services. Window cleaning remains our specialty and core focus – we've built our reputation on delivering 
+              crystal-clear, streak-free results every time. If pristine windows are your main need, our specialized expertise 
+              makes us the perfect choice for your home.
             </p>
           </div>
           
           {/* Stats Counter Section */}
           <StatsCounter />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-              <h3 className="text-xl font-bold mb-4 text-[#62BFF0]">Professional Window Cleaning</h3>
-              <p className="text-gray-700 mb-4">
-                Our streak-free window cleaning service restores clarity and brilliance to your home's windows, inside and out.
-              </p>
-              <Link to="/window-cleaning" className="text-[#62BFF0] font-medium hover:underline">Learn more</Link>
-            </div>
-            
-            <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-              <h3 className="text-xl font-bold mb-4 text-[#62BFF0]">Expert Gutter Cleaning</h3>
-              <p className="text-gray-700 mb-4">
-                We thoroughly clean and flush your gutters to prevent water damage and extend the life of your home's exterior.
-              </p>
-              <Link to="/gutter-cleaning" className="text-[#62BFF0] font-medium hover:underline">Learn more</Link>
-            </div>
-            
-            <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-              <h3 className="text-xl font-bold mb-4 text-[#62BFF0]">Pressure & Soft Washing</h3>
-              <p className="text-gray-700 mb-4">
-                Our cleaning specialists use the right techniques to safely remove dirt, grime, and biological growth from your exterior surfaces.
-              </p>
-              <Link to="/pressure-washing" className="text-[#62BFF0] font-medium hover:underline">Learn more</Link>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -218,7 +194,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - Updated to include contracts link */}
       <section className="py-16 bg-[#62BFF0] text-white">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Ready for a Cleaner, Brighter Home?</h2>

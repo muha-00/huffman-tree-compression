@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Star, StarHalf, Award, Users, ThumbsUp, CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
-// Counter component for animated statistics
+// Animated Counter component
 const AnimatedCounter = ({ end, suffix = "", title, icon }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -74,17 +74,29 @@ const Reviews = () => {
   return (
     <Layout>
       <div className="px-0 py-0 w-full">
-        {/* Hero section - full width image with modern overlay and faded effect */}
-        <div className="relative w-full h-[700px] mb-0">
-          <div className="absolute inset-0 bg-white/20 z-10"></div> {/* Faded overlay */}
-          <img 
-            src="/lovable-uploads/fc70a6c8-b2ca-4d7f-a1c4-56c0ac3c3432.png" 
-            alt="Happy customers" 
-            className="w-full h-full object-cover object-center opacity-80" /* Reduced opacity for a faded look */
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex flex-col justify-center items-start px-8 md:px-16 z-20">
+        {/* Hero section - new design with animated background */}
+        <div className="relative w-full h-[700px] mb-0 overflow-hidden">
+          {/* Animated background with waves */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#62BFF0] to-blue-400">
+            <div className="absolute inset-0 opacity-30">
+              <div className="absolute w-full h-[20%] bottom-[85%] left-0 right-0 
+                              bg-white/20 rounded-[100%] animate-[wave_15s_ease-in-out_infinite]"></div>
+              <div className="absolute w-[120%] h-[25%] bottom-[75%] -left-[10%] right-0 
+                              bg-white/20 rounded-[100%] animate-[wave_13s_ease-in-out_infinite_1s]"></div>
+              <div className="absolute w-[130%] h-[30%] bottom-[60%] -left-[15%] right-0 
+                              bg-white/20 rounded-[100%] animate-[wave_10s_ease-in-out_infinite_0.5s]"></div>
+              <div className="absolute w-[140%] h-[35%] bottom-[45%] -left-[20%] right-0 
+                              bg-white/20 rounded-[100%] animate-[wave_12s_ease-in-out_infinite_0.2s]"></div>
+              <div className="absolute w-[150%] h-[40%] bottom-[25%] -left-[25%] right-0 
+                              bg-white/20 rounded-[100%] animate-[wave_11s_ease-in-out_infinite_0.8s]"></div>
+              <div className="absolute w-[160%] h-[45%] bottom-[5%] -left-[30%] right-0 
+                              bg-white/20 rounded-[100%] animate-[wave_9s_ease-in-out_infinite_0.3s]"></div>
+            </div>
+          </div>
+          
+          <div className="relative z-10 h-full flex flex-col justify-center items-start px-8 md:px-16">
             <div className="max-w-2xl">
-              <div className="flex items-center mb-3">
+              <div className="flex items-center mb-3 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full inline-flex">
                 <div className="flex text-yellow-400 mr-3">
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
@@ -94,10 +106,13 @@ const Reviews = () => {
                 </div>
                 <span className="text-white font-medium">4.9/5 average rating</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white animate-wipe-in leading-tight">See What <span className="text-[#62BFF0]">Our Customers</span> Are Saying</h1>
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white animate-wipe-in leading-tight">See What <span className="text-white/80">Our Customers</span> Are Saying</h1>
               <p className="text-white text-lg mb-8 animate-wipe-in max-w-lg opacity-90" style={{"--delay": "0.3s"} as React.CSSProperties}>
                 Real feedback from real customers. We take pride in our work and our customers' satisfaction is our top priority.
               </p>
+              <Button asChild size="lg" className="bg-white text-[#62BFF0] hover:bg-white/90" style={{"--delay": "0.5s"} as React.CSSProperties}>
+                <Link to="/booking">Book Now</Link>
+              </Button>
             </div>
           </div>
         </div>
