@@ -183,7 +183,7 @@ const GutterCleaning = () => {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               <img 
-                src="/lovable-uploads/6abde81d-a353-4ab2-a379-a8dab2e8acb1.png" 
+                src="/lovable-uploads/1f3e4654-6737-4f8a-ac5e-0b2491aa4ba2.png" 
                 alt="Before and After Gutter Cleaning" 
                 className="w-full rounded-lg shadow-lg"
               />

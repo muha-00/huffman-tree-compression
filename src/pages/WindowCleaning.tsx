@@ -60,11 +60,11 @@ const WindowCleaning = () => {
 
   return (
     <Layout>
-      {/* Hero Section - New Design */}
+      {/* Hero Section - New Design with swapped image */}
       <section className="relative">
         <div className="w-full h-[500px] relative">
           <img 
-            src="/lovable-uploads/8599a560-bac4-4ce2-bc7d-2358ad0fb255.png" 
+            src="/lovable-uploads/601c8756-819c-4796-bcc1-3b6a96e30bec.png" 
             alt="Window Cleaning Services" 
             className="w-full h-full object-cover"
           />

@@ -9,10 +9,10 @@ const ServicesCollage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Services Grid with Asymmetrical Layout */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-        {/* Window Cleaning - Full width (First row longest) - Updated with new image */}
+        {/* Window Cleaning - Full width (First row longest) - Swapped image */}
         <div className="md:col-span-12 h-[400px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/601c8756-819c-4796-bcc1-3b6a96e30bec.png" 
+            src="/lovable-uploads/8599a560-bac4-4ce2-bc7d-2358ad0fb255.png" 
             alt="Window Cleaning" 
             className="w-full h-full object-cover"
           />
@@ -73,7 +73,7 @@ const ServicesCollage: React.FC = () => {
           <p className="mt-2 text-white/70">Monday To Friday<br />8:30 am to 9:00 pm EST</p>
         </div>
         
-        {/* Gutter Cleaning - Right longer (col-span-8) - Adjusted object-position to show more of the middle where the person is */}
+        {/* Gutter Cleaning - Right longer (col-span-8) - Using better image position */}
         <div className="md:col-span-8 h-[250px] relative overflow-hidden">
           <img 
             src="/lovable-uploads/64fb7890-1c18-4f4e-b1b2-3fd4d262274d.png" 

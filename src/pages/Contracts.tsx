@@ -61,12 +61,12 @@ const Contracts = () => {
   return (
     <Layout>
       <div className="px-0 py-0 w-full">
-        {/* Hero section with new background */}
+        {/* Hero section with adjusted background image */}
         <div className="relative w-full h-[500px] mb-0">
           <img 
             src="/lovable-uploads/050482e3-4db1-4c35-ab90-e41a35eb4312.png" 
             alt="Property maintenance contract" 
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[center_30%]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex flex-col justify-center items-start px-8 md:px-16">
             <div className="max-w-2xl">
@@ -78,7 +78,7 @@ const Contracts = () => {
                 Enjoy regular maintenance of your property at discounted rates with our service contracts.
               </p>
               <Button asChild size="lg" className="bg-[#62BFF0] hover:bg-[#62BFF0]/90 animate-wipe-in" style={{"--delay": "0.5s"} as React.CSSProperties}>
-                <Link to="/booking?quote=true">Request Contract Quote</Link>
+                <Link to="/booking?quote=true&contract=true">Request Contract Quote</Link>
               </Button>
             </div>
           </div>

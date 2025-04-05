@@ -26,6 +26,7 @@ interface FormData {
   time: string;
   message: string;
   isQuote: boolean;
+  isContract: boolean;
 }
 
 const Booking = () => {
@@ -33,6 +34,7 @@ const Booking = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const isQuoteRequest = queryParams.get('quote') === 'true';
+  const isContractRequest = queryParams.get('contract') === 'true';
   const preselectedService = queryParams.get('service') || '';
 
   const [formData, setFormData] = useState<FormData>({
@@ -44,16 +46,18 @@ const Booking = () => {
     date: '',
     time: '',
     message: '',
-    isQuote: isQuoteRequest
+    isQuote: isQuoteRequest,
+    isContract: isContractRequest
   });
 
   useEffect(() => {
     setFormData(prev => ({
       ...prev,
       service: preselectedService,
-      isQuote: isQuoteRequest
+      isQuote: isQuoteRequest,
+      isContract: isContractRequest
     }));
-  }, [preselectedService, isQuoteRequest]);
+  }, [preselectedService, isQuoteRequest, isContractRequest]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -82,7 +86,7 @@ const Booking = () => {
     const newBooking = {
       id: bookingId,
       ...formData,
-      status: formData.isQuote ? 'Quote Requested' : 'Scheduled',
+      status: formData.isQuote ? (formData.isContract ? 'Contract Quote Requested' : 'Quote Requested') : 'Scheduled',
       createdAt: new Date().toISOString()
     };
     
@@ -92,7 +96,7 @@ const Booking = () => {
     // Show success message
     toast.success(
       formData.isQuote 
-        ? 'Quote request submitted successfully!' 
+        ? (formData.isContract ? 'Contract quote request submitted successfully!' : 'Quote request submitted successfully!')
         : 'Service booked successfully!'
     );
     
@@ -106,11 +110,11 @@ const Booking = () => {
         <div className="container max-w-4xl">
           <div className="text-center mb-10">
             <h1 className="text-3xl font-bold mb-4">
-              {formData.isQuote ? 'Request a Quote' : 'Book a Service'}
+              {formData.isQuote ? (formData.isContract ? 'Request a Contract Quote' : 'Request a Quote') : 'Book a Service'}
             </h1>
             <p className="text-muted-foreground">
               {formData.isQuote 
-                ? 'Fill out the form below to request a free, no-obligation quote for our services.'
+                ? (formData.isContract ? 'Fill out the form below to request a quote for our service contract options.' : 'Fill out the form below to request a free, no-obligation quote for our services.')
                 : 'Schedule your cleaning service by completing the booking form below.'}
             </p>
           </div>
@@ -192,10 +196,11 @@ const Booking = () => {
                   <div className="space-y-2">
                     <Label htmlFor="requestType">Request Type</Label>
                     <Select 
-                      value={formData.isQuote ? 'quote' : 'booking'} 
+                      value={formData.isQuote ? (formData.isContract ? 'contract' : 'quote') : 'booking'} 
                       onValueChange={(value) => setFormData({
                         ...formData,
-                        isQuote: value === 'quote'
+                        isQuote: value === 'quote' || value === 'contract',
+                        isContract: value === 'contract'
                       })}
                     >
                       <SelectTrigger id="requestType">
@@ -204,6 +209,7 @@ const Booking = () => {
                       <SelectContent>
                         <SelectItem value="booking">Book a Service</SelectItem>
                         <SelectItem value="quote">Request a Quote</SelectItem>
+                        <SelectItem value="contract">Request a Contract Quote</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -256,7 +262,7 @@ const Booking = () => {
                 </div>
                 
                 <Button type="submit" size="lg" className="w-full">
-                  {formData.isQuote ? 'Submit Quote Request' : 'Book Service'}
+                  {formData.isQuote ? (formData.isContract ? 'Submit Contract Quote Request' : 'Submit Quote Request') : 'Book Service'}
                 </Button>
               </form>
             </CardContent>
