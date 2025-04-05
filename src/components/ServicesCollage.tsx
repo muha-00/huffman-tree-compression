@@ -12,7 +12,7 @@ const ServicesCollage: React.FC = () => {
         {/* Window Cleaning - Full width (First row longest) */}
         <div className="md:col-span-12 h-[400px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/c33a4808-e59a-4bf8-b1d6-d89861768ec1.png" 
+            src="/lovable-uploads/244455dc-2f5a-49a8-a69d-d1e0d6e591b4.png" 
             alt="Window Cleaning" 
             className="w-full h-full object-cover"
           />

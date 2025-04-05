@@ -1,10 +1,56 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Phone, Star, StarHalf, Award, Users, ThumbsUp, CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+
+// Counter component for animated statistics
+const AnimatedCounter = ({ end, suffix = "", title, icon }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const duration = 2000; // Duration in milliseconds
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+    
+    const element = document.getElementById(`counter-${title.replace(/\s+/g, '-').toLowerCase()}`);
+    if (element) observer.observe(element);
+    
+    return () => observer.disconnect();
+  }, [title]);
+  
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      setCount(Math.floor(progress * end));
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    
+    window.requestAnimationFrame(step);
+  }, [isVisible, end, duration]);
+  
+  return (
+    <Card className="text-center p-6 hover-lift border-t-4 border-t-[#62BFF0]" id={`counter-${title.replace(/\s+/g, '-').toLowerCase()}`}>
+      {icon}
+      <h3 className="text-2xl font-bold mb-2">{count}{suffix}</h3>
+      <p className="text-gray-600">{title}</p>
+    </Card>
+  );
+};
 
 const Reviews = () => {
   // Handle Elfsight script loading for the Reviews widget only
@@ -28,14 +74,15 @@ const Reviews = () => {
   return (
     <Layout>
       <div className="px-0 py-0 w-full">
-        {/* Hero section - full width image with modern overlay */}
+        {/* Hero section - full width image with modern overlay and faded effect */}
         <div className="relative w-full h-[700px] mb-0">
+          <div className="absolute inset-0 bg-white/20 z-10"></div> {/* Faded overlay */}
           <img 
             src="/lovable-uploads/fc70a6c8-b2ca-4d7f-a1c4-56c0ac3c3432.png" 
             alt="Happy customers" 
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center opacity-80" /* Reduced opacity for a faded look */
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex flex-col justify-center items-start px-8 md:px-16">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex flex-col justify-center items-start px-8 md:px-16 z-20">
             <div className="max-w-2xl">
               <div className="flex items-center mb-3">
                 <div className="flex text-yellow-400 mr-3">
@@ -55,24 +102,27 @@ const Reviews = () => {
           </div>
         </div>
         
-        {/* Stats section */}
+        {/* Stats section with animated counters */}
         <div className="w-full bg-white py-12 px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-6 hover-lift border-t-4 border-t-[#62BFF0]">
-              <Award className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2">500+</h3>
-              <p className="text-gray-600">Satisfied Customers</p>
-            </Card>
-            <Card className="text-center p-6 hover-lift border-t-4 border-t-[#62BFF0]">
-              <ThumbsUp className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2">100%</h3>
-              <p className="text-gray-600">Satisfaction Guarantee</p>
-            </Card>
-            <Card className="text-center p-6 hover-lift border-t-4 border-t-[#62BFF0]">
-              <CheckCircle className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2">4.9/5</h3>
-              <p className="text-gray-600">Average Rating</p>
-            </Card>
+            <AnimatedCounter 
+              end={500} 
+              suffix="+" 
+              title="Satisfied Customers" 
+              icon={<Award className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />}
+            />
+            <AnimatedCounter 
+              end={100} 
+              suffix="%" 
+              title="Satisfaction Guarantee" 
+              icon={<ThumbsUp className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />}
+            />
+            <AnimatedCounter 
+              end={4.9} 
+              suffix="/5" 
+              title="Average Rating" 
+              icon={<CheckCircle className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />}
+            />
           </div>
         </div>
         

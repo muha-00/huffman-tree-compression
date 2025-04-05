@@ -29,9 +29,6 @@ const ContactUs = () => {
       {/* Full-width Map at Top */}
       <section className="w-full">
         <MapComponent className="w-full h-[calc(100vh-400px)] min-h-[350px]" />
-        <div className="bg-[#62BFF0] text-white py-3 text-center">
-          <h2 className="text-xl font-semibold">Serving GTA and Surrounding Areas</h2>
-        </div>
       </section>
       
       {/* Hero Section */}
@@ -46,7 +43,7 @@ const ContactUs = () => {
         </div>
       </section>
       
-      {/* Contact Information Cards */}
+      {/* Contact Information Cards - Improved Layout */}
       <section className="py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -118,7 +115,7 @@ const ContactUs = () => {
             </div>
           </div>
           
-          {/* Contact Form & Info Section - Improved Layout */}
+          {/* Contact Form & Hours/Response Promise - Improved Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Contact Form */}
             <div className="lg:col-span-7">
@@ -191,41 +188,8 @@ const ContactUs = () => {
               </div>
             </div>
             
-            {/* Contact Information & Hours */}
-            <div className="lg:col-span-5 space-y-8">
-              {/* Contact Information Box */}
-              <div className="bg-[#62BFF0] text-white rounded-xl shadow-sm p-8">
-                <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <Phone className="h-5 w-5 mr-4 mt-1" />
-                    <div>
-                      <h3 className="font-medium text-lg">Phone</h3>
-                      <a href="tel:4378585005" className="hover:underline">437-858-5005</a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <Mail className="h-5 w-5 mr-4 mt-1" />
-                    <div>
-                      <h3 className="font-medium text-lg">Email</h3>
-                      <a href="mailto:highshinecleaning123@gmail.com" className="hover:underline">
-                        highshinecleaning123@gmail.com
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <MapPin className="h-5 w-5 mr-4 mt-1" />
-                    <div>
-                      <h3 className="font-medium text-lg">Service Area</h3>
-                      <p>Greater Toronto Area</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
+            {/* Hours & Quick Response Promise */}
+            <div className="lg:col-span-5 space-y-8">              
               {/* Hours of Operation Box */}
               <div className="bg-gray-900 text-white rounded-xl shadow-sm p-8">
                 <div className="flex items-center mb-6">
@@ -274,6 +238,17 @@ const ContactUs = () => {
                     <span>Free quotes typically provided within 48 hours</span>
                   </li>
                 </ul>
+              </div>
+              
+              {/* Service Area Card */}
+              <div className="bg-[#62BFF0] text-white rounded-xl shadow-sm p-8">
+                <div className="flex items-start mb-4">
+                  <MapPin className="h-5 w-5 mr-3 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-xl">Service Area</h3>
+                    <p className="mt-2">Greater Toronto Area & Surrounding Communities</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
