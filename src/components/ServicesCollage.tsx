@@ -9,19 +9,19 @@ const ServicesCollage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Services Grid with Asymmetrical Layout */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-        {/* Gutter Cleaning - Full width (First row longest) */}
+        {/* Window Cleaning - Full width (First row longest) */}
         <div className="md:col-span-12 h-[400px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/64fb7890-1c18-4f4e-b1b2-3fd4d262274d.png" 
-            alt="Gutter Cleaning" 
+            src="/lovable-uploads/c33a4808-e59a-4bf8-b1d6-d89861768ec1.png" 
+            alt="Window Cleaning" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-8">
             <div className="max-w-md">
-              <h2 className="text-3xl font-bold text-white mb-2">Gutter Cleaning</h2>
-              <h3 className="text-2xl font-bold text-white mb-4">State Of The Art Technology.</h3>
+              <h2 className="text-3xl font-bold text-white mb-2">Window Cleaning</h2>
+              <h3 className="text-2xl font-bold text-white mb-4">Crystal Clear Results Every Time.</h3>
               <Link 
-                to="/gutter-cleaning" 
+                to="/window-cleaning" 
                 className="inline-flex items-center text-white group"
               >
                 LEARN MORE <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -73,17 +73,17 @@ const ServicesCollage: React.FC = () => {
           <p className="mt-2 text-white/70">Monday To Friday<br />8:30 am to 9:00 pm EST</p>
         </div>
         
-        {/* Window Cleaning - Right longer (col-span-8) */}
+        {/* Gutter Cleaning - Right longer (col-span-8) */}
         <div className="md:col-span-8 h-[250px] relative overflow-hidden">
           <img 
-            src="/lovable-uploads/c33a4808-e59a-4bf8-b1d6-d89861768ec1.png" 
-            alt="Window Cleaning" 
+            src="/lovable-uploads/64fb7890-1c18-4f4e-b1b2-3fd4d262274d.png" 
+            alt="Gutter Cleaning" 
             className="w-full h-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
-            <h2 className="text-2xl font-bold text-white mb-2">PROFESSIONAL<br />WINDOW CLEANING</h2>
+            <h2 className="text-2xl font-bold text-white mb-2">PROFESSIONAL<br />GUTTER CLEANING</h2>
             <Link 
-              to="/window-cleaning" 
+              to="/gutter-cleaning" 
               className="inline-flex items-center text-white group"
             >
               LEARN MORE <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />

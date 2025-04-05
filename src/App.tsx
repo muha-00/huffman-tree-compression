@@ -13,6 +13,7 @@ import GutterCleaning from "./pages/GutterCleaning";
 import Booking from "./pages/Booking";
 import Reviews from "./pages/Reviews";
 import ContactUs from "./pages/ContactUs";
+import Contracts from "./pages/Contracts";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/booking" element={<Booking />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/contracts" element={<Contracts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

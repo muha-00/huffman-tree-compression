@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Check, Phone, Facebook } from 'lucide-react';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ServicesCollage from '@/components/ServicesCollage';
+import StatsCounter from '@/components/StatsCounter';
 
 const Home = () => {
   const testimonials = [
@@ -75,16 +76,19 @@ const Home = () => {
         <div className="container">
           <div className="text-center mb-10">
             <div className="inline-block bg-[#62BFF0]/10 px-4 py-2 rounded-full text-[#62BFF0] font-medium mb-4">
-              Professional Exterior Cleaning
+              Specializing in Professional Window Cleaning
             </div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#62BFF0] to-blue-600 bg-clip-text text-transparent">
-              Your Home Deserves the<br />High Shine Treatment
+              Your Home Deserves the High Shine Treatment
             </h2>
             <p className="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-              At High Shine, we're committed to providing premium exterior cleaning services that make your property stand out. 
-              Our professional team delivers exceptional results with meticulous attention to detail on every project.
+              At High Shine, we're committed to providing premium exterior cleaning services with our specialty being window cleaning. 
+              Our professional team delivers exceptional results with meticulous attention to detail on every project, ensuring crystal-clear windows every time.
             </p>
           </div>
+          
+          {/* Stats Counter Section */}
+          <StatsCounter />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
@@ -221,9 +225,14 @@ const Home = () => {
           <p className="max-w-2xl mx-auto mb-8">
             Get a quote for our professional cleaning services today and see the difference that High Shine Cleaning can make for your home.
           </p>
-          <Button asChild size="lg" variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90">
-            <Link to="/booking?quote=true">Request a Quote</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button asChild size="lg" variant="secondary" className="bg-white text-[#62BFF0] hover:bg-white/90">
+              <Link to="/booking?quote=true">Request a Quote</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
+              <Link to="/contracts">Learn About Contracts</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>

@@ -31,7 +31,7 @@ const Reviews = () => {
         {/* Hero section - full width image with modern overlay */}
         <div className="relative w-full h-[700px] mb-0">
           <img 
-            src="/lovable-uploads/4c8e3623-bf1d-4f68-806d-c038bfe78d28.png" 
+            src="/lovable-uploads/fc70a6c8-b2ca-4d7f-a1c4-56c0ac3c3432.png" 
             alt="Happy customers" 
             className="w-full h-full object-cover object-center"
           />
@@ -51,9 +51,6 @@ const Reviews = () => {
               <p className="text-white text-lg mb-8 animate-wipe-in max-w-lg opacity-90" style={{"--delay": "0.3s"} as React.CSSProperties}>
                 Real feedback from real customers. We take pride in our work and our customers' satisfaction is our top priority.
               </p>
-              <Button asChild size="lg" className="bg-[#62BFF0] hover:bg-[#62BFF0]/90 animate-wipe-in" style={{"--delay": "0.5s"} as React.CSSProperties}>
-                <Link to="/booking?quote=true">Get Your Free Quote Today</Link>
-              </Button>
             </div>
           </div>
         </div>
