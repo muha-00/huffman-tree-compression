@@ -37,6 +37,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Contracts', path: '/contracts' },
     { name: 'Request Quote', path: '/booking?quote=true' },
     { name: 'Contact Us', path: '/contact-us' },
   ];
@@ -172,21 +173,45 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   </Link>
                 </li>
                 
+                {/* Contracts Link - NEW */}
+                <li>
+                  <Link 
+                    to="/contracts"
+                    className={cn(
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      isActive('/contracts') && "bg-accent text-accent-foreground"
+                    )}
+                    onClick={handleLinkClick}
+                  >
+                    Contracts
+                  </Link>
+                </li>
+                
                 {/* Other navigation links */}
-                {navLinks.slice(1).map((link) => (
-                  <li key={link.path}>
-                    <Link 
-                      to={link.path}
-                      className={cn(
-                        "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                        isActive(link.path.split('?')[0]) && "bg-accent text-accent-foreground"
-                      )}
-                      onClick={handleLinkClick}
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
+                <li>
+                  <Link 
+                    to="/booking?quote=true"
+                    className={cn(
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      isActive('/booking') && "bg-accent text-accent-foreground"
+                    )}
+                    onClick={handleLinkClick}
+                  >
+                    Request Quote
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/contact-us"
+                    className={cn(
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      isActive('/contact-us') && "bg-accent text-accent-foreground"
+                    )}
+                    onClick={handleLinkClick}
+                  >
+                    Contact Us
+                  </Link>
+                </li>
               </ul>
             </nav>
             
@@ -298,20 +323,39 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 Reviews
               </Link>
               
+              {/* Contracts Link - NEW */}
+              <Link 
+                to="/contracts"
+                className={cn(
+                  "py-2 px-4 rounded hover:bg-muted transition-colors",
+                  isActive('/contracts') && "bg-muted font-medium text-[#62BFF0]"
+                )}
+                onClick={handleLinkClick}
+              >
+                Contracts
+              </Link>
+              
               {/* Other navigation links */}
-              {navLinks.slice(1).map((link) => (
-                <Link 
-                  key={link.path} 
-                  to={link.path}
-                  className={cn(
-                    "py-2 px-4 rounded hover:bg-muted transition-colors",
-                    isActive(link.path.split('?')[0]) && "bg-muted font-medium text-[#62BFF0]"
-                  )}
-                  onClick={handleLinkClick}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              <Link 
+                to="/booking?quote=true" 
+                className={cn(
+                  "py-2 px-4 rounded hover:bg-muted transition-colors",
+                  isActive('/booking') && "bg-muted font-medium text-[#62BFF0]"
+                )}
+                onClick={handleLinkClick}
+              >
+                Request Quote
+              </Link>
+              <Link 
+                to="/contact-us"
+                className={cn(
+                  "py-2 px-4 rounded hover:bg-muted transition-colors",
+                  isActive('/contact-us') && "bg-muted font-medium text-[#62BFF0]"
+                )}
+                onClick={handleLinkClick}
+              >
+                Contact Us
+              </Link>
               
               {/* Phone button for mobile */}
               <a 

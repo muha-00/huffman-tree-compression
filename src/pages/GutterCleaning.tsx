@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -78,7 +79,7 @@ const GutterCleaning = () => {
       <section className="relative">
         <div className="w-full h-[500px] relative">
           <img 
-            src="/lovable-uploads/2b1a427b-30d3-4497-8177-fd955d1af674.png" 
+            src="/lovable-uploads/64fb7890-1c18-4f4e-b1b2-3fd4d262274d.png" 
             alt="Gutter Cleaning Services" 
             className="w-full h-full object-cover"
           />
@@ -171,6 +172,25 @@ const GutterCleaning = () => {
                 </li>
               </ol>
             </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Before and After Section - NEW */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8 text-center">See The Difference</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/6abde81d-a353-4ab2-a379-a8dab2e8acb1.png" 
+                alt="Before and After Gutter Cleaning" 
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+            <p className="text-center mt-6 text-muted-foreground">
+              Professional gutter cleaning removes debris and ensures proper water flow, protecting your home from water damage.
+            </p>
           </div>
         </div>
       </section>

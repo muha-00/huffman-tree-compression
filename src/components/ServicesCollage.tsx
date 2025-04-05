@@ -73,12 +73,12 @@ const ServicesCollage: React.FC = () => {
           <p className="mt-2 text-white/70">Monday To Friday<br />8:30 am to 9:00 pm EST</p>
         </div>
         
-        {/* Gutter Cleaning - Right longer (col-span-8) */}
+        {/* Gutter Cleaning - Right longer (col-span-8) - Adjusted object-position to show more of the person cleaning gutters */}
         <div className="md:col-span-8 h-[250px] relative overflow-hidden">
           <img 
             src="/lovable-uploads/64fb7890-1c18-4f4e-b1b2-3fd4d262274d.png" 
             alt="Gutter Cleaning" 
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
             <h2 className="text-2xl font-bold text-white mb-2">PROFESSIONAL<br />GUTTER CLEANING</h2>
