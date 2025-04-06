@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -73,9 +74,9 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={handleLinkClick}>
               <img 
-                src="/lovable-uploads/9be1a361-2200-495e-92be-5bcb9a2779e2.png" 
+                src="/lovable-uploads/1953968d-9e58-4d20-aee0-593b548af44d.png" 
                 alt="High Shine Cleaning" 
-                className="h-12 md:h-16"
+                className="h-16 md:h-20"
               />
               <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block">High Shine Cleaning</span>
             </Link>

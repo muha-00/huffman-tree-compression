@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
-import { Check, Phone, Facebook } from 'lucide-react';
+import { Check, Phone, Facebook, ShieldCheck } from 'lucide-react';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ServicesCollage from '@/components/ServicesCollage';
 import StatsCounter from '@/components/StatsCounter';
@@ -65,6 +65,94 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Combined INFO & Contact Section - MOVED TO TOP*/}
+      <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold mb-4">The High Shine Guarantee</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center">
+                <h3 className="text-xl font-bold mb-4 text-[#62BFF0]">Our Commitment</h3>
+                
+                <ul className="space-y-3 mb-6">
+                  {["100% Satisfaction Guaranteed", "Fully Insured", "Eco-Friendly Products", "Experienced Team"].map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button asChild className="w-full bg-[#62BFF0] hover:bg-[#62BFF0]/90 mt-auto">
+                  <Link to="/booking?quote=true">Request a Quote</Link>
+                </Button>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 flex flex-col">
+                <div className="flex items-center mb-4">
+                  <ShieldCheck className="h-6 w-6 text-[#62BFF0] mr-2" />
+                  <h3 className="text-xl font-bold">The High Shine Guarantee</h3>
+                </div>
+                
+                <p className="text-gray-700 mb-6 flex-grow">
+                  You don't pay us until you're 100% satisfied with every little service. 
+                  We take pride in our work and guarantee exceptional results every time.
+                </p>
+                
+                <Button asChild className="w-full bg-[#62BFF0] hover:bg-[#62BFF0]/90 mt-auto">
+                  <Link to="/reviews">Read Reviews</Link>
+                </Button>
+              </div>
+              
+              <div className="bg-[#62BFF0] text-white p-6 rounded-lg shadow-md flex flex-col">
+                <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+                <p className="mb-6 opacity-90 flex-grow">
+                  We provide free, no-obligation quotes for all our services. 
+                  Contact us today to discuss your exterior cleaning needs.
+                </p>
+                
+                <div className="flex items-center mb-4">
+                  <Phone className="h-5 w-5 mr-3" />
+                  <a href="tel:4378585005" className="text-white hover:underline">
+                    437-858-5005
+                  </a>
+                </div>
+                
+                <div className="flex mb-6">
+                  <a 
+                    href="https://www.facebook.com/profile.php?id=61560420295116" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors mr-3"
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors"
+                  >
+                    <img 
+                      src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
+                      alt="Google" 
+                      className="w-5 h-5" 
+                    />
+                  </a>
+                </div>
+                
+                <Button asChild variant="secondary" className="w-full bg-white text-[#62BFF0] hover:bg-white/90 mt-auto">
+                  <Link to="/contact-us">Contact Us</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
       {/* Testimonial Carousel */}
       <section>
@@ -115,82 +203,6 @@ const Home = () => {
             <h2 className="text-3xl font-bold">What Our Customers Say</h2>
           </div>
           <div className="elfsight-app-c79d3126-70ca-49a2-a12f-84aea046911a" data-elfsight-app-lazy></div>
-        </div>
-      </section>
-
-      {/* About Section - Improved Layout */}
-      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">Professional Service, Exceptional Results</h2>
-              <p className="text-muted-foreground mb-8 text-lg">
-                At High Shine Cleaning, we're a dedicated team of experienced professionals who take pride in delivering exceptional cleaning services. 
-                Our meticulous attention to detail and commitment to quality ensure that every property we service receives the highest standard of care.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="bg-white p-8 rounded-lg shadow-md border border-gray-100">
-                <h3 className="text-2xl font-bold mb-6 text-[#62BFF0]">Our Commitment</h3>
-                
-                <ul className="space-y-4 mb-8">
-                  {["100% Satisfaction Guaranteed", "Fully Insured", "Eco-Friendly Products", "Experienced Team"].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Button asChild className="w-full bg-[#62BFF0] hover:bg-[#62BFF0]/90">
-                  <Link to="/booking?quote=true">Request a Quote</Link>
-                </Button>
-              </div>
-              
-              <div className="bg-[#62BFF0] text-white p-8 rounded-lg shadow-md">
-                <h3 className="text-2xl font-bold mb-6">Contact Us</h3>
-                <p className="mb-6 opacity-90">
-                  We provide free, no-obligation quotes for all our services. 
-                  Contact us today to discuss your exterior cleaning needs.
-                </p>
-                
-                <div className="flex items-center mb-6">
-                  <Phone className="h-5 w-5 mr-3" />
-                  <a href="tel:4378585005" className="text-white hover:underline text-lg">
-                    437-858-5005
-                  </a>
-                </div>
-                
-                <div className="flex space-x-4 mb-8">
-                  <a 
-                    href="https://www.facebook.com/profile.php?id=61560420295116" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors"
-                  >
-                    <Facebook className="w-5 h-5" />
-                  </a>
-                  <a 
-                    href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors"
-                  >
-                    <img 
-                      src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
-                      alt="Google" 
-                      className="w-5 h-5" 
-                    />
-                  </a>
-                </div>
-                
-                <Button asChild variant="secondary" className="w-full bg-white text-[#62BFF0] hover:bg-white/90">
-                  <Link to="/contact-us">Contact Us</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -115,11 +115,11 @@ const ContactUs = () => {
             </div>
           </div>
           
-          {/* Contact Form & Hours/Response Promise - Improved Layout */}
+          {/* Contact Form & Additional Information - Improved Vertical Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Contact Form */}
             <div className="lg:col-span-7">
-              <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100 h-full">
+              <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
                 <div className="mb-8">
                   <h2 className="text-2xl font-bold mb-2">Send Us a Message</h2>
                   <p className="text-muted-foreground">
@@ -188,7 +188,7 @@ const ContactUs = () => {
               </div>
             </div>
             
-            {/* Hours & Quick Response Promise */}
+            {/* Hours & Quick Response Promise - Vertical Layout */}
             <div className="lg:col-span-5 space-y-8">              
               {/* Hours of Operation Box */}
               <div className="bg-gray-900 text-white rounded-xl shadow-sm p-8">
@@ -224,7 +224,7 @@ const ContactUs = () => {
                   We pride ourselves on our rapid response times. When you reach out to High Shine, you can expect:
                 </p>
                 
-                <ul className="space-y-4">
+                <ul className="space-y-5">
                   <li className="flex items-start">
                     <div className="h-6 w-6 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-3 mt-0.5 flex-shrink-0">✓</div>
                     <span>Phone calls returned within 2 hours during business hours</span>
