@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -10,22 +9,18 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, Send, Calendar, MessageSquare } from 'lucide-react';
 import { toast } from "sonner";
 import MapComponent from '@/components/MapComponent';
-
 const ContactUs = () => {
   const navigate = useNavigate();
-  
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     // Show success toast
     toast.success("Your message has been sent successfully. We'll get back to you shortly!");
-    
+
     // Reset form (in a real app, you'd also send the data to a server here)
     e.currentTarget.reset();
   };
-
-  return (
-    <Layout>
+  return <Layout>
       {/* Full-width Map at Top */}
       <section className="w-full">
         <MapComponent className="w-full h-[calc(100vh-400px)] min-h-[350px]" />
@@ -86,10 +81,7 @@ const ContactUs = () => {
                   <Calendar className="h-8 w-8 text-[#62BFF0]" />
                 </div>
                 <h2 className="text-xl font-bold mb-2">Book Online</h2>
-                <Button 
-                  onClick={() => navigate('/booking')} 
-                  className="bg-[#62BFF0] hover:bg-[#62BFF0]/90 text-white"
-                >
+                <Button onClick={() => navigate('/booking')} className="bg-[#62BFF0] hover:bg-[#62BFF0]/90 text-white">
                   Schedule Service
                 </Button>
                 <p className="mt-4 text-muted-foreground">
@@ -130,55 +122,29 @@ const ContactUs = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
-                    <Input 
-                      id="name" 
-                      name="name" 
-                      required 
-                      placeholder="Your name" 
-                    />
+                    <Input id="name" name="name" required placeholder="Your name" />
                   </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address</Label>
-                      <Input 
-                        id="email" 
-                        name="email" 
-                        type="email" 
-                        required 
-                        placeholder="your@email.com" 
-                      />
+                      <Input id="email" name="email" type="email" required placeholder="your@email.com" />
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input 
-                        id="phone" 
-                        name="phone" 
-                        placeholder="(xxx) xxx-xxxx" 
-                      />
+                      <Input id="phone" name="phone" placeholder="(xxx) xxx-xxxx" />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject</Label>
-                    <Input 
-                      id="subject" 
-                      name="subject" 
-                      required 
-                      placeholder="How can we help you?" 
-                    />
+                    <Input id="subject" name="subject" required placeholder="How can we help you?" />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>
-                    <Textarea 
-                      id="message" 
-                      name="message" 
-                      required 
-                      placeholder="Please provide details about your inquiry..." 
-                      rows={5} 
-                    />
+                    <Textarea id="message" name="message" required placeholder="Please provide details about your inquiry..." rows={5} />
                   </div>
                   
                   <Button type="submit" className="w-full bg-[#62BFF0] hover:bg-[#62BFF0]/90">
@@ -214,48 +180,14 @@ const ContactUs = () => {
               </div>
               
               {/* Quick Response Promise Box */}
-              <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
-                <div className="flex items-center mb-6">
-                  <MessageSquare className="h-6 w-6 mr-3 text-[#62BFF0]" />
-                  <h2 className="text-2xl font-bold">Quick Response Promise</h2>
-                </div>
-                
-                <p className="text-muted-foreground mb-6">
-                  We pride ourselves on our rapid response times. When you reach out to High Shine, you can expect:
-                </p>
-                
-                <ul className="space-y-5">
-                  <li className="flex items-start">
-                    <div className="h-6 w-6 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-3 mt-0.5 flex-shrink-0">✓</div>
-                    <span>Phone calls returned within 2 hours during business hours</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="h-6 w-6 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-3 mt-0.5 flex-shrink-0">✓</div>
-                    <span>Email inquiries answered within 24 hours</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="h-6 w-6 rounded-full bg-[#62BFF0] flex items-center justify-center text-white text-xs mr-3 mt-0.5 flex-shrink-0">✓</div>
-                    <span>Free quotes typically provided within 48 hours</span>
-                  </li>
-                </ul>
-              </div>
+              
               
               {/* Service Area Card */}
-              <div className="bg-[#62BFF0] text-white rounded-xl shadow-sm p-8">
-                <div className="flex items-start mb-4">
-                  <MapPin className="h-5 w-5 mr-3 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-xl">Service Area</h3>
-                    <p className="mt-2">Greater Toronto Area & Surrounding Communities</p>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default ContactUs;
