@@ -74,7 +74,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={handleLinkClick}>
               <img 
-                src="/lovable-uploads/1953968d-9e58-4d20-aee0-593b548af44d.png" 
+                src="/lovable-uploads/7f0d75a7-fa68-4a92-951b-d21e7dff95ff.png" 
                 alt="High Shine Cleaning" 
                 className="h-16 md:h-20"
               />
