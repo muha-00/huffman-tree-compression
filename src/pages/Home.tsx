@@ -66,88 +66,70 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Combined INFO & Contact Section - MOVED TO TOP*/}
+      {/* About Us & Mission Section - Replacing the guarantee boxes */}
       <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4">The High Shine Guarantee</h2>
+              <h2 className="text-3xl font-bold mb-4">About Us</h2>
+              <div className="h-1 w-16 bg-[#62BFF0] mx-auto mb-6"></div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center">
-                <h3 className="text-xl font-bold mb-4 text-[#62BFF0]">Our Commitment</h3>
-                
-                <ul className="space-y-3 mb-6">
-                  {["100% Satisfaction Guaranteed", "Fully Insured", "Eco-Friendly Products", "Experienced Team"].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Button asChild className="w-full bg-[#62BFF0] hover:bg-[#62BFF0]/90 mt-auto">
-                  <Link to="/booking?quote=true">Request a Quote</Link>
-                </Button>
+            <div className="bg-white p-8 rounded-lg shadow-md border border-gray-100 mb-8">
+              <div className="prose prose-lg max-w-none">
+                <p>
+                  High Shine Cleaning was founded with a simple mission: to provide exceptional exterior cleaning services that exceed our clients' expectations. With years of experience in the industry, our skilled team specializes in window cleaning, pressure washing, soft washing, and gutter maintenance for residential and commercial properties throughout the Greater Toronto Area.
+                </p>
+                <p>
+                  What sets us apart is our unwavering commitment to quality and customer satisfaction. We understand that your home is one of your most valuable investments, which is why we treat every property with the utmost care and attention to detail. Our professionals are thoroughly trained, fully insured, and equipped with state-of-the-art tools and environmentally friendly products to deliver superior results.
+                </p>
+                <p>
+                  At High Shine, we believe in transparency, integrity, and building lasting relationships with our clients. From your initial contact with us to the completion of your service, we strive to make the entire process seamless and stress-free. We stand behind our work with our 100% satisfaction guarantee – if you're not completely satisfied, we'll make it right.
+                </p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 flex flex-col">
-                <div className="flex items-center mb-4">
-                  <ShieldCheck className="h-6 w-6 text-[#62BFF0] mr-2" />
-                  <h3 className="text-xl font-bold">The High Shine Guarantee</h3>
+              <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="flex items-center md:items-start flex-col md:text-left text-center">
+                  <h3 className="text-xl font-bold text-[#62BFF0] mb-2">Our Promise</h3>
+                  <ul className="space-y-2">
+                    {["100% Satisfaction Guaranteed", "Fully Insured", "Eco-Friendly Products", "Experienced Team"].map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 
-                <p className="text-gray-700 mb-6 flex-grow">
-                  You don't pay us until you're 100% satisfied with every little service. 
-                  We take pride in our work and guarantee exceptional results every time.
-                </p>
-                
-                <Button asChild className="w-full bg-[#62BFF0] hover:bg-[#62BFF0]/90 mt-auto">
-                  <Link to="/reviews">Read Reviews</Link>
-                </Button>
+                <div className="flex items-center gap-4">
+                  <Button asChild className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
+                    <Link to="/booking?quote=true">Get a Quote</Link>
+                  </Button>
+                  <Button asChild variant="outline" className="border-[#62BFF0] text-[#62BFF0]">
+                    <Link to="/contact-us">Contact Us</Link>
+                  </Button>
+                </div>
               </div>
-              
-              <div className="bg-[#62BFF0] text-white p-6 rounded-lg shadow-md flex flex-col">
-                <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-                <p className="mb-6 opacity-90 flex-grow">
-                  We provide free, no-obligation quotes for all our services. 
-                  Contact us today to discuss your exterior cleaning needs.
-                </p>
-                
-                <div className="flex items-center mb-4">
-                  <Phone className="h-5 w-5 mr-3" />
-                  <a href="tel:4378585005" className="text-white hover:underline">
-                    437-858-5005
-                  </a>
+            </div>
+            
+            <div className="bg-[#62BFF0] text-white p-8 rounded-lg shadow-md">
+              <div className="flex justify-between items-center flex-col md:flex-row gap-6">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Need Help or Have Questions?</h3>
+                  <p className="opacity-90">
+                    Our friendly team is ready to assist you with any inquiries.
+                  </p>
                 </div>
                 
-                <div className="flex mb-6">
-                  <a 
-                    href="https://www.facebook.com/profile.php?id=61560420295116" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors mr-3"
-                  >
-                    <Facebook className="w-5 h-5" />
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="tel:4378585005" className="flex items-center bg-white text-[#62BFF0] px-5 py-2 rounded-md font-medium hover:bg-white/90 transition-colors">
+                    <Phone className="h-5 w-5 mr-2" />
+                    <span>437-858-5005</span>
                   </a>
-                  <a 
-                    href="https://www.google.com/search?q=high+shine+cleaning&rlz=1C1CHBF_enCA959CA959&oq=high&aqs=chrome.0.69i59l2j69i57j69i59j0i131i273i433i512i650j69i60l3.964j0j7&sourceid=chrome&ie=UTF-8&lqi=ChNoaWdoIHNoaW5lIGNsZWFuaW5nSJC7ytqHu4CACFohEAAQARACGAAYARgCIhNoaWdoIHNoaW5lIGNsZWFuaW5negtNaXNzaXNzYXVnYZIBF3dpbmRvd19jbGVhbmluZ19zZXJ2aWNlqgFVEAEqFyITaGlnaCBzaGluZSBjbGVhbmluZygAMh8QASIbL6gy_w3fDhGDXAOLhpdTQ5kHswNOvN9ouRZwMhcQAiITaGlnaCBzaGluZSBjbGVhbmluZw#rlimm=4094031844201864335" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-white/20 p-2 rounded-full hover:bg-white/30 transition-colors"
-                  >
-                    <img 
-                      src="/lovable-uploads/60806a1c-46ea-4ef6-9f81-9a2a0cc1ea10.png" 
-                      alt="Google" 
-                      className="w-5 h-5" 
-                    />
-                  </a>
+                  <Link to="/contact-us" className="flex items-center justify-center bg-transparent border border-white text-white px-5 py-2 rounded-md font-medium hover:bg-white/10 transition-colors">
+                    Contact Us
+                  </Link>
                 </div>
-                
-                <Button asChild variant="secondary" className="w-full bg-white text-[#62BFF0] hover:bg-white/90 mt-auto">
-                  <Link to="/contact-us">Contact Us</Link>
-                </Button>
               </div>
             </div>
           </div>

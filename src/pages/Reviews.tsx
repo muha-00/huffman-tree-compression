@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -101,9 +102,9 @@ const Reviews = () => {
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 text-white/30" />
+                  <Star className="w-5 h-5 fill-current" />
                 </div>
-                <span className="text-white font-medium">4.0/5 average rating</span>
+                <span className="text-white font-medium">5.0/5 average rating</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white animate-wipe-in leading-tight">See What <span className="text-white/80">Our Customers</span> Are Saying</h1>
               <p className="text-white text-lg mb-8 animate-wipe-in max-w-lg opacity-90" style={{"--delay": "0.3s"} as React.CSSProperties}>
@@ -132,7 +133,7 @@ const Reviews = () => {
               icon={<ThumbsUp className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />}
             />
             <AnimatedCounter 
-              end={4.0} 
+              end={5.0} 
               suffix="/5" 
               title="Average Rating" 
               icon={<CheckCircle className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />}
