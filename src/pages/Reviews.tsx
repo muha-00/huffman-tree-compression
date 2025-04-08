@@ -1,9 +1,8 @@
-
 import React, { useEffect, useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Phone, Star, StarHalf, Award, Users, ThumbsUp, CheckCircle } from 'lucide-react';
+import { Phone, Star, Award, Users, ThumbsUp, CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 // Animated Counter component
@@ -102,9 +101,9 @@ const Reviews = () => {
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
-                  <StarHalf className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 text-white/30" />
                 </div>
-                <span className="text-white font-medium">4.9/5 average rating</span>
+                <span className="text-white font-medium">4.0/5 average rating</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white animate-wipe-in leading-tight">See What <span className="text-white/80">Our Customers</span> Are Saying</h1>
               <p className="text-white text-lg mb-8 animate-wipe-in max-w-lg opacity-90" style={{"--delay": "0.3s"} as React.CSSProperties}>
@@ -117,7 +116,7 @@ const Reviews = () => {
           </div>
         </div>
         
-        {/* Stats section with animated counters */}
+        {/* Stats section with animated counters - Updated rating */}
         <div className="w-full bg-white py-12 px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimatedCounter 
@@ -133,7 +132,7 @@ const Reviews = () => {
               icon={<ThumbsUp className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />}
             />
             <AnimatedCounter 
-              end={4.9} 
+              end={4.0} 
               suffix="/5" 
               title="Average Rating" 
               icon={<CheckCircle className="h-12 w-12 text-[#62BFF0] mx-auto mb-4" />}

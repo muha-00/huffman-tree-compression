@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -71,12 +70,12 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       {/* Header with navigation - Updated with solid background on mobile */}
       <header className="py-4 border-b bg-white md:bg-background/80 md:backdrop-blur-sm sticky top-0 z-30">
         <div className="container flex justify-between items-center">
-          <div className="flex items-center">
+          <div className="flex items-center pl-0">
             <Link to="/" className="flex items-center" onClick={handleLinkClick}>
               <img 
                 src="/lovable-uploads/7f0d75a7-fa68-4a92-951b-d21e7dff95ff.png" 
                 alt="High Shine Cleaning" 
-                className="h-16 md:h-20"
+                className="h-16 md:h-20 ml-0"
               />
               <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block">High Shine Cleaning</span>
             </Link>
