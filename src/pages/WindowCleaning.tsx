@@ -89,70 +89,141 @@ const WindowCleaning = () => {
         </div>
       </section>
 
-      {/* Service Description */}
+      {/* Service Description - Updated with more open text layout */}
       <section className="py-16">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Why Choose Our Window Cleaning?</h2>
-              <p className="text-muted-foreground mb-6">
-                At High Shine Cleaning, we take pride in delivering exceptional window cleaning services that leave your windows sparkling clean. Our experienced team uses professional-grade equipment and eco-friendly cleaning solutions to ensure the best results.
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-8 text-center">Why Choose Our Window Cleaning?</h2>
+            
+            <div className="prose prose-lg max-w-none mb-12">
+              <p>
+                At High Shine Cleaning, we take pride in delivering exceptional window cleaning services that leave your windows 
+                sparkling clean. Our experienced team uses professional-grade equipment and eco-friendly cleaning solutions to 
+                ensure the best results every time. Clean windows make a dramatic difference in your home's appearance, allowing 
+                natural light to flood your interior spaces and enhancing your view of the outdoors.
               </p>
               
-              <ul className="space-y-3 mb-8">
+              <p>
+                Dirty windows can significantly reduce the amount of natural light entering your home, making spaces feel darker 
+                and less inviting. Regular window cleaning not only improves your home's appearance but also extends the life of 
+                your windows by preventing the buildup of damaging substances that can etch or degrade glass and frames over time.
+              </p>
+            </div>
+            
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold mb-6">The Benefits of Professional Window Cleaning</h3>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start">
-                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5" />
-                    <span>{benefit}</span>
+                  <li key={index} className="flex items-start p-4 bg-gray-50 rounded-lg">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-lg">{benefit}</span>
                   </li>
                 ))}
               </ul>
               
-              <p className="text-muted-foreground mb-6">
-                Whether you need regular maintenance or a one-time deep clean, our window cleaning services are designed to meet your specific needs and exceed your expectations.
-              </p>
+              <div className="mt-8 prose prose-lg max-w-none">
+                <p>
+                  Whether you need regular maintenance or a one-time deep clean, our window cleaning services are designed to 
+                  meet your specific needs and exceed your expectations. Our technicians are trained to work efficiently and 
+                  safely, even on multi-story homes or buildings with hard-to-reach windows.
+                </p>
+              </div>
             </div>
             
-            <div className="bg-muted rounded-lg p-8">
-              <h3 className="text-2xl font-bold mb-4">Our Window Cleaning Process</h3>
+            {/* Process section - Completely redesigned with more text */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold mb-8 text-center">Our Comprehensive Window Cleaning Process</h2>
               
-              <ol className="space-y-4">
-                <li className="flex">
-                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
-                  <div>
-                    <h4 className="font-medium">Assessment</h4>
-                    <p className="text-sm text-muted-foreground">We evaluate your windows and discuss any specific concerns or requirements.</p>
+              <div className="prose prose-lg max-w-none mb-8">
+                <p>
+                  At High Shine Cleaning, we follow a meticulous process to ensure your windows receive the highest quality 
+                  cleaning. Our systematic approach guarantees that no detail is overlooked, resulting in perfectly clean 
+                  windows that enhance your home's appearance and allow maximum natural light to enter.
+                </p>
+              </div>
+              
+              <div className="space-y-8">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="flex items-center mb-3">
+                    <span className="bg-[#62BFF0] text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                    <h4 className="text-xl font-bold">Initial Assessment</h4>
                   </div>
-                </li>
-                <li className="flex">
-                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
-                  <div>
-                    <h4 className="font-medium">Preparation</h4>
-                    <p className="text-sm text-muted-foreground">We protect surrounding areas and prepare our professional cleaning solutions.</p>
+                  <p className="pl-11 text-lg text-gray-700">
+                    We begin by thoroughly evaluating your windows and discussing any specific concerns or requirements you may have. 
+                    This assessment allows us to identify any problem areas, such as hard water stains, paint overspray, or construction 
+                    debris that may require special attention. We'll also note any delicate or specialty windows that need particular care.
+                  </p>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="flex items-center mb-3">
+                    <span className="bg-[#62BFF0] text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                    <h4 className="text-xl font-bold">Preparation</h4>
                   </div>
-                </li>
-                <li className="flex">
-                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
-                  <div>
-                    <h4 className="font-medium">Cleaning</h4>
-                    <p className="text-sm text-muted-foreground">We thoroughly clean both interior and exterior windows, frames, and sills.</p>
+                  <p className="pl-11 text-lg text-gray-700">
+                    Before we begin cleaning, we take steps to protect your home's interior and exterior spaces. We move or cover furniture 
+                    near windows, place protective coverings on flooring when necessary, and ensure that landscaping beneath exterior windows 
+                    is protected. We then prepare our environmentally friendly cleaning solutions, specifically formulated to remove dirt, 
+                    pollen, and environmental contaminants without leaving streaks or residue.
+                  </p>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="flex items-center mb-3">
+                    <span className="bg-[#62BFF0] text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                    <h4 className="text-xl font-bold">Professional Cleaning</h4>
                   </div>
-                </li>
-                <li className="flex">
-                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
-                  <div>
-                    <h4 className="font-medium">Detailing</h4>
-                    <p className="text-sm text-muted-foreground">We clean screens, tracks, and finishing touches for a complete clean.</p>
+                  <p className="pl-11 text-lg text-gray-700">
+                    Using professional-grade equipment and techniques, we thoroughly clean both the interior and exterior of your windows. 
+                    Our process includes:
+                  </p>
+                  <ul className="pl-11 mt-3 space-y-2 text-gray-700">
+                    <li>• Scrubbing frames and sills to remove accumulated dirt and debris</li>
+                    <li>• Applying specialized cleaning solutions to glass surfaces</li>
+                    <li>• Using professional squeegees and microfiber tools for streak-free results</li>
+                    <li>• Careful attention to corners and edges where dirt often accumulates</li>
+                    <li>• Treating stubborn spots or stains with appropriate techniques</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="flex items-center mb-3">
+                    <span className="bg-[#62BFF0] text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">4</span>
+                    <h4 className="text-xl font-bold">Comprehensive Detailing</h4>
                   </div>
-                </li>
-                <li className="flex">
-                  <span className="bg-[#62BFF0] text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
-                  <div>
-                    <h4 className="font-medium">Final Inspection</h4>
-                    <p className="text-sm text-muted-foreground">We check all windows to ensure they meet our high standards.</p>
+                  <p className="pl-11 text-lg text-gray-700">
+                    We don't stop at just cleaning the glass. Our comprehensive service includes detailed attention to all window components:
+                  </p>
+                  <ul className="pl-11 mt-3 space-y-2 text-gray-700">
+                    <li>• Removing and cleaning window screens</li>
+                    <li>• Scrubbing and detailing window tracks</li>
+                    <li>• Cleaning window hardware and locks</li>
+                    <li>• Wiping down windowsills</li>
+                    <li>• Removing cobwebs from corners and frames</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="flex items-center mb-3">
+                    <span className="bg-[#62BFF0] text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">5</span>
+                    <h4 className="text-xl font-bold">Quality Inspection</h4>
                   </div>
-                </li>
-              </ol>
+                  <p className="pl-11 text-lg text-gray-700">
+                    Before we consider the job complete, our team performs a thorough inspection of all cleaned windows. We check for 
+                    any missed spots, streaks, or imperfections. We'll also verify that screens are properly reinstalled, tracks are 
+                    clear of debris, and all windows operate smoothly. This final quality control step ensures that every window meets 
+                    our high standards and your expectations. If anything doesn't meet our standards, we address it immediately.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="mt-8 prose prose-lg max-w-none">
+                <p>
+                  The result is brilliantly clean, streak-free windows that transform the appearance of your home inside and out. 
+                  You'll notice the difference immediately in how much natural light enters your home and how clearly you can see 
+                  the outside world.
+                </p>
+              </div>
             </div>
           </div>
         </div>

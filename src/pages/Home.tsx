@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,7 @@ import { Check, Phone, Facebook, ShieldCheck } from 'lucide-react';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ServicesCollage from '@/components/ServicesCollage';
 import StatsCounter from '@/components/StatsCounter';
+import PromoPopup from '@/components/PromoPopup';
 
 const Home = () => {
   const testimonials = [
@@ -27,6 +28,8 @@ const Home = () => {
     },
   ];
 
+  const [showPromo, setShowPromo] = useState(false);
+
   // Elfsight review carousel script
   useEffect(() => {
     const script = document.createElement('script');
@@ -44,6 +47,8 @@ const Home = () => {
 
   return (
     <Layout>
+      {showPromo && <PromoPopup onClose={() => setShowPromo(false)} />}
+      
       {/* Hero Section */}
       <section className="relative py-20 md:py-28">
         {/* Background with subtle pattern */}
@@ -66,61 +71,47 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About Us & Mission Section - Replacing the guarantee boxes */}
-      <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4">About Us</h2>
-              <div className="h-1 w-16 bg-[#62BFF0] mx-auto mb-6"></div>
+      {/* About Us & Mission Section - Improved layout with open text */}
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">About Us</h2>
+            <div className="h-1 w-16 bg-[#62BFF0] mx-auto mb-8"></div>
+          </div>
+          
+          <div className="prose prose-lg max-w-4xl mx-auto text-gray-700">
+            <p className="text-xl leading-relaxed mb-6">
+              High Shine Cleaning was founded with a simple mission: to provide exceptional exterior cleaning services that exceed our clients' expectations. With years of experience in the industry, our skilled team specializes in window cleaning, pressure washing, soft washing, and gutter maintenance for residential and commercial properties throughout the Greater Toronto Area.
+            </p>
+            
+            <p className="text-lg leading-relaxed mb-6">
+              What sets us apart is our unwavering commitment to quality and customer satisfaction. We understand that your home is one of your most valuable investments, which is why we treat every property with the utmost care and attention to detail. Our professionals are thoroughly trained, fully insured, and equipped with state-of-the-art tools and environmentally friendly products to deliver superior results.
+            </p>
+            
+            <p className="text-lg leading-relaxed mb-8">
+              At High Shine, we believe in transparency, integrity, and building lasting relationships with our clients. From your initial contact with us to the completion of your service, we strive to make the entire process seamless and stress-free. We stand behind our work with our 100% satisfaction guarantee – if you're not completely satisfied, we'll make it right.
+            </p>
+          </div>
+          
+          <div className="mt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-md border border-gray-100 flex-1">
+              <h3 className="text-xl font-bold text-[#62BFF0] mb-4">Our Promise</h3>
+              <ul className="space-y-3">
+                {["100% Satisfaction Guaranteed", "Fully Insured", "Eco-Friendly Products", "Experienced Team"].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             
-            <div className="bg-white p-8 rounded-lg shadow-md border border-gray-100 mb-8">
-              <div className="prose prose-lg max-w-none">
-                <p>
-                  High Shine Cleaning was founded with a simple mission: to provide exceptional exterior cleaning services that exceed our clients' expectations. With years of experience in the industry, our skilled team specializes in window cleaning, pressure washing, soft washing, and gutter maintenance for residential and commercial properties throughout the Greater Toronto Area.
+            <div className="flex flex-col gap-4 flex-1">
+              <div className="bg-[#62BFF0] text-white p-8 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-3">Need Assistance?</h3>
+                <p className="mb-5 opacity-90">
+                  Our friendly team is ready to answer your questions and provide expert advice on your cleaning needs.
                 </p>
-                <p>
-                  What sets us apart is our unwavering commitment to quality and customer satisfaction. We understand that your home is one of your most valuable investments, which is why we treat every property with the utmost care and attention to detail. Our professionals are thoroughly trained, fully insured, and equipped with state-of-the-art tools and environmentally friendly products to deliver superior results.
-                </p>
-                <p>
-                  At High Shine, we believe in transparency, integrity, and building lasting relationships with our clients. From your initial contact with us to the completion of your service, we strive to make the entire process seamless and stress-free. We stand behind our work with our 100% satisfaction guarantee – if you're not completely satisfied, we'll make it right.
-                </p>
-              </div>
-              
-              <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="flex items-center md:items-start flex-col md:text-left text-center">
-                  <h3 className="text-xl font-bold text-[#62BFF0] mb-2">Our Promise</h3>
-                  <ul className="space-y-2">
-                    {["100% Satisfaction Guaranteed", "Fully Insured", "Eco-Friendly Products", "Experienced Team"].map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <Check className="h-5 w-5 text-[#62BFF0] mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="flex items-center gap-4">
-                  <Button asChild className="bg-[#62BFF0] hover:bg-[#62BFF0]/90">
-                    <Link to="/booking?quote=true">Get a Quote</Link>
-                  </Button>
-                  <Button asChild variant="outline" className="border-[#62BFF0] text-[#62BFF0]">
-                    <Link to="/contact-us">Contact Us</Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-[#62BFF0] text-white p-8 rounded-lg shadow-md">
-              <div className="flex justify-between items-center flex-col md:flex-row gap-6">
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Need Help or Have Questions?</h3>
-                  <p className="opacity-90">
-                    Our friendly team is ready to assist you with any inquiries.
-                  </p>
-                </div>
-                
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href="tel:4378585005" className="flex items-center bg-white text-[#62BFF0] px-5 py-2 rounded-md font-medium hover:bg-white/90 transition-colors">
                     <Phone className="h-5 w-5 mr-2" />

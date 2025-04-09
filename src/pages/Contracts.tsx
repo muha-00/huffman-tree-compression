@@ -79,12 +79,12 @@ const Contracts = () => {
   return (
     <Layout>
       <div className="px-0 py-0 w-full">
-        {/* Hero section with the new background image */}
+        {/* Hero section with updated background image */}
         <div className="relative w-full h-[600px] mb-0">
           {/* Background image */}
           <div className="absolute inset-0 bg-black">
             <img 
-              src="/lovable-uploads/00365785-46c6-41d5-acec-5fbc833c7a0c.png" 
+              src="/lovable-uploads/75c1d2ff-1e68-49eb-8387-5ba3eb53dee2.png" 
               alt="Savings Concept" 
               className="w-full h-full object-cover opacity-80" 
             />
@@ -154,20 +154,19 @@ const Contracts = () => {
               </Card>
             </div>
             
+            {/* Updated to not have frames */}
             <div className="max-w-4xl mx-auto mb-24">
-              <div className="bg-[#62BFF0]/10 rounded-xl p-8 md:p-12">
-                <h3 className="text-3xl font-bold mb-6 text-center">Professional Service at Predictable Rates</h3>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    Regular professional cleaning and maintenance not only keeps your property looking its best, but it also helps prevent long-term damage and costly repairs. With High Shine's maintenance contracts, you'll benefit from consistent expert care while enjoying significant cost savings.
-                  </p>
-                  <p>
-                    Our service contracts are customized to your property's specific needs and schedule. Whether you need weekly, bi-weekly, monthly, quarterly, or bi-annual service, we'll create a maintenance plan that ensures your property always looks its best while providing you with maximum value.
-                  </p>
-                  <p>
-                    All our contract clients receive priority scheduling, ensuring you get the service times that work best for you. And with our locked-in pricing, you'll know exactly what to expect with each visit, with no surprises or seasonal rate increases.
-                  </p>
-                </div>
+              <h3 className="text-3xl font-bold mb-6 text-center">Professional Service at Predictable Rates</h3>
+              <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+                <p>
+                  Regular professional cleaning and maintenance not only keeps your property looking its best, but it also helps prevent long-term damage and costly repairs. With High Shine's maintenance contracts, you'll benefit from consistent expert care while enjoying significant cost savings.
+                </p>
+                <p>
+                  Our service contracts are customized to your property's specific needs and schedule. Whether you need weekly, bi-weekly, monthly, quarterly, or bi-annual service, we'll create a maintenance plan that ensures your property always looks its best while providing you with maximum value.
+                </p>
+                <p>
+                  All our contract clients receive priority scheduling, ensuring you get the service times that work best for you. And with our locked-in pricing, you'll know exactly what to expect with each visit, with no surprises or seasonal rate increases.
+                </p>
                 <div className="mt-8 text-center">
                   <Link to="/booking?quote=true&contract=true" className="inline-block bg-[#62BFF0] text-white px-8 py-3 rounded-md font-medium hover:bg-[#62BFF0]/90 transition-colors">
                     Start Saving Today
@@ -176,7 +175,7 @@ const Contracts = () => {
               </div>
             </div>
             
-            {/* Service Plans - Reduced to two key options with more text */}
+            {/* Service Plans */}
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-6">Available Service Plans</h2>
               <div className="h-1 w-24 bg-[#62BFF0] mx-auto mb-6"></div>
@@ -219,7 +218,7 @@ const Contracts = () => {
           </div>
         </div>
         
-        {/* Payment Information Section - Improved spacing */}
+        {/* Payment Information Section - Improved spacing and removed frame */}
         <div className="bg-gray-50 py-20 px-4">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
@@ -230,10 +229,10 @@ const Contracts = () => {
               </p>
             </div>
             
-            <div className="bg-white rounded-lg shadow-lg max-w-3xl mx-auto p-10">
+            <div className="max-w-3xl mx-auto">
               <h3 className="text-2xl font-bold mb-8 text-center">Contract Payment & Scheduling</h3>
               
-              <div className="prose prose-lg max-w-none mb-8">
+              <div className="text-lg text-gray-700 leading-relaxed space-y-6">
                 <p>
                   Our contract process is designed to be simple, transparent, and beneficial to you. When you sign up for a High Shine service contract, you're not just securing regular maintenance for your property – you're also locking in significant savings and preferred scheduling.
                 </p>
@@ -243,19 +242,19 @@ const Contracts = () => {
                 <p>
                   Our scheduling team works closely with you to establish service dates that fit perfectly with your calendar and preferences. We understand that flexibility is important, which is why we allow services to be rescheduled with advance notice at no additional cost.
                 </p>
-              </div>
-              
-              <div className="bg-[#62BFF0]/10 p-6 rounded-lg">
-                <h4 className="font-medium mb-3 text-lg">Important Note:</h4>
-                <p className="text-base">
-                  Contract services are based on your initial quote with a 20% discount applied. This gives you significant savings while maintaining the same high-quality service you expect from High Shine.
-                </p>
+                
+                <div className="bg-[#62BFF0]/10 p-6 rounded-lg mt-8">
+                  <h4 className="font-medium mb-3 text-lg">Important Note:</h4>
+                  <p className="text-base">
+                    Contract services are based on your initial quote with a 20% discount applied. This gives you significant savings while maintaining the same high-quality service you expect from High Shine.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
         
-        {/* FAQ Section - Now with collapsible items */}
+        {/* FAQ Section - With collapsible items */}
         <div className="bg-white py-20 px-4">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-16">

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -9,6 +10,7 @@ import {
   DropdownMenuItem, 
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
+import PromoBanner from './PromoBanner';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -53,6 +55,9 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       "min-h-screen flex flex-col antialiased",
       className
     )}>
+      {/* Promo Banner - NEW */}
+      <PromoBanner />
+      
       {/* Top contact bar */}
       <div className="bg-[#62BFF0] text-white py-2 px-4">
         <div className="container flex flex-col sm:flex-row justify-between items-center text-sm">
