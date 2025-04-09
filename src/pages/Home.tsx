@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -49,21 +48,18 @@ const Home = () => {
     <Layout>
       {showPromo && <PromoPopup onClose={() => setShowPromo(false)} />}
       
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28">
-        {/* Background with subtle pattern */}
-        <div className="absolute inset-0 bg-gradient-to-b from-highshine/10 to-transparent z-0"></div>
-        
+      {/* Hero Section with blue background */}
+      <section className="relative py-20 md:py-28 bg-[#62BFF0]">
         <div className="container relative z-10">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight hero-animate" style={{"--delay": "0.1s"} as React.CSSProperties}>
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white hero-animate" style={{"--delay": "0.1s"} as React.CSSProperties}>
               Professional Window & Home Cleaning Services
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground hero-animate" style={{"--delay": "0.3s"} as React.CSSProperties}>
+            <p className="mt-6 text-lg text-white hero-animate" style={{"--delay": "0.3s"} as React.CSSProperties}>
               A team of experienced professionals providing exceptional window cleaning, house washing, roof washing, and gutter cleaning services.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 hero-animate" style={{"--delay": "0.5s"} as React.CSSProperties}>
-              <Button asChild size="lg" className="px-8">
+              <Button asChild size="lg" className="bg-white text-[#62BFF0] hover:bg-white/90 px-8">
                 <Link to="/booking?quote=true">Request a Quote</Link>
               </Button>
             </div>
@@ -71,11 +67,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About Us & Mission Section - Improved layout with open text */}
+      {/* Why Choose Us Section - Changed from About Us */}
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">About Us</h2>
+            <h2 className="text-3xl font-bold mb-4">Why Choose Us</h2>
             <div className="h-1 w-16 bg-[#62BFF0] mx-auto mb-8"></div>
           </div>
           

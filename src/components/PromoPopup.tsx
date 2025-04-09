@@ -45,7 +45,7 @@ const PromoPopup: React.FC<PromoPopupProps> = ({ onClose }) => {
           </h2>
           
           <p className="text-lg mb-8">
-            Use coupon code <span className="font-bold text-[#62BFF0]">HIGHSHINE20</span> when you book a quote 
+            Mention coupon code <span className="font-bold text-[#62BFF0]">HIGHSHINE20</span> when you book a quote 
             and receive a 20% discount on your first service with High Shine Cleaning.
           </p>
           

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -39,6 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about-us' },
     { name: 'Contracts', path: '/contracts' },
     { name: 'Request Quote', path: '/booking?quote=true' },
     { name: 'Contact Us', path: '/contact-us' },
@@ -55,7 +55,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       "min-h-screen flex flex-col antialiased",
       className
     )}>
-      {/* Promo Banner - NEW */}
+      {/* Promo Banner */}
       <PromoBanner />
       
       {/* Top contact bar */}
@@ -72,7 +72,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         </div>
       </div>
       
-      {/* Header with navigation - Updated with solid background on mobile */}
+      {/* Header with navigation - Updated with logo position */}
       <header className="py-4 border-b bg-white md:bg-background/80 md:backdrop-blur-sm sticky top-0 z-30">
         <div className="container flex justify-between items-center">
           <div className="flex items-center pl-0">
@@ -85,32 +85,32 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
               <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block">High Shine Cleaning</span>
             </Link>
             
-            {/* Social Icons next to logo - Updated to match reference image */}
-            <div className="flex items-center ml-4">
+            {/* Social Icons next to logo - Moved further left */}
+            <div className="flex items-center ml-4 sm:ml-2">
               <div className="flex space-x-2">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61560420295116" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#62BFF0] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
                 <a 
                   href="https://www.instagram.com/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#62BFF0] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
                 <a 
                   href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#62BFF0] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
                 >
-                  <MapPin className="w-5 h-5" />
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
               </div>
             </div>
@@ -134,7 +134,21 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   </Link>
                 </li>
                 
-                {/* Services Dropdown - Changed to only open on click, not hover */}
+                {/* About Us link - NEW */}
+                <li>
+                  <Link 
+                    to="/about-us"
+                    className={cn(
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      isActive('/about-us') && "bg-accent text-accent-foreground"
+                    )}
+                    onClick={handleLinkClick}
+                  >
+                    About Us
+                  </Link>
+                </li>
+                
+                {/* Services Dropdown */}
                 <li>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -178,7 +192,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   </Link>
                 </li>
                 
-                {/* Contracts Link - NEW */}
+                {/* Contracts Link */}
                 <li>
                   <Link 
                     to="/contracts"
@@ -195,7 +209,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 {/* Other navigation links */}
                 <li>
                   <Link 
-                    to="/booking?quote=true"
+                    to="/booking?quote=true" 
                     className={cn(
                       "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
                       isActive('/booking') && "bg-accent text-accent-foreground"
@@ -241,7 +255,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </Button>
         </div>
         
-        {/* Mobile Navigation - Updated with solid background */}
+        {/* Mobile Navigation - Updated to include About Us */}
         {mobileMenuOpen && (
           <div className="md:hidden fixed inset-0 top-[77px] bg-white z-20">
             <nav className="container py-4 flex flex-col space-y-3">
@@ -255,6 +269,18 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 onClick={handleLinkClick}
               >
                 Home
+              </Link>
+              
+              {/* About Us link - NEW */}
+              <Link 
+                to="/about-us"
+                className={cn(
+                  "py-2 px-4 rounded hover:bg-muted transition-colors",
+                  isActive('/about-us') && "bg-muted font-medium text-[#62BFF0]"
+                )}
+                onClick={handleLinkClick}
+              >
+                About Us
               </Link>
               
               {/* Social Icons for Mobile - moved near the top */}
@@ -328,7 +354,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 Reviews
               </Link>
               
-              {/* Contracts Link - NEW */}
+              {/* Contracts Link */}
               <Link 
                 to="/contracts"
                 className={cn(
