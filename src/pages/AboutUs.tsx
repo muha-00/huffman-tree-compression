@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -322,7 +321,7 @@ const AboutUs = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="h-[400px] lg:h-auto rounded-lg overflow-hidden shadow-lg">
-              <MapComponent center={{lat: 43.6532, lng: -79.3832}} zoom={10} />
+              <MapComponent />
             </div>
             
             <div className="flex flex-col justify-center">
