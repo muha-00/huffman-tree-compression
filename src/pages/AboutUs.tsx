@@ -9,11 +9,100 @@ import MapComponent from '@/components/MapComponent';
 const AboutUs = () => {
   return (
     <Layout>
-      {/* Hero section with animated title */}
+      {/* Service Area Map Section - Moved to top to match Contact Us page */}
+      <section className="py-10 bg-white">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4">Our Service Area</h2>
+            <div className="h-1 w-24 bg-[#62BFF0] mx-auto mb-4"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Proudly serving residential and commercial clients throughout the Greater Toronto Area
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <div className="md:col-span-2">
+              <div className="h-[500px] rounded-lg overflow-hidden shadow-lg">
+                <MapComponent />
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 p-8 rounded-lg shadow-sm h-full">
+              <h3 className="text-2xl font-bold mb-6 text-[#62BFF0]">Serving the Greater Toronto Area</h3>
+              <p className="text-lg text-gray-700 mb-6">
+                Our team provides professional cleaning services throughout the GTA, including:
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div>
+                  <ul className="space-y-3">
+                    <li className="flex items-center">
+                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                      <span>Toronto</span>
+                    </li>
+                    <li className="flex items-center">
+                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                      <span>Mississauga</span>
+                    </li>
+                    <li className="flex items-center">
+                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                      <span>Brampton</span>
+                    </li>
+                    <li className="flex items-center">
+                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                      <span>Vaughan</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul className="space-y-3">
+                    <li className="flex items-center">
+                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                      <span>Markham</span>
+                    </li>
+                    <li className="flex items-center">
+                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                      <span>Richmond Hill</span>
+                    </li>
+                    <li className="flex items-center">
+                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                      <span>Oakville</span>
+                    </li>
+                    <li className="flex items-center">
+                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                      <span>Burlington</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <Phone className="h-5 w-5 text-[#62BFF0] mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium">Call for service anywhere in the GTA</p>
+                    <a href="tel:4378585005" className="text-lg text-[#62BFF0] hover:underline">(437) 858-5005</a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <Mail className="h-5 w-5 text-[#62BFF0] mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium">Email us for a free quote</p>
+                    <a href="mailto:highshinecleaning123@gmail.com" className="text-[#62BFF0] hover:underline">highshinecleaning123@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero section with animated title - moved after map */}
       <div className="relative w-full h-[450px]">
         <div className="absolute inset-0 bg-black">
           <img 
-            src="/lovable-uploads/04d6b65c7-ec2b-42e6-95bd-35a36fbd751e.png" 
+            src="/lovable-uploads/4d6b65c7-ec2b-42e6-95bd-35a36fbd751e.png" 
             alt="High Shine Cleaning Team" 
             className="w-full h-full object-cover opacity-70" 
           />
@@ -22,10 +111,10 @@ const AboutUs = () => {
         
         <div className="absolute inset-0 flex flex-col justify-center items-center px-4">
           <div className="max-w-3xl text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white hero-animate" style={{"--delay": "0.1s"} as React.CSSProperties}>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white animate-wipe-in" style={{"--delay": "0.1s"} as React.CSSProperties}>
               About High Shine Cleaning
             </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto hero-animate" style={{"--delay": "0.3s"} as React.CSSProperties}>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto animate-wipe-in" style={{"--delay": "0.3s"} as React.CSSProperties}>
               Quality exterior cleaning services by a dedicated team of professionals
             </p>
           </div>
@@ -104,7 +193,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Residential Services section - Enhanced and more detailed */}
+      {/* Residential Services section */}
       <section className="py-16 bg-white">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
@@ -206,7 +295,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Commercial Services section - Enhanced and more detailed */}
+      {/* Commercial Services section */}
       <section className="py-16 bg-gray-50">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
@@ -302,95 +391,6 @@ const AboutUs = () => {
                 <Link to="/pressure-washing" className="inline-flex items-center justify-center border border-[#62BFF0] text-[#62BFF0] px-6 py-3 rounded-md font-medium hover:bg-[#62BFF0]/10 transition-colors">
                   Explore Commercial Services
                 </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Area Map Section - Similar to Contact Us page */}
-      <section className="py-16 bg-white">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Service Area</h2>
-            <div className="h-1 w-16 bg-[#62BFF0] mx-auto mb-8"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Proudly serving residential and commercial clients throughout the Greater Toronto Area
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="h-[400px] lg:h-auto rounded-lg overflow-hidden shadow-lg">
-              <MapComponent />
-            </div>
-            
-            <div className="flex flex-col justify-center">
-              <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
-                <h3 className="text-2xl font-bold mb-6 text-[#62BFF0]">Serving the Greater Toronto Area</h3>
-                <p className="text-lg text-gray-700 mb-6">
-                  Our team provides professional cleaning services throughout the GTA, including:
-                </p>
-                
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div>
-                    <ul className="space-y-3">
-                      <li className="flex items-center">
-                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                        <span>Toronto</span>
-                      </li>
-                      <li className="flex items-center">
-                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                        <span>Mississauga</span>
-                      </li>
-                      <li className="flex items-center">
-                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                        <span>Brampton</span>
-                      </li>
-                      <li className="flex items-center">
-                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                        <span>Vaughan</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul className="space-y-3">
-                      <li className="flex items-center">
-                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                        <span>Markham</span>
-                      </li>
-                      <li className="flex items-center">
-                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                        <span>Richmond Hill</span>
-                      </li>
-                      <li className="flex items-center">
-                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                        <span>Oakville</span>
-                      </li>
-                      <li className="flex items-center">
-                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                        <span>Burlington</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <Phone className="h-5 w-5 text-[#62BFF0] mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">Call for service anywhere in the GTA</p>
-                      <a href="tel:4378585005" className="text-lg text-[#62BFF0] hover:underline">(437) 858-5005</a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <Mail className="h-5 w-5 text-[#62BFF0] mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">Email us for a free quote</p>
-                      <a href="mailto:highshinecleaning123@gmail.com" className="text-[#62BFF0] hover:underline">highshinecleaning123@gmail.com</a>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

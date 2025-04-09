@@ -80,11 +80,11 @@ const Contracts = () => {
       <div className="px-0 py-0 w-full">
         {/* Hero section with updated background image */}
         <div className="relative w-full h-[600px] mb-0">
-          {/* Background image - Using the requested investment growth image */}
+          {/* Updated background image - Using the provided savings image */}
           <div className="absolute inset-0 bg-black">
             <img 
-              src="/lovable-uploads/c0ef6419-2ca9-4782-966a-25395bbc3578.png" 
-              alt="Investment Growth Concept" 
+              src="/lovable-uploads/53c34c8e-63cb-410c-ac7d-a772716a6cd7.png" 
+              alt="Savings Growth Concept" 
               className="w-full h-full object-cover" 
             />
             <div className="absolute inset-0 bg-black/30"></div>
@@ -98,7 +98,7 @@ const Contracts = () => {
               </p>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                 <p className="text-white text-lg mb-8 animate-wipe-in max-w-xl opacity-90" style={{"--delay": "0.3s"} as React.CSSProperties}>
-                  At High Shine Cleaning, we recognize the importance of consistent property maintenance and the value of cost-effective solutions. Our service contracts are designed to provide both quality care and significant savings through our scheduled maintenance plans.
+                  At High Shine Cleaning, we recognize the importance of consistent property maintenance but also understand that every bit of savings goes a long way. Our service contracts are designed to provide both quality care and significant savings through our scheduled maintenance plans.
                 </p>
                 <Link to="/booking?quote=true&contract=true" className="inline-block bg-white text-[#62BFF0] hover:bg-white/90 px-8 py-3 rounded-md font-medium animate-wipe-in" style={{"--delay": "0.5s"} as React.CSSProperties}>
                   Request Contract Quote

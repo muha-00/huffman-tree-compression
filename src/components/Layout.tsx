@@ -72,10 +72,11 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         </div>
       </div>
       
-      {/* Header with navigation - Updated with logo position moved further left */}
+      {/* Header with navigation - Updated layout with improved spacing */}
       <header className="py-4 border-b bg-white md:bg-background/80 md:backdrop-blur-sm sticky top-0 z-30">
         <div className="container flex justify-between items-center">
-          <div className="flex items-center space-x-4 px-0">
+          {/* Logo area - Moved further left with consistent horizontal layout */}
+          <div className="flex items-center space-x-3 pl-0 md:pl-0">
             <Link to="/" className="flex items-center" onClick={handleLinkClick}>
               <img 
                 src="/lovable-uploads/7f0d75a7-fa68-4a92-951b-d21e7dff95ff.png" 
@@ -85,14 +86,14 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
               <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block whitespace-nowrap">High Shine Cleaning</span>
             </Link>
             
-            {/* Social Icons next to logo - Moved further left */}
-            <div className="flex items-center">
+            {/* Social Icons next to logo - All in a horizontal layout */}
+            <div className="flex items-center ml-3">
               <div className="flex space-x-2">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61560420295116" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-8 sm:h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                  className="bg-[#62BFF0] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
                 >
                   <Facebook className="w-4 h-4" />
                 </a>
@@ -100,7 +101,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   href="https://www.instagram.com/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-8 sm:h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                  className="bg-[#62BFF0] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
                 >
                   <Instagram className="w-4 h-4" />
                 </a>
@@ -108,7 +109,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-8 sm:h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                  className="bg-[#62BFF0] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
                 >
                   <MapPin className="w-4 h-4" />
                 </a>
@@ -116,11 +117,11 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             </div>
           </div>
           
-          {/* Desktop Navigation - Fixed alignment issues */}
-          <div className="hidden md:flex items-center">
+          {/* Desktop Navigation - Moved further right with clear spacing */}
+          <div className="hidden md:flex items-center ml-auto">
             <nav className="mr-4">
               <ul className="flex items-center space-x-1">
-                {/* Home link */}
+                {/* Navigation links - All in one straight line */}
                 <li>
                   <Link 
                     to="/"
