@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -81,12 +80,12 @@ const Contracts = () => {
       <div className="px-0 py-0 w-full">
         {/* Hero section with updated background image */}
         <div className="relative w-full h-[600px] mb-0">
-          {/* Background image */}
+          {/* Background image - Using the requested investment growth image */}
           <div className="absolute inset-0 bg-black">
             <img 
-              src="/lovable-uploads/75c1d2ff-1e68-49eb-8387-5ba3eb53dee2.png" 
-              alt="Savings Concept" 
-              className="w-full h-full object-cover opacity-80" 
+              src="/lovable-uploads/c0ef6419-2ca9-4782-966a-25395bbc3578.png" 
+              alt="Investment Growth Concept" 
+              className="w-full h-full object-cover" 
             />
             <div className="absolute inset-0 bg-black/30"></div>
           </div>

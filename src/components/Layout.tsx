@@ -72,51 +72,51 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         </div>
       </div>
       
-      {/* Header with navigation - Updated with logo position */}
+      {/* Header with navigation - Updated with logo position moved further left */}
       <header className="py-4 border-b bg-white md:bg-background/80 md:backdrop-blur-sm sticky top-0 z-30">
         <div className="container flex justify-between items-center">
-          <div className="flex items-center pl-0">
+          <div className="flex items-center space-x-4 px-0">
             <Link to="/" className="flex items-center" onClick={handleLinkClick}>
               <img 
                 src="/lovable-uploads/7f0d75a7-fa68-4a92-951b-d21e7dff95ff.png" 
                 alt="High Shine Cleaning" 
-                className="h-16 md:h-20 ml-0"
+                className="h-16 md:h-20"
               />
-              <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block">High Shine Cleaning</span>
+              <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block whitespace-nowrap">High Shine Cleaning</span>
             </Link>
             
             {/* Social Icons next to logo - Moved further left */}
-            <div className="flex items-center ml-4 sm:ml-2">
+            <div className="flex items-center">
               <div className="flex space-x-2">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61560420295116" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-8 sm:h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
                 >
-                  <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Facebook className="w-4 h-4" />
                 </a>
                 <a 
                   href="https://www.instagram.com/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-8 sm:h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
                 >
-                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Instagram className="w-4 h-4" />
                 </a>
                 <a 
                   href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                  className="bg-[#62BFF0] text-white w-8 h-8 sm:w-8 sm:h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
                 >
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <MapPin className="w-4 h-4" />
                 </a>
               </div>
             </div>
           </div>
           
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Fixed alignment issues */}
           <div className="hidden md:flex items-center">
             <nav className="mr-4">
               <ul className="flex items-center space-x-1">
@@ -125,7 +125,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   <Link 
                     to="/"
                     className={cn(
-                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground whitespace-nowrap",
                       isActive('/') && "bg-accent text-accent-foreground"
                     )}
                     onClick={handleLinkClick}
@@ -134,12 +134,12 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   </Link>
                 </li>
                 
-                {/* About Us link - NEW */}
+                {/* About Us link - Fixed layout */}
                 <li>
                   <Link 
                     to="/about-us"
                     className={cn(
-                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground whitespace-nowrap",
                       isActive('/about-us') && "bg-accent text-accent-foreground"
                     )}
                     onClick={handleLinkClick}
@@ -153,7 +153,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <button className={cn(
-                        "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                        "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground whitespace-nowrap",
                         services.some(service => isActive(service.path)) && "bg-accent text-accent-foreground"
                       )}>
                         Services <ChevronDown className="ml-1 h-4 w-4" />
@@ -183,7 +183,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   <Link 
                     to="/reviews"
                     className={cn(
-                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground whitespace-nowrap",
                       isActive('/reviews') && "bg-accent text-accent-foreground"
                     )}
                     onClick={handleLinkClick}
@@ -197,7 +197,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   <Link 
                     to="/contracts"
                     className={cn(
-                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground whitespace-nowrap",
                       isActive('/contracts') && "bg-accent text-accent-foreground"
                     )}
                     onClick={handleLinkClick}
@@ -211,7 +211,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   <Link 
                     to="/booking?quote=true" 
                     className={cn(
-                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground whitespace-nowrap",
                       isActive('/booking') && "bg-accent text-accent-foreground"
                     )}
                     onClick={handleLinkClick}
@@ -223,7 +223,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   <Link 
                     to="/contact-us"
                     className={cn(
-                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                      "flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground whitespace-nowrap",
                       isActive('/contact-us') && "bg-accent text-accent-foreground"
                     )}
                     onClick={handleLinkClick}
@@ -237,7 +237,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             {/* Phone button on right side */}
             <a 
               href="tel:4378585005" 
-              className="flex items-center bg-[#62BFF0] text-white rounded-full px-5 py-3 hover:bg-[#62BFF0]/90 transition-colors"
+              className="flex items-center bg-[#62BFF0] text-white rounded-full px-5 py-3 hover:bg-[#62BFF0]/90 transition-colors whitespace-nowrap"
             >
               <Phone className="w-5 h-5 mr-2" />
               <span className="font-medium">(437) 858-5005</span>
@@ -255,7 +255,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </Button>
         </div>
         
-        {/* Mobile Navigation - Updated to include About Us */}
+        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden fixed inset-0 top-[77px] bg-white z-20">
             <nav className="container py-4 flex flex-col space-y-3">
@@ -271,7 +271,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 Home
               </Link>
               
-              {/* About Us link - NEW */}
+              {/* About Us link */}
               <Link 
                 to="/about-us"
                 className={cn(
@@ -283,7 +283,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                 About Us
               </Link>
               
-              {/* Social Icons for Mobile - moved near the top */}
+              {/* Social Icons for Mobile */}
               <div className="flex items-center space-x-4 py-2 px-4">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61560420295116" 

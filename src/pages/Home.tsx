@@ -48,7 +48,7 @@ const Home = () => {
     <Layout>
       {showPromo && <PromoPopup onClose={() => setShowPromo(false)} />}
       
-      {/* Hero Section with blue background */}
+      {/* Hero Section with blue background - updated as requested */}
       <section className="relative py-20 md:py-28 bg-[#62BFF0]">
         <div className="container relative z-10">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
@@ -67,7 +67,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section - Changed from About Us */}
+      {/* Why Choose Us Section - title changed from About Us */}
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">

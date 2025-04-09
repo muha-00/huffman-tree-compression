@@ -4,13 +4,14 @@ import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
-import { Check, Building, Home, Users, Award } from 'lucide-react';
+import { Check, Building, Home, Users, Award, Star, ChevronRight, MapPin, Phone, Mail } from 'lucide-react';
+import MapComponent from '@/components/MapComponent';
 
 const AboutUs = () => {
   return (
     <Layout>
-      {/* Hero section */}
-      <div className="relative w-full h-[400px]">
+      {/* Hero section with animated title */}
+      <div className="relative w-full h-[450px]">
         <div className="absolute inset-0 bg-black">
           <img 
             src="/lovable-uploads/04d6b65c7-ec2b-42e6-95bd-35a36fbd751e.png" 
@@ -22,8 +23,10 @@ const AboutUs = () => {
         
         <div className="absolute inset-0 flex flex-col justify-center items-center px-4">
           <div className="max-w-3xl text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">About High Shine Cleaning</h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white hero-animate" style={{"--delay": "0.1s"} as React.CSSProperties}>
+              About High Shine Cleaning
+            </h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto hero-animate" style={{"--delay": "0.3s"} as React.CSSProperties}>
               Quality exterior cleaning services by a dedicated team of professionals
             </p>
           </div>
@@ -102,175 +105,294 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Residential Services section */}
+      {/* Residential Services section - Enhanced and more detailed */}
       <section className="py-16 bg-white">
-        <div className="container max-w-4xl mx-auto px-4">
+        <div className="container max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Residential Services</h2>
             <div className="h-1 w-16 bg-[#62BFF0] mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Transform your home with our comprehensive exterior cleaning services, designed to enhance your property's beauty and protect your investment.
+            </p>
           </div>
           
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="md:w-1/2">
-              <h3 className="text-2xl font-bold mb-4 text-[#62BFF0]">Why Your Home Needs Professional Cleaning</h3>
-              <ul className="space-y-4 mb-6">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-1" />
-                  <span>
-                    <strong>Preserves Property Value</strong>: Regular exterior cleaning prevents long-term damage and maintains your home's value.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-1" />
-                  <span>
-                    <strong>Enhances Curb Appeal</strong>: Clean windows, siding, and roofs dramatically improve your home's appearance.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-1" />
-                  <span>
-                    <strong>Healthier Living Environment</strong>: Removes mold, mildew, and allergens that can affect indoor air quality.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-1" />
-                  <span>
-                    <strong>Prevents Costly Repairs</strong>: Regular cleaning helps identify and address potential issues before they become serious problems.
-                  </span>
-                </li>
-              </ul>
-              <p className="text-lg text-gray-700 mb-6">
-                Our residential services are tailored to the unique needs of homeowners, with flexible scheduling and comprehensive care for all your exterior cleaning requirements.
-              </p>
-              <Link to="/booking?quote=true" className="inline-block bg-[#62BFF0] text-white px-6 py-3 rounded-md font-medium hover:bg-[#62BFF0]/90 transition-colors">
-                Get a Residential Quote
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-3xl font-bold mb-6 text-[#62BFF0] leading-tight">Why Your Home Needs <br />Professional Cleaning</h3>
+              
+              <div className="space-y-6 mb-8">
+                <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#62BFF0] hover:shadow-md transition-shadow">
+                  <div className="flex items-center mb-2">
+                    <div className="bg-[#62BFF0]/10 rounded-full p-2 mr-3">
+                      <Home className="h-6 w-6 text-[#62BFF0]" />
+                    </div>
+                    <h4 className="text-xl font-bold">Preserves Property Value</h4>
+                  </div>
+                  <p className="text-gray-700">
+                    Regular professional cleaning prevents the buildup of damaging elements like mold, mildew, and algae. This preventative maintenance protects your home's surfaces and structural integrity, ensuring your property maintains its market value over time.
+                  </p>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#62BFF0] hover:shadow-md transition-shadow">
+                  <div className="flex items-center mb-2">
+                    <div className="bg-[#62BFF0]/10 rounded-full p-2 mr-3">
+                      <Star className="h-6 w-6 text-[#62BFF0]" />
+                    </div>
+                    <h4 className="text-xl font-bold">Enhances Curb Appeal</h4>
+                  </div>
+                  <p className="text-gray-700">
+                    First impressions matter. Clean windows, siding, and driveways dramatically improve your home's appearance. Whether you're planning to sell or simply want to be proud of your home, our services create a striking visual difference you'll notice immediately.
+                  </p>
+                </div>
+                
+                <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#62BFF0] hover:shadow-md transition-shadow">
+                  <div className="flex items-center mb-2">
+                    <div className="bg-[#62BFF0]/10 rounded-full p-2 mr-3">
+                      <Check className="h-6 w-6 text-[#62BFF0]" />
+                    </div>
+                    <h4 className="text-xl font-bold">Healthier Living Environment</h4>
+                  </div>
+                  <p className="text-gray-700">
+                    Exterior contaminants don't just affect your home's appearance—they can impact indoor air quality and your family's health. Our thorough cleaning processes remove allergens, pollutants, and irritants that can otherwise make their way inside your home.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                <Link to="/booking?quote=true" className="inline-flex items-center justify-center bg-[#62BFF0] text-white px-6 py-3 rounded-md font-medium hover:bg-[#62BFF0]/90 transition-colors">
+                  Get a Residential Quote
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Link>
+                
+                <Link to="/window-cleaning" className="inline-flex items-center justify-center border border-[#62BFF0] text-[#62BFF0] px-6 py-3 rounded-md font-medium hover:bg-[#62BFF0]/10 transition-colors">
+                  Explore Services
+                </Link>
+              </div>
             </div>
             
-            <div className="md:w-1/2">
-              <div className="bg-gray-100 rounded-lg overflow-hidden h-full">
-                <img 
-                  src="/lovable-uploads/9e89cf68-5550-4bc9-82b8-1795b0402ba6.png" 
-                  alt="Residential Window Cleaning" 
-                  className="w-full h-64 object-cover" 
-                />
-                <div className="p-6">
-                  <h4 className="text-xl font-bold mb-4">Our Residential Services Include:</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Window cleaning (interior and exterior)</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>House washing and siding cleaning</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Roof washing and moss removal</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Gutter cleaning and maintenance</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Deck and patio cleaning</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Concrete and driveway cleaning</span>
-                    </li>
-                  </ul>
-                </div>
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/9e89cf68-5550-4bc9-82b8-1795b0402ba6.png" 
+                alt="Residential Window Cleaning" 
+                className="w-full h-auto rounded-lg shadow-lg object-cover" 
+              />
+              
+              <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-lg shadow-lg max-w-sm">
+                <h4 className="text-xl font-bold mb-4 border-b border-gray-200 pb-2">Our Residential Services</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>Interior & exterior window cleaning</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>House washing and siding cleaning</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>Roof washing and moss removal</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>Gutter cleaning and maintenance</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>Deck, patio & concrete cleaning</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Commercial Services section */}
+      {/* Commercial Services section - Enhanced and more detailed */}
       <section className="py-16 bg-gray-50">
-        <div className="container max-w-4xl mx-auto px-4">
+        <div className="container max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Commercial Services</h2>
             <div className="h-1 w-16 bg-[#62BFF0] mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Make your business shine with our specialized commercial cleaning services, designed to maintain your professional image and protect your commercial property.
+            </p>
           </div>
           
-          <div className="flex flex-col-reverse md:flex-row gap-8">
-            <div className="md:w-1/2">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md h-full">
-                <img 
-                  src="/lovable-uploads/e6e02d29-51c3-4b83-bee4-9139cc64faf4.png" 
-                  alt="Commercial Building Cleaning" 
-                  className="w-full h-64 object-cover" 
-                />
-                <div className="p-6">
-                  <h4 className="text-xl font-bold mb-4">Our Commercial Services Include:</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Multi-story window cleaning</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Building exterior washing</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Awning and signage cleaning</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Parking lot and garage cleaning</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>Scheduled maintenance programs</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[#62BFF0] mr-2" />
-                      <span>After-hours service availability</span>
-                    </li>
-                  </ul>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 relative">
+              <img 
+                src="/lovable-uploads/e6e02d29-51c3-4b83-bee4-9139cc64faf4.png" 
+                alt="Commercial Building Cleaning" 
+                className="w-full h-auto rounded-lg shadow-lg object-cover" 
+              />
+              
+              <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-lg shadow-lg max-w-sm">
+                <h4 className="text-xl font-bold mb-4 border-b border-gray-200 pb-2">Our Commercial Services</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>Multi-story window cleaning</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>Building exterior washing</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>Awning and signage cleaning</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>Parking lot and garage cleaning</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-5 w-5 text-[#62BFF0] mr-3 flex-shrink-0" />
+                    <span>Scheduled maintenance programs</span>
+                  </li>
+                </ul>
               </div>
             </div>
             
-            <div className="md:w-1/2">
-              <h3 className="text-2xl font-bold mb-4 text-[#62BFF0]">Why Your Business Needs Professional Cleaning</h3>
-              <ul className="space-y-4 mb-6">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-1" />
-                  <span>
-                    <strong>Professional Appearance</strong>: First impressions matter. Clean exteriors convey professionalism and attention to detail.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-1" />
-                  <span>
-                    <strong>Property Maintenance</strong>: Regular cleaning protects your investment and reduces long-term maintenance costs.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-1" />
-                  <span>
-                    <strong>Safety Compliance</strong>: We adhere to all safety regulations and insurance requirements for commercial properties.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-[#62BFF0] mr-3 mt-1" />
-                  <span>
-                    <strong>Minimal Business Disruption</strong>: Our team works efficiently with scheduling options that don't interfere with your business operations.
-                  </span>
-                </li>
-              </ul>
-              <p className="text-lg text-gray-700 mb-6">
-                Our commercial cleaning services are designed to meet the unique needs of businesses, property managers, and commercial building owners. We offer customized maintenance plans to keep your property looking its best year-round.
-              </p>
-              <Link to="/booking?quote=true&commercial=true" className="inline-block bg-[#62BFF0] text-white px-6 py-3 rounded-md font-medium hover:bg-[#62BFF0]/90 transition-colors">
-                Get a Commercial Quote
-              </Link>
+            <div className="order-1 lg:order-2">
+              <h3 className="text-3xl font-bold mb-6 text-[#62BFF0] leading-tight">Why Your Business Needs <br />Professional Cleaning</h3>
+              
+              <div className="space-y-6 mb-8">
+                <div className="bg-white p-6 rounded-lg border-l-4 border-[#62BFF0] hover:shadow-md transition-shadow">
+                  <div className="flex items-center mb-2">
+                    <div className="bg-[#62BFF0]/10 rounded-full p-2 mr-3">
+                      <Building className="h-6 w-6 text-[#62BFF0]" />
+                    </div>
+                    <h4 className="text-xl font-bold">Professional Image</h4>
+                  </div>
+                  <p className="text-gray-700">
+                    Your building's exterior is a reflection of your business. Clean, well-maintained commercial properties communicate professionalism, attention to detail, and success to clients, customers, and partners. Our commercial cleaning services help maintain your company's reputation and credibility.
+                  </p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg border-l-4 border-[#62BFF0] hover:shadow-md transition-shadow">
+                  <div className="flex items-center mb-2">
+                    <div className="bg-[#62BFF0]/10 rounded-full p-2 mr-3">
+                      <Check className="h-6 w-6 text-[#62BFF0]" />
+                    </div>
+                    <h4 className="text-xl font-bold">Property Preservation</h4>
+                  </div>
+                  <p className="text-gray-700">
+                    Commercial properties represent significant investments. Regular professional cleaning prevents deterioration from environmental contaminants, extends the lifespan of building materials, and helps avoid costly repairs and renovations. Our maintenance programs are designed to protect your investment for years to come.
+                  </p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg border-l-4 border-[#62BFF0] hover:shadow-md transition-shadow">
+                  <div className="flex items-center mb-2">
+                    <div className="bg-[#62BFF0]/10 rounded-full p-2 mr-3">
+                      <Users className="h-6 w-6 text-[#62BFF0]" />
+                    </div>
+                    <h4 className="text-xl font-bold">Employee & Customer Comfort</h4>
+                  </div>
+                  <p className="text-gray-700">
+                    Clean exteriors contribute to better indoor environments. By removing contaminants from windows, walls, and entrances, you enhance natural lighting and improve air quality. This creates more pleasant surroundings for employees and customers, potentially increasing productivity and satisfaction.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                <Link to="/booking?quote=true&commercial=true" className="inline-flex items-center justify-center bg-[#62BFF0] text-white px-6 py-3 rounded-md font-medium hover:bg-[#62BFF0]/90 transition-colors">
+                  Get a Commercial Quote
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Link>
+                
+                <Link to="/pressure-washing" className="inline-flex items-center justify-center border border-[#62BFF0] text-[#62BFF0] px-6 py-3 rounded-md font-medium hover:bg-[#62BFF0]/10 transition-colors">
+                  Explore Commercial Services
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Area Map Section - Similar to Contact Us page */}
+      <section className="py-16 bg-white">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Service Area</h2>
+            <div className="h-1 w-16 bg-[#62BFF0] mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Proudly serving residential and commercial clients throughout the Greater Toronto Area
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="h-[400px] lg:h-auto rounded-lg overflow-hidden shadow-lg">
+              <MapComponent center={{lat: 43.6532, lng: -79.3832}} zoom={10} />
+            </div>
+            
+            <div className="flex flex-col justify-center">
+              <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
+                <h3 className="text-2xl font-bold mb-6 text-[#62BFF0]">Serving the Greater Toronto Area</h3>
+                <p className="text-lg text-gray-700 mb-6">
+                  Our team provides professional cleaning services throughout the GTA, including:
+                </p>
+                
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div>
+                    <ul className="space-y-3">
+                      <li className="flex items-center">
+                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                        <span>Toronto</span>
+                      </li>
+                      <li className="flex items-center">
+                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                        <span>Mississauga</span>
+                      </li>
+                      <li className="flex items-center">
+                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                        <span>Brampton</span>
+                      </li>
+                      <li className="flex items-center">
+                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                        <span>Vaughan</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul className="space-y-3">
+                      <li className="flex items-center">
+                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                        <span>Markham</span>
+                      </li>
+                      <li className="flex items-center">
+                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                        <span>Richmond Hill</span>
+                      </li>
+                      <li className="flex items-center">
+                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                        <span>Oakville</span>
+                      </li>
+                      <li className="flex items-center">
+                        <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
+                        <span>Burlington</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <Phone className="h-5 w-5 text-[#62BFF0] mr-3 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">Call for service anywhere in the GTA</p>
+                      <a href="tel:4378585005" className="text-lg text-[#62BFF0] hover:underline">(437) 858-5005</a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <Mail className="h-5 w-5 text-[#62BFF0] mr-3 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">Email us for a free quote</p>
+                      <a href="mailto:highshinecleaning123@gmail.com" className="text-[#62BFF0] hover:underline">highshinecleaning123@gmail.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
