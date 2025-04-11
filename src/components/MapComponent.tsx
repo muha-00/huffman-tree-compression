@@ -19,7 +19,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ className, center, zoom }) 
   };
 
   return (
-    <div className="relative w-full h-[calc(100vh-400px)] min-h-[350px]">
+    <div className="relative w-full h-[500px] min-h-[500px]">
       <iframe 
         src={getMapUrl()} 
         width="100%" 

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -11,7 +12,7 @@ const AboutUs = () => {
     <Layout>
       {/* Service Area Map Section - Moved to top to match Contact Us page */}
       <section className="py-10 bg-white">
-        <div className="container max-w-6xl mx-auto px-4">
+        <div className="container mx-auto px-0 md:px-0">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">Our Service Area</h2>
             <div className="h-1 w-24 bg-[#62BFF0] mx-auto mb-4"></div>
@@ -20,106 +21,11 @@ const AboutUs = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            <div className="md:col-span-2">
-              <div className="h-[500px] rounded-lg overflow-hidden shadow-lg">
-                <MapComponent />
-              </div>
-            </div>
-            
-            <div className="bg-gray-50 p-8 rounded-lg shadow-sm h-full">
-              <h3 className="text-2xl font-bold mb-6 text-[#62BFF0]">Serving the Greater Toronto Area</h3>
-              <p className="text-lg text-gray-700 mb-6">
-                Our team provides professional cleaning services throughout the GTA, including:
-              </p>
-              
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div>
-                  <ul className="space-y-3">
-                    <li className="flex items-center">
-                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                      <span>Toronto</span>
-                    </li>
-                    <li className="flex items-center">
-                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                      <span>Mississauga</span>
-                    </li>
-                    <li className="flex items-center">
-                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                      <span>Brampton</span>
-                    </li>
-                    <li className="flex items-center">
-                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                      <span>Vaughan</span>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <ul className="space-y-3">
-                    <li className="flex items-center">
-                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                      <span>Markham</span>
-                    </li>
-                    <li className="flex items-center">
-                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                      <span>Richmond Hill</span>
-                    </li>
-                    <li className="flex items-center">
-                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                      <span>Oakville</span>
-                    </li>
-                    <li className="flex items-center">
-                      <MapPin className="h-5 w-5 text-[#62BFF0] mr-2 flex-shrink-0" />
-                      <span>Burlington</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <Phone className="h-5 w-5 text-[#62BFF0] mr-3 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Call for service anywhere in the GTA</p>
-                    <a href="tel:4378585005" className="text-lg text-[#62BFF0] hover:underline">(437) 858-5005</a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <Mail className="h-5 w-5 text-[#62BFF0] mr-3 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Email us for a free quote</p>
-                    <a href="mailto:highshinecleaning123@gmail.com" className="text-[#62BFF0] hover:underline">highshinecleaning123@gmail.com</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="w-full">
+            <MapComponent />
           </div>
         </div>
       </section>
-
-      {/* Hero section with animated title - moved after map */}
-      <div className="relative w-full h-[450px]">
-        <div className="absolute inset-0 bg-black">
-          <img 
-            src="/lovable-uploads/4d6b65c7-ec2b-42e6-95bd-35a36fbd751e.png" 
-            alt="High Shine Cleaning Team" 
-            className="w-full h-full object-cover opacity-70" 
-          />
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-        
-        <div className="absolute inset-0 flex flex-col justify-center items-center px-4">
-          <div className="max-w-3xl text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white animate-wipe-in" style={{"--delay": "0.1s"} as React.CSSProperties}>
-              About High Shine Cleaning
-            </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto animate-wipe-in" style={{"--delay": "0.3s"} as React.CSSProperties}>
-              Quality exterior cleaning services by a dedicated team of professionals
-            </p>
-          </div>
-        </div>
-      </div>
 
       {/* Our Story section */}
       <section className="py-16 bg-white">
@@ -258,14 +164,8 @@ const AboutUs = () => {
               </div>
             </div>
             
-            <div className="relative">
-              <img 
-                src="/lovable-uploads/9e89cf68-5550-4bc9-82b8-1795b0402ba6.png" 
-                alt="Residential Window Cleaning" 
-                className="w-full h-auto rounded-lg shadow-lg object-cover" 
-              />
-              
-              <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-lg shadow-lg max-w-sm">
+            <div>
+              <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm ml-auto">
                 <h4 className="text-xl font-bold mb-4 border-b border-gray-200 pb-2">Our Residential Services</h4>
                 <ul className="space-y-3">
                   <li className="flex items-center">
@@ -307,14 +207,8 @@ const AboutUs = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 relative">
-              <img 
-                src="/lovable-uploads/e6e02d29-51c3-4b83-bee4-9139cc64faf4.png" 
-                alt="Commercial Building Cleaning" 
-                className="w-full h-auto rounded-lg shadow-lg object-cover" 
-              />
-              
-              <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-lg shadow-lg max-w-sm">
+            <div className="order-2 lg:order-1">
+              <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm mr-auto">
                 <h4 className="text-xl font-bold mb-4 border-b border-gray-200 pb-2">Our Commercial Services</h4>
                 <ul className="space-y-3">
                   <li className="flex items-center">

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -76,7 +77,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       <header className="py-4 border-b bg-white md:bg-background/80 md:backdrop-blur-sm sticky top-0 z-30">
         <div className="container flex justify-between items-center">
           {/* Logo area - Moved further left with consistent horizontal layout */}
-          <div className="flex items-center space-x-3 pl-0 md:pl-0">
+          <div className="flex items-center space-x-3 pl-0 md:pl-0 pr-8">
             <Link to="/" className="flex items-center" onClick={handleLinkClick}>
               <img 
                 src="/lovable-uploads/7f0d75a7-fa68-4a92-951b-d21e7dff95ff.png" 
@@ -86,8 +87,8 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
               <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block whitespace-nowrap">High Shine Cleaning</span>
             </Link>
             
-            {/* Social Icons next to logo - All in a horizontal layout */}
-            <div className="flex items-center ml-3">
+            {/* Social Icons next to logo with more space */}
+            <div className="flex items-center ml-5">
               <div className="flex space-x-2">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61560420295116" 
@@ -117,7 +118,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             </div>
           </div>
           
-          {/* Desktop Navigation - Moved further right with clear spacing */}
+          {/* Desktop Navigation - Adding more space between the logo section and navigation */}
           <div className="hidden md:flex items-center ml-auto">
             <nav className="mr-4">
               <ul className="flex items-center space-x-1">

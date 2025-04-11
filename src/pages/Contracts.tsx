@@ -80,12 +80,12 @@ const Contracts = () => {
       <div className="px-0 py-0 w-full">
         {/* Hero section with updated background image */}
         <div className="relative w-full h-[600px] mb-0">
-          {/* Updated background image - Using the provided savings image */}
+          {/* Updated background image with better scaling/visibility */}
           <div className="absolute inset-0 bg-black">
             <img 
               src="/lovable-uploads/53c34c8e-63cb-410c-ac7d-a772716a6cd7.png" 
               alt="Savings Growth Concept" 
-              className="w-full h-full object-cover" 
+              className="w-full h-full object-contain bg-black" 
             />
             <div className="absolute inset-0 bg-black/30"></div>
           </div>
