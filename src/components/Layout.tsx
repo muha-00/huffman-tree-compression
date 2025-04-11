@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -76,46 +75,44 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       {/* Header with navigation - Updated layout with improved spacing */}
       <header className="py-4 border-b bg-white md:bg-background/80 md:backdrop-blur-sm sticky top-0 z-30">
         <div className="container flex justify-between items-center">
-          {/* Logo area - Moved further left with clear spacing */}
-          <div className="flex items-center space-x-3 pl-0">
-            <div className="flex items-center mr-16">
-              <Link to="/" className="flex items-center" onClick={handleLinkClick}>
-                <img 
-                  src="/lovable-uploads/7f0d75a7-fa68-4a92-951b-d21e7dff95ff.png" 
-                  alt="High Shine Cleaning" 
-                  className="h-16 md:h-20"
-                />
-                <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block whitespace-nowrap">High Shine Cleaning</span>
-              </Link>
-              
-              {/* Social Icons next to logo with more spacing */}
-              <div className="flex items-center ml-6">
-                <div className="flex space-x-2">
-                  <a 
-                    href="https://www.facebook.com/profile.php?id=61560420295116" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-[#62BFF0] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
-                  >
-                    <Facebook className="w-4 h-4" />
-                  </a>
-                  <a 
-                    href="https://www.instagram.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-[#62BFF0] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
-                  >
-                    <Instagram className="w-4 h-4" />
-                  </a>
-                  <a 
-                    href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-[#62BFF0] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
-                  >
-                    <MapPin className="w-4 h-4" />
-                  </a>
-                </div>
+          {/* Logo area - Moved further left with consistent horizontal layout */}
+          <div className="flex items-center space-x-3 pl-0 md:pl-0">
+            <Link to="/" className="flex items-center" onClick={handleLinkClick}>
+              <img 
+                src="/lovable-uploads/7f0d75a7-fa68-4a92-951b-d21e7dff95ff.png" 
+                alt="High Shine Cleaning" 
+                className="h-16 md:h-20"
+              />
+              <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block whitespace-nowrap">High Shine Cleaning</span>
+            </Link>
+            
+            {/* Social Icons next to logo - All in a horizontal layout */}
+            <div className="flex items-center ml-3">
+              <div className="flex space-x-2">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61560420295116" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#62BFF0] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                >
+                  <Facebook className="w-4 h-4" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#62BFF0] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a 
+                  href="https://maps.app.goo.gl/KXvLYrL6SQG3uRQb8" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#62BFF0] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#62BFF0]/90 transition-colors"
+                >
+                  <MapPin className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>
@@ -138,7 +135,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
                   </Link>
                 </li>
                 
-                {/* About Us link */}
+                {/* About Us link - Fixed layout */}
                 <li>
                   <Link 
                     to="/about-us"
