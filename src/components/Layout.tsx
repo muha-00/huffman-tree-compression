@@ -82,7 +82,7 @@ const Layout: React.FC<LayoutProps> = ({
           {/* Logo area - Moved further left with consistent horizontal layout */}
           <div className="flex items-center space-x-3 pl-0 md:pl-0 pr-8">
             <Link to="/" className="flex items-center" onClick={handleLinkClick}>
-              <img src="/lovable-uploads/7f0d75a7-fa68-4a92-951b-d21e7dff95ff.png" alt="High Shine Cleaning" className="h-16 md:h-10\n" />
+              <img src="/lovable-uploads/7f0d75a7-fa68-4a92-951b-d21e7dff95ff.png" alt="High Shine Cleaning" className="h-16 md:h-20" />
               <span className="ml-2 text-xl font-bold text-[#62BFF0] hidden sm:inline-block whitespace-nowrap">High Shine Cleaning</span>
             </Link>
             
