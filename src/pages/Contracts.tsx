@@ -78,14 +78,14 @@ const Contracts = () => {
   return (
     <Layout>
       <div className="px-0 py-0 w-full">
-        {/* Hero section with updated background image */}
+        {/* Hero section with updated background image - adjusted for full visibility */}
         <div className="relative w-full h-[600px] mb-0">
-          {/* Updated background image - Using the provided savings image */}
+          {/* Updated to ensure the image is fully visible */}
           <div className="absolute inset-0 bg-black">
             <img 
-              src="/lovable-uploads/53c34c8e-63cb-410c-ac7d-a772716a6cd7.png" 
+              src="/lovable-uploads/12c9e311-0bb3-4985-a4ad-da4470c851fd.png" 
               alt="Savings Growth Concept" 
-              className="w-full h-full object-cover" 
+              className="w-full h-full object-contain" 
             />
             <div className="absolute inset-0 bg-black/30"></div>
           </div>
